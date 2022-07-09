@@ -428,6 +428,8 @@ Then use the correct installation script:
 
 > **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo/wheel` group.
 
+> Note: Please don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).
+
 2. Run the installation script from the `colorful-dotfiles` directory:
 
 ```bash
@@ -476,6 +478,23 @@ That's it, now hit two (2) times the following keyboard shorcuts:
 > Note: You may need to hit those keyboard shortcuts multiple times when you first install this configuration.
 
 It is recommended to verify the [Neovim](#Neovim) plugins.
+
+# Pywal GNOME
+
+If you installed this configuration with a system that uses GNOME you might have an issue with pywal. It can "fixed" with the following:
+
+```sh
+pywal_get() {
+	wal -i "$1" -q -t; feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
+}
+```
+
+Edit each pywal script on the following path:
+
+```sh
+.config/polybar/theme_name/scripts/pywal.sh
+.config/polybar/colorblocks/scripts/pywal.sh
+```
 
 # Anime Wallpapers
 
