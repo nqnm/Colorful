@@ -1,0 +1,101 @@
+#!/usr/bin/bash
+
+POLY="$HOME/.config/polybar/colorblocks/config.ini"
+
+if [[ ! -z $(ps -efww | grep -vE "grep|launch.sh" | grep "colorblocks" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+    :
+else
+    echo "[-] Only polybar the colorblocks theme is supported!"
+    exit
+fi
+
+topon() {
+    if cat $POLY | grep -q -E 'bottom = true'; then
+        sed -i -e "s/bottom = true/bottom = false/g" $POLY
+        bspc config bottom_padding 0
+        echo "[+] Polybar changed to top!"
+    fi
+    # Restart polybar
+    $HOME/.config/polybar/launch.sh --colorblocks
+}
+
+bottom() {
+    if cat $POLY | grep -q -E 'bottom = false'; then
+        sed -i -e "s/bottom = false/bottom = true/g" $POLY
+        bspc config top_padding 0
+        echo "[+] Polybar changed to bottom!"
+    fi
+    # Restart polybar
+    $HOME/.config/polybar/launch.sh --colorblocks
+}
+
+straight() {
+    if cat $POLY | grep -q -E 'sep$'; then
+        sed -i -e "s/modules-center = sep right1 workspaces left1 sep right2 ethernet left2 sep right2 vpn left2 sep right2 target left2 sep right2 nm-launcher left2 sep right2 cpu memory date left2 sep/modules-center = right1 workspaces ethernet vpn target nm-launcher cpu memory date left2 /g" $POLY
+        echo "[+] Polybar changed to straight!"
+    fi
+    # Restart polybar
+    $HOME/.config/polybar/launch.sh --colorblocks
+}
+
+seperated() {
+    filter=$(cat $POLY | grep modules-center | grep -q -E 'sep$')
+    filter=$?
+    if [ $filter -ne 0 ]; then
+        sed -i -e "s/modules-center = right1 workspaces ethernet vpn target nm-launcher cpu memory date left2 /modules-center = sep right1 workspaces left1 sep right2 ethernet left2 sep right2 vpn left2 sep right2 target left2 sep right2 nm-launcher left2 sep right2 cpu memory date left2 sep/g" $POLY
+        echo "[+] Polybar changed to separated!"
+    fi
+    # Restart polybar
+    $HOME/.config/polybar/launch.sh --colorblocks
+}
+
+print_help() {
+    echo "Usage: polybar-changer [--top] [--bottom] [--sep] [--straight]"
+    echo "Polybar changer for the colorblocks theme"
+    echo "Options: Select one at a time"
+    echo "--top: Set the polybar at the top of the screen."
+    echo "--bottom: Set the polybar at the bottom of the screen."
+    echo "--sep: Set the polybar separated."
+    echo "--straight: Set the polybar straight (not seperated)."
+    echo -e "\nExample: polybar-changer --top"
+    echo -e "Example: polybar-changer --bottom\n"
+}
+
+# Parse parameters
+while true
+    do if [ $# -gt 0 ]
+        then case $1 in
+            --top*)
+                topon
+                exit 0
+                ;;
+            --bottom*)
+                bottom
+                exit 0
+            ;;
+            --sep*)
+                seperated
+                exit 0
+            ;;
+            --straight*)
+                straight
+                exit 0
+            ;;
+            --help*)
+                print_help
+                exit 1
+            ;;
+            *)
+                print_help
+                exit 1
+            ;;	
+            esac
+    else
+        print_help
+        echo "[-] Missing a parameter!"
+        exit 2
+    fi
+done
+
+# Kill itself just in case if it hangs
+kill $$ > /dev/null 2>&1

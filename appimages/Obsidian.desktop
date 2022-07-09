@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Obsidian
+Comment=Obsidian
+Icon=/opt/appimages/obsidian.png
+Exec=/opt/appimages/Obsidian-0.14.2.AppImage
+Terminal=false
+Catagories=Notes

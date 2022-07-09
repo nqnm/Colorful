@@ -1,0 +1,64 @@
+#!/bin/sh
+
+/usr/bin/pgrep -x sxhkd > /dev/null || sxhkd &
+# Static Wallpaper
+#cat ~/.fehbak > ~/.fehbg 2>/dev/null
+#~/.fehbg &
+xeventbind resolution ~/.fehbg &
+# Animated Wallpaper
+xeventbind resolution ~/.awall &
+# Launch Polybar
+~/.config/polybar/launch.sh --colorblocks &
+wait $!
+# Needs a polybar running then change the wallpaper
+#~/.pywal &
+/usr/local/bin/changer
+# Load Picom
+picom --config ~/.config/picom/picom.conf &
+# compton --config ~/.config/compton/compton.conf &
+# Vmware Support
+vmware-user  &
+# WM
+wmname LG3D &
+# Fix Cursor
+xsetroot -cursor_name left_ptr &
+
+# Workspaces
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+# Windows Config
+bspc config border_width 0
+bspc config focus_follows_pointer true
+bspc config pointer_modifier mod1
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# Mice bindings
+#   Alt + Left Click to move floating windows
+bspc config pointer_action1 move
+
+#   Alt + Right Click resizes the window by side
+bspc config pointer_action3 resize_side
+
+#   Alt + Right Click button resize by corner
+bspc config pointer_action3 resize_corner
+
+
+# Window Rules
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+# Window State Configs
+bspc rule -a GParted state=floating focus=on
+bspc rule -a Lxappearance state=floating focus=on
+bspc rule -a SimpleScreenRecorder state=floating focus=on
+bspc rule -a Nm-connection-editor state=floating focus=on
+bspc rule -a Alacritty state=tiled focus=on
+bspc rule -a speedcrunch state=floating focus=on
+bspc rule -a Viewnior focus=on state=tiled
+bspc rule -a Emacs state=tiled focus=on
+bspc rule -a Yad state=floating focus=on

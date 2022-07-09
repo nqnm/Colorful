@@ -1,0 +1,11 @@
+/* colors */
+
+* {
+         background:    #aa160d18;
+         background-alt:   #160d18;
+         foreground:   #dcd5e1;
+         primary:   #665C9D;
+         secondary:    #666FD2;
+         alert:   #43B2E6;
+         disabled: #9a959d;
+}

@@ -1,0 +1,113 @@
+
+configuration {
+	font:							"Terminus 9";
+    show-icons:                     true;
+	icon-theme: 					"Papirus";
+    display-drun: 					"";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
+@import "colors.rasi"
+
+window {
+    transparency:                   "real";
+    //background-color:               @background;
+    text-color:                     @foreground;
+	border:							0px;
+	//border-color:					@background-alt;
+    border-radius:                  0px;
+	width:							700px;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+// Where the magnifying glass is located
+prompt {
+    enabled: 						true;
+	padding: 						13px 15px 12px 15px;
+	background-color: 				@primary;
+	text-color: 					@foreground;
+	font:							"Iosevka Nerd Font 8";
+}
+
+// The search bar
+entry {
+    background-color:               @primary;
+    text-color:                     @foreground;
+    placeholder-color:              @secondary;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search...";
+	padding: 						15px 0px 0px 15px;
+    margin:                         0px 250px 0px 0px;
+    border-radius:                  0px 50px 50px 0px;
+    blink:                          true;
+}
+
+// The search bar input
+inputbar {
+	children: 						[ prompt, entry ];
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    expand:                         false;
+	border:							0px;
+    border-radius:                  0px;
+	border-color:					@background-alt;
+    spacing:                        0px;
+}
+
+// The list view (where the elements are located)
+listview {
+    background-color:               @background-alt;
+    padding:                        10px 10px 10px 10px;
+    columns:                        3;
+    lines:                          8;
+    spacing:                        5px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    //background-color:               @background;
+	border:							0px;
+    border-radius:                  0px;
+	border-color:					#AAAAAA;
+    children:                       [ inputbar, listview ];
+    spacing:                       	0px;
+    padding:                        0px;
+}
+
+// Element background
+element {
+    background-color:               @background-alt;
+    text-color:                     @secondary;
+    orientation:                    horizontal;
+    border-radius:                  0px;
+	padding: 						8px;
+}
+
+element-icon {
+    size:                           24px;
+    border:                         0px;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         0px 2.5px 0px 2.5px;
+}
+
+element selected {
+    //background-color:               @alert;
+    text-color:                     @foreground;
+	border:							0px;
+    border-radius:                  0px;
+    border-color:                  	@disabled;
+}

@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+function ctrl_c() {
+    echo -e "\nTrapped CTRL-C\n"
+    exit
+}
+
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+#QTERMINAL="$HOME/.config/qterminal.org/qterminal.ini"
+ALACRITTY="$HOME/.config/alacritty/alacritty.yml"
+KITTY="$HOME/.config/kitty/kitty.conf"
+SIZE=$(yad --scale --value=15 --min-value=5 --max-value=30 --inc-buttons)
+
+if [ -z "$SIZE" ]
+    then
+        echo "The program was canceled and the font size was not changed!"
+    else
+        GRAB_FONT_SIZE=$(cat $ALACRITTY | grep -Eo "size: [0-9]{1,2}" | sort -u && cat $KITTY | grep -Eo "font_size [0-9]{1,2}" | sort -u)
+        PREVIOUS_FONT_SIZE=$(echo $GRAB_FONT_SIZE | grep -Eo "[0-9]{1,2}" | sort -u)
+        echo "The previous font size was: $PREVIOUS_FONT_SIZE"
+        sed -rie "s/size: ([0-9]{1,2})/size: $SIZE/g" $ALACRITTY
+        #sed -rie "s/fontSize=[0-9]{1,2}/fontSize=$SIZE/g" $QTERMINAL
+        sed -rie "s/font_size ([0-9]{1,2})/font_size $SIZE/g" $KITTY
+        echo "The new font size is: $SIZE"
+fi

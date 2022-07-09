@@ -1,0 +1,8 @@
+#!/bin/bash -x
+
+while read file; do
+    fullpath="$(pwd)/$file"
+    case "$1" in
+    "w") bash /usr/local/bin/sxiv_pywal.sh $file ;;
+    esac
+done

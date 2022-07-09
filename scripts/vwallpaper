@@ -1,0 +1,161 @@
+#!/usr/bin/bash
+
+# Execute this script in VMware Full Screen Mode first.
+# Exit this script by using by using the command: `video-wallpaper.sh --stop` OR simply execute the scripts: `changer and wallpaper_selector`
+
+# Wallpaper Path
+WAL="$2"
+
+print_help() {
+    echo "Usage: vwallpaper [--start] [--stop] \"wallpaper_video_path.mp4\""
+    echo "--start: Set the video wallpaper."
+    echo "--stop: Stop the video wallpaper."
+    echo "--help: Print this help menu."
+    echo -e "\nExample: vwallpaper --start ~/Videos/wallpaper-animated/wallpaper_name.mp4"
+    echo -e "Example: vwallpaper --stop\n"
+}
+
+# Kill unnecessary processes
+scripts=`ps -ef | grep -v "grep" | grep ".config/polybar/.*/scripts/.*" | awk -vpid=$$ '$2 != pid { print $2 }'`
+for d in $scripts
+do
+    kill -9 $d
+    wait
+done
+
+colorblocks=`ps -efww | grep -v "grep" | grep "\--colorblocks" | awk -vpid=$$ '$2 != pid { print $2 }'`
+for d in $colorblocks
+do
+    echo "[-] The colorblocks theme $d is still running, killing it"
+    kill -9 $d
+    wait
+done
+docky=`ps -efww | grep -v "grep" | grep "\--docky" | awk -vpid=$$ '$2 != pid { print $2 }'`
+for d in $docky
+do
+    echo "[-] The docky theme $d is still running, killing it"
+    kill -9 $d
+    wait
+done
+grayblocks=`ps -efww | grep -v "grep" | grep "\--grayblocks" | awk -vpid=$$ '$2 != pid { print $2 }'`
+for d in $grayblocks
+do
+    echo "[-] The grayblocks theme $d is still running, killing it"
+    kill -9 $d
+    wait
+done
+hack=`ps -efww | grep -v "grep" | grep "\--hack" | awk -vpid=$$ '$2 != pid { print $2 }'`
+for d in $hack
+do
+    echo "[-] The hack theme $d is still running, killing it"
+    kill -9 $d
+    wait
+done
+material=`ps -efww | grep -v "grep" | grep "\--material" | awk -vpid=$$ '$2 != pid { print $2 }'`
+for d in $material
+do
+    echo "[-] The material theme $d is still running, killing it"
+    kill -9 $d
+    wait
+done
+shapes=`ps -efww | grep -v "grep" | grep "\--shapes" | awk -vpid=$$ '$2 != pid { print $2 }'`
+for d in $shapes
+do
+    echo "[-] The shapes theme $d is still running, killing it"
+    kill -9 $d
+    wait
+done
+trans=`ps -efww | grep -v "grep" | grep "\--trans" | awk -vpid=$$ '$2 != pid { print $2 }'`
+for d in $trans
+do
+    echo "[-] The trans theme $d is still running, killing it"
+    kill -9 $d
+    wait
+done
+
+stop_wallpaper(){
+    killall xwinwrap > /dev/null 2>&1
+    video-wallpaper.sh --stop
+}
+
+start_wallpaper() {
+    video-wallpaper.sh --start $WAL
+    if [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "colorblocks" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+        bash ~/.config/polybar/colorblocks/scripts/pywal.sh $WAL
+        #wait $!
+        #/usr/bin/bash ~/.config/polybar/launch.sh --colorblocks &
+        #wait $!
+    elif [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "docky" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then 
+        bash ~/.config/polybar/docky/scripts/pywal.sh $WAL
+        #wait $!
+        #/usr/bin/bash ~/.config/polybar/launch.sh --docky &
+        #wait $!
+    elif [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "grayblocks" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+        bash ~/.config/polybar/grayblocks/scripts/pywal.sh $WAL
+        #wait $!
+        #/usr/bin/bash ~/.config/polybar/launch.sh --grayblocks &
+        #wait $!
+    elif [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "hack" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+        bash ~/.config/polybar/hack/scripts/pywal.sh $WAL
+        #wait $!
+        #/usr/bin/bash ~/.config/polybar/launch.sh --hack &
+        #wait $!
+    elif [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "material" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+        bash ~/.config/polybar/material/scripts/pywal.sh $WAL
+        #wait $!
+        #/usr/bin/bash ~/.config/polybar/launch.sh --material &
+        #wait $!
+    elif [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "shapes" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+        bash ~/.config/polybar/shapes/scripts/pywal.sh $WAL
+        #wait $!
+        #/usr/bin/bash ~/.config/polybar/launch.sh --shapes & 
+        #wait $!
+    elif [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "trans" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+        bash ~/.config/polybar/trans/scripts/pywal.sh $WAL
+        #wait $!
+        #/usr/bin/bash ~/.config/polybar/launch.sh --trans & 
+        #wait $!
+    else
+        echo "[-] A polybar theme is not running"
+        exit
+    fi
+
+    # Create .awall (animated wallpaper) script for xeventbind
+    rm ~/.awall
+    echo "#!/bin/sh" > ~/.awall
+    # Stop the previous running video
+    echo "video-wallpaper.sh --stop" >> ~/.awall
+    # Write the wallpaper path
+    echo "video-wallpaper.sh --start $1" >> ~/.awall
+    # Add permissions so that the xeventbind process can read and execute
+    chmod 754 ~/.awall
+}
+
+
+# Parse parameters
+while true
+    do if [ $# -gt 0 ]
+        then case $1 in
+        --start*)
+            start_wallpaper
+            exit 0
+            ;;
+	    --stop*)
+            stop_wallpaper
+            exit 0
+            ;;
+        --help*)
+            print_help
+            exit 1
+            ;;
+            *)
+            print_help
+            exit 1
+            ;;	
+        esac
+    else
+        print_help
+        echo "[-] Missing wallpaper path!"
+        exit 2
+    fi
+done

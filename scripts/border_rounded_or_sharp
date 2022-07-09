@@ -1,0 +1,59 @@
+#!/usr/bin/bash
+
+PCOM="$HOME/.config/picom/picom.conf"
+POLY="$HOME/.config/polybar/colorblocks/config.ini"
+
+CON=$(grep 'corner-radius = 15' $PCOM)
+#COFF=$(grep 'corner-radius = 0' $PCOM)
+PON=$(grep -E 'radius-top = 15|radius-bottom = 15' $POLY)
+
+function change_borders(){
+    rounded_straight_borders="modules-center = right1 workspaces ethernet vpn target nm-launcher cpu memory date left2"
+    sharp_straight_borders="modules-center = workspaces ethernet vpn target nm-launcher cpu memory date"
+    rounded_sep_borders="modules-center = sep right1 workspaces left1 sep right2 ethernet left2 sep right2 vpn left2 sep right2 target left2 sep right2 nm-launcher left2 sep right2 cpu memory date left2 sep"
+    sharp_sep_borders="modules-center = sep workspaces sep ethernet sep vpn sep target sep nm-launcher sep cpu memory date sep"
+    #"$@"
+    #local status=$?
+    if echo $CON $PON | grep -q -E 'corner-radius = 15|radius-top = 15|radius-bottom = 15'; then
+        echo 'Changing the borders to sharp borders'
+        sed -i -e "s/corner-radius = 15.0/corner-radius = 0.0/g" $PCOM
+        sed -i -e "s/radius-top = 15/radius-top = 0/g" $POLY
+        sed -i -e "s/radius-bottom = 15/radius-bottom = 0/g" $POLY
+        echo "SHARPED"
+        ret1=$(cat $POLY | grep -o "$rounded_straight_borders")
+        ret1=$?
+        if [ $ret1 -ne 0 ]; then
+            sed -i -e "s/$rounded_sep_borders/$sharp_sep_borders/g" $POLY
+        else
+            sed -i -e "s/$rounded_straight_borders/$sharp_straight_borders/g" $POLY
+        fi
+    else
+        echo 'Changing the borders to rounded borders'
+        sed -i -e "s/corner-radius = 0.0/corner-radius = 15.0/g" $PCOM
+        sed -i -e "s/radius-top = 0/radius-top = 15/g" $POLY
+        sed -i -e "s/radius-bottom = 0/radius-bottom = 15/g" $POLY
+        ret2=$(cat $POLY | grep -o "$sharp_straight_borders")
+        ret2=$?
+        if [ $ret2 -ne 0 ]; then
+            sed -i -e "s/$sharp_sep_borders/$rounded_sep_borders/g" $POLY
+        else
+            sed -i -e "s/$sharp_straight_borders/$rounded_straight_borders/g" $POLY
+        fi
+    fi
+
+    # Restart polybar (avoids issues)
+    /usr/bin/bash ~/.config/polybar/launch.sh
+    #return $status
+}
+
+# Picom Configuration and Reload polybar
+if ! pgrep -x "picom" > /dev/null
+then
+    picom --config ~/.config/picom/picom.conf &
+fi
+
+WALL=$(tail -n 1 ~/.fehbg | cut -d ' ' -f 4 | sed -e "s/^'//" -e "s/'$//")
+bash ~/.config/polybar/colorblocks/scripts/pywal.sh $WALL &
+wait $!
+
+change_borders

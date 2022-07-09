@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+function ctrl_c() {
+    echo -e "\nTrapped CTRL-C\n"
+    exit
+}
+
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+KITTY="$HOME/.config/kitty/kitty.conf"
+FONT_SIZE=$(yad --scale --value=15 --min-value=5 --max-value=30 --inc-buttons)
+
+if [ -z "$FONT_SIZE" ]
+    then
+        echo "The program was canceled and the font size was not changed!"
+    else
+        PREVIOUS_FONT_SIZE=$(cat $KITTY | grep -Eo "font_size [0-9]{1,2}" | sort -u)
+        echo "The previous font $PREVIOUS_FONT_SIZE"
+        sed -rie "s/font_size ([0-9]{1,2})/font_size $FONT_SIZE/g" $KITTY
+        echo "The new font size of alacritty is: $FONT_SIZE"
+fi
