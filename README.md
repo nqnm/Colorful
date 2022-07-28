@@ -19,13 +19,18 @@ This is my personal collection of configuration files, feel free to use it.
 
 These are the Linux distributions which have an automated installation:
 
+<center>
+
 | Operating System | Installation Script |
 |------------------|---------------------|
 | Kali Linux       | install.sh          |
 | ParrotOS         | install.sh          |
 | Ubuntu           | install.sh          |
+| Pop!_OS          | install.sh          |
 | Debian           | install.sh          |
 | Arch Linux       | arch_install.sh     |
+
+</center>
 
 **Don't forget to give me a ⭐ to motivate me to continue adding cool features to this configuration**.
 
@@ -418,13 +423,18 @@ git clone https://github.com/nozerobit/colorful-dotfiles.git && cd colorful-dotf
 
 Then use the correct installation script:
 
+<center>
+
 | Operating System | Installation Script |
 |------------------|---------------------|
 | Kali Linux       | install.sh          |
 | ParrotOS         | install.sh          |
 | Ubuntu           | install.sh          |
+| Pop!_OS          | install.sh          |
 | Debian           | install.sh          |
 | Arch Linux       | arch_install.sh     |
+
+</center>
 
 > **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo/wheel` group.
 
@@ -678,6 +688,7 @@ If you would like to change some settings, here are the locations of the configu
 ```shell
 ~/.zshrc
 ```
+
 ## BSPWM Mouse
 
 `Alt + Left Click` : Move a floating window or swap a tiled window.
@@ -777,6 +788,22 @@ These are the most important keyboard shortcuts:
 `Alt + Shift + X`: Execute lockscreen, type the current user session password to login.
 
 `Print Screen` : Take a screenshot with `flameshot`.
+
+# Compositor Blur
+
+If you want to enable blur on the picom compositor, you can use this settings:
+
+```sh
+blur-method = "box";
+blur-strength = 5;
+blur-background = true;
+```
+
+Then run picom with `experimental-backends`:
+
+```sh
+picom --experimental-backends
+```
 
 # Neovim
 
