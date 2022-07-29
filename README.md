@@ -691,91 +691,91 @@ If you would like to change some settings, here are the locations of the configu
 
 ## BSPWM Mouse
 
-`Alt + Left Click` : Move a floating window or swap a tiled window.
+`Alt + Left Click`: Move a floating window or swap a tiled window.
 
-`Alt + Right Click` : Resize any tiling or floating window.
+`Alt + Right Click`: Resize any tiling or floating window.
 
 ## Important Keyboard Shortcuts
 
 These are the most important keyboard shortcuts:
 
-- `Windows + D` : Open Rofi and Esc to exit.
+- `Windows + D`: Open Rofi and Esc to exit.
 
-- `Windows + Enter` : Open the terminal-emulator (alacritty).
+- `Windows + Enter`: Open the terminal-emulator (alacritty).
 
 - `Windows + Ctrl + Enter`: Open the terminal-emulator (qterminal), doesn't apply the pywal color **(used for tools that have colored outputs)**
 
-- `Windows + W` : Close the current window.
+- `Windows + W`: Close the current window.
 
-- `Windows + Alt + R` : Restart the bspwm configuration.
+- `Windows + Alt + R`: Restart the bspwm configuration.
 
-- `Windows + Alt + Q` : Logout.
+- `Windows + Alt + Q`: Logout.
 
 ## Keyboard Shortcuts
 
-`Windows + Enter` : Open the terminal-emulator (alacritty).
+`Windows + Enter`: Open the terminal-emulator (alacritty).
 
 `Windows + Ctrl + Enter`: Open the terminal-emulator (qterminal), doesn't apply the pywal color **(used for tools that have colored outputs)**
 
 `Windows + Q`: Launch the power menu.
 
-`Windows + W` : Close the current window.
+`Windows + W`: Close the current window.
 
-`Windows + Alt + R` : Restart the bspwm configuration.
+`Windows + Alt + R`: Restart the bspwm configuration.
 
-`Windows + Alt + Q` : Logout.
+`Windows + Alt + Q`: Logout.
 
-`Windows + (⬆⬅⬇➡)` : Move through the windows in the current workspace.
+`Windows + (⬆⬅⬇➡)` or `Windows + h,j,k,l`: Move through the windows in the current workspace.
 
-`Windows + D` : Open Rofi and Esc to exit.
+`Windows + D`: Open Rofi and Esc to exit.
 
 `Windows + Ctrl + D`: Open Rofi and run commands as sudo, useful for tools such as wireshark.
 
-`Windows + (1,2,3,4,5,6,7,8,9)` : Change the workspace.
+`Windows + (1,2,3,4,5,6,7,8,9)`: Change the workspace.
 
-`Windows + T` : Change current window to "terminal" (normal) mode. It helps us when the window is in full or floating screen mode.
+`Windows + T`: Change current window to "terminal" (normal) mode. It helps us when the window is in full or floating screen mode.
 
-`Windows + M` : Change the current window to "full" mode. Press the same keys to return to "terminal" (normal) mode.
+`Windows + M`: Change the current window to "full" mode. Press the same keys to return to "terminal" (normal) mode.
 
-`Windows + F` : Change the current window to full screen mode (it occupies everything including the polybar).
+`Windows + F`: Change the current window to full screen mode (it occupies everything including the polybar).
 
-`Windows + S` : Change the current window to "floating" mode.
+`Windows + S`: Change the current window to "floating" mode.
 
-`Windows + Shift + (1,2,3,4,5,6,7,8,9)` : Move the current window to another workspace.
+`Windows + Shift + (1,2,3,4,5,6,7,8,9)`: Move the current window to another workspace.
 
-`Windows + Alt + (⬆⬅⬇➡)` : Resize current window (only works if you are in terminal or floating mode).
+`Windows + Alt + (⬆⬅⬇➡)` or `Windows + Alt + h,j,k,l`: Resize current window (only works if you are in terminal or floating mode).
 
-`Windows + Ctrl + (⬆⬅⬇➡)` : Change the position of the current window (only works in floating mode).
+`Windows + Ctrl + (⬆⬅⬇➡)` or `Windows + Ctrl + h,j,k,l`: Change the position of the current window (only works in floating mode).
 
-`Windows + Ctrl + Alt + (⬆⬅⬇➡)` : Show a preselection and then open a window (a terminal, firefox, a file, etc.).
+`Windows + Ctrl + Alt + (⬆⬅⬇➡)` or `Windows + Ctrl + Alt + h,j,k,l`: Show a preselection and then open a window (a terminal, firefox, a file, etc.).
 
 `Windows + Ctrl + Space`: Undo the preselection.
 
-`Windows + Shift + W` : Close and Kill
+`Windows + Shift + W`: Close and Kill
 
-`Windows + M` : Alternate between the tiled and monocle layout
+`Windows + M`: Alternate between the tiled and monocle layout
 
-`Windows + Shift + T,S,F` : Set the window state
+`Windows + Shift + T,S,F`: Set the window state
 
-`Windows + Ctrl + M,X,Y,Z` : Set the node flags
+`Windows + Ctrl + M,X,Y,Z`: Set the node flags
 
-`Windows+ O,I` : Focus on older or newer node in the focus history
+`Windows + O,I`: Focus on older or newer node in the focus history
 
-`Windows + grave,Tab` : Focus the last node/desktop
+`Windows + grave,Tab`: Focus the last node/desktop
 
-`Windows + bracket{left,right}` : Focus the next/previous desktop in the current monitor
+`Windows + bracket{left,right}` or `Windows + bracket{h,j,k,l}`: Focus the next/previous desktop in the current monitor
 
-`Windows + Shift + C` : Focus the next/previous window in the current desktop
+`Windows + Shift + C`: Focus the next/previous window in the current desktop
 
-`Windows+ p,b,comma,period` : Focus the node for the given path jump
+`Windows + p,b,comma,period`: Focus the node for the given path jump
 
-`Windows + Shift + {Left,Down,Up,Right}` : Focus the node in the given direction (swap window)
+`Windows + Shift + {Left,Down,Up,Right}` or `Windows + Shift + h,j,k,l`: Focus the node in the given direction (swap window)
 
 ### Special Shortcuts
 
 `Alt + W`: Activate the bspwm workspace preview then view the workspaces preview with the `Windows` key. Once, you're done, you can close the process with `Alt + D`.
 
-`Windows + Alt + W` : Shuffle through wallpapers with pywal.
+`Windows + Alt + W`: Shuffle through wallpapers with pywal.
 
 `Windows + Alt + E`: Change to a specific wallpaper using the GUI.
 
@@ -787,7 +787,7 @@ These are the most important keyboard shortcuts:
 
 `Alt + Shift + X`: Execute lockscreen, type the current user session password to login.
 
-`Print Screen` : Take a screenshot with `flameshot`.
+`Print Screen`: Take a screenshot with `flameshot`.
 
 # Compositor Blur
 

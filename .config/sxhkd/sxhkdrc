@@ -85,6 +85,9 @@ super + ctrl + {m,x,y,z}
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
 # focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
@@ -96,6 +99,9 @@ super + {_,shift + }c
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
+
+super + bracket{h,l}
+    bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
 super + {grave,Tab}
@@ -121,6 +127,9 @@ super + {_,shift + }{1-9,0}
 # preselect the direction
 super + ctrl + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
+
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
 
 # preselect the ratio
 super + ctrl + {1-9}
@@ -150,9 +159,15 @@ super + ctrl + shift + space
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+super + {h,j,k,l}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
 # Custom move/resize
 super + alt + {Left,Down,Up,Right}
 	~/.config/bspwm/bspwm_resize {west,south,north,east}
+
+super + alt + {h,j,k,l}
+    ~/.config/bspwm/bspwm_resize {west,south,north,east}
 
 # Wallpaper Color Theme (Kill itself in case that's already running)
 super + alt + w
