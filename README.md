@@ -17,7 +17,7 @@ A truly colorful linux configuration.
 
 This is my personal collection of configuration files, feel free to use it.
 
-These are the Linux distributions which have an automated installation:
+These are the Linux distributions that have an automated installation:
 
 <center>
 
@@ -89,7 +89,7 @@ These are the available polybars:
   <img src="media/gifs/polybars.gif" alt="polybars" />
 </p>
 
-> Note: The color of these bars are dynamic and the colors change according to the wallpaper.
+Note: The color of these bars is dynamic and the colors change according to the wallpaper.
 
 **1. colorblocks bar (default)**:
 
@@ -166,7 +166,7 @@ Here is an example:
 change-polybar --hack
 ```
 
-Some polybars are slower to load than others so it is recommended kill the polybar first:
+Some polybars are slower to load than others so it is recommended to kill the polybar first:
 
 ```sh
 killall polybar; change-polybar --material
@@ -327,7 +327,7 @@ You can set a **default wallpaper** that will be used at startup with the follow
 [+] Random wallpapers will be set at startup!
 ```
 
-Some polybars themes are slower to load than others so it is recommended kill the polybar first:
+Some polybars themes are slower to load than others so it is recommended to kill the polybar first:
 
 ```sh
 killall polybar; default-wallpaper --set ~/Pictures/Wallpapers/i-love-8-bit-qhd-1920x1080.jpg
@@ -407,7 +407,7 @@ os 127.0.0.1
 
 # Installation
 
-**Important**: Please install this in a **new virtual machine** and not in a working machine to avoid errors.
+**Important**: Please install this on a **new virtual machine** and not on a working machine to avoid errors.
 
 It is recommended to disable sleep because the script can take a while to finish:
 
@@ -559,7 +559,7 @@ sudo systemctl enable virtualbox-guest-utils.service
 
 ## QEMU Guest Tools
 
-The SPICE agent allows for automatic X session resolution adjustment to the client resolution. The SPICE agent also provides support for copy and paste between the host and guest, and prevents mouse cursor lag.
+The SPICE agent allows for automatic X session resolution adjustment to the client resolution. The SPICE agent also provides support for copy and pasting between the host and guest and prevents mouse cursor lag.
 
 ```sh
 sudo apt install -y spice-vdagent
@@ -701,7 +701,7 @@ These are the most important keyboard shortcuts:
 
 - `Windows + D`: Open Rofi and Esc to exit.
 
-- `Windows + Enter`: Open the terminal-emulator (alacritty).
+- `Windows + Enter`: Open the terminal-emulator (alacritty/kitty).
 
 - `Windows + Ctrl + Enter`: Open the terminal-emulator (qterminal), doesn't apply the pywal color **(used for tools that have colored outputs)**
 
@@ -713,7 +713,7 @@ These are the most important keyboard shortcuts:
 
 ## Keyboard Shortcuts
 
-`Windows + Enter`: Open the terminal-emulator (alacritty).
+`Windows + Enter`: Open the terminal emulator (alacritty/kitty).
 
 `Windows + Ctrl + Enter`: Open the terminal-emulator (qterminal), doesn't apply the pywal color **(used for tools that have colored outputs)**
 
@@ -737,7 +737,7 @@ These are the most important keyboard shortcuts:
 
 `Windows + M`: Change the current window to "full" mode. Press the same keys to return to "terminal" (normal) mode.
 
-`Windows + F`: Change the current window to full screen mode (it occupies everything including the polybar).
+`Windows + F`: Change the current window to full-screen mode (it occupies everything including the polybar).
 
 `Windows + S`: Change the current window to "floating" mode.
 
@@ -763,7 +763,7 @@ These are the most important keyboard shortcuts:
 
 `Windows + grave,Tab`: Focus the last node/desktop
 
-`Windows + bracket{left,right}` or `Windows + bracket{h,j,k,l}`: Focus the next/previous desktop in the current monitor
+`Windows + bracket{left,right}` or `Windows + bracket{h,l}`: Focus the next/previous desktop in the current monitor
 
 `Windows + Shift + C`: Focus the next/previous window in the current desktop
 
@@ -779,13 +779,13 @@ These are the most important keyboard shortcuts:
 
 `Windows + Alt + E`: Change to a specific wallpaper using the GUI.
 
-`Windows + Alt + X`: Select a wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`
+`Windows + Alt + X`: Select wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`
 
 `Windows + Alt + F`: Change the terminal font size.
 
 `Windows + Alt + B`: Change the **corners** of the windows and the polybar to **rounded or sharp** corners.
 
-`Alt + Shift + X`: Execute lockscreen, type the current user session password to login.
+`Alt + Shift + X`: Execute the lock screen and type the current user session password to log in.
 
 `Print Screen`: Take a screenshot with `flameshot`.
 
