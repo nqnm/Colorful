@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="media/logos/colorful-dotfiles.png" alt="colorful-dotfiles.png" />
+</p>
+
 # Table of Contents
 
 * [Introduction](#Introduction)
@@ -17,20 +21,7 @@ A truly colorful linux configuration.
 
 This is my personal collection of configuration files, feel free to use it.
 
-These are the Linux distributions that have an automated installation:
-
-<center>
-
-| Operating System | Installation Script |
-|------------------|---------------------|
-| Kali Linux       | install.sh          |
-| ParrotOS         | install.sh          |
-| Ubuntu           | install.sh          |
-| Pop!_OS          | install.sh          |
-| Debian           | install.sh          |
-| Arch Linux       | arch_install.sh     |
-
-</center>
+Automated installation scripts are also provided for multiple Linux distributions.
 
 **Don't forget to give me a ⭐ to motivate me to continue adding cool features to this configuration**.
 
@@ -405,9 +396,35 @@ Identify the operating system:
 os 127.0.0.1
 ```
 
-# Installation
+You can print the keyboard shortcuts with the script:
 
-**Important**: Please install this on a **new virtual machine** and not on a working machine to avoid errors.
+```sh
+shortcuts
+
+Usage: shortcuts [--sxhkd] [--kitty] [--neovim]
+--sxhkd: Print sxhkd shortcuts.
+--kitty: Print kitty shortcuts.
+--neovim: Print neovim shortcuts.
+--help: Print this help menu.
+
+Info: Arrows = Left,Up,Down,Right keys
+```
+
+# APT Tool
+
+In the case that you're in a "bloated" system, you can use the `apt-uninstaller` tool:
+
+```sh
+❯ apt-uninstaller.sh
+	APT Uninstaller by nozerobit
+
+[i] This script uninstalls APT packages
+[i] You can search and select multiple packages
+[i] Keyboard Shortcut: Use Tab to select multiple packages
+[i] Keyboard Shortcut: Use Ctrl+C to exit
+```
+
+# Installation
 
 It is recommended to disable sleep because the script can take a while to finish:
 
@@ -421,24 +438,69 @@ These are the installation steps:
 git clone https://github.com/nozerobit/colorful-dotfiles.git && cd colorful-dotfiles
 ```
 
-Then use the correct installation script:
+Then use the correct installation script and make sure you use one of the compatible desktop environments when running the installation script:
 
 <center>
-
-| Operating System | Installation Script |
-|------------------|---------------------|
-| Kali Linux       | install.sh          |
-| ParrotOS         | install.sh          |
-| Ubuntu           | install.sh          |
-| Pop!_OS          | install.sh          |
-| Debian           | install.sh          |
-| Arch Linux       | arch_install.sh     |
-
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;margin:0px auto;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-buh4{background-color:#f9f9f9;text-align:left;vertical-align:top}
+.tg .tg-i91a{border-color:inherit;color:#333333;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-i91a">Operating System</th>
+    <th class="tg-i91a">Installation Script</th>
+    <th class="tg-0lax">Compatible Desktop Environments (Important)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-btxf">Kali Linux</td>
+    <td class="tg-btxf">install.sh</td>
+    <td class="tg-buh4">Xfce, Mate</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">ParrotOS</td>
+    <td class="tg-0pky">install.sh</td>
+    <td class="tg-0lax">Xfce, Mate</td>
+  </tr>
+  <tr>
+    <td class="tg-btxf">Ubuntu</td>
+    <td class="tg-btxf">install.sh</td>
+    <td class="tg-buh4">Xfce, Mate</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Pop!_OS</td>
+    <td class="tg-0pky">install.sh</td>
+    <td class="tg-0lax">Xfce, Mate</td>
+  </tr>
+  <tr>
+    <td class="tg-btxf">Debian</td>
+    <td class="tg-btxf">install.sh</td>
+    <td class="tg-buh4">Xfce, Mate</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Arch Linux</td>
+    <td class="tg-0pky">arch_install.sh</td>
+    <td class="tg-0lax">Xfce, Mate</td>
+  </tr>
+</tbody>
+</table>
 </center>
+
+> Note: If the desktop environment is not in the table above then it is recommended to install a compatible desktop environment and log in using that particular desktop environment that you decided to install.
 
 > **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo/wheel` group.
 
-> Note: Please don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).
+> **Please don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).**
 
 2. Run the installation script from the `colorful-dotfiles` directory:
 
@@ -689,105 +751,156 @@ If you would like to change some settings, here are the locations of the configu
 ~/.zshrc
 ```
 
-## BSPWM Mouse
+## BSPWM Mouse Keyboard Shortcuts
 
-`Alt + Left Click`: Move a floating window or swap a tiled window.
-
-`Alt + Right Click`: Resize any tiling or floating window.
-
-## Important Keyboard Shortcuts
-
-These are the most important keyboard shortcuts:
-
-- `Windows + D`: Open Rofi and Esc to exit.
-
-- `Windows + Enter`: Open the terminal-emulator (alacritty/kitty).
-
-- `Windows + Ctrl + Enter`: Open the terminal-emulator (qterminal), doesn't apply the pywal color **(used for tools that have colored outputs)**
-
-- `Windows + W`: Close the current window.
-
-- `Windows + Alt + R`: Restart the bspwm configuration.
-
-- `Windows + Alt + Q`: Logout.
+| Action                                         | Shortcut                |
+|------------------------------------------------|-------------------------|
+| Move a floating window or swap a tiled window. | `alt+left mouse click`  |
+| Resize any tiling or floating window.          | `alt+right mouse click` |
 
 ## Keyboard Shortcuts
 
-`Windows + Enter`: Open the terminal emulator (alacritty/kitty).
+| Action                                                                          | Shortcut                                               |
+|---------------------------------------------------------------------------------|--------------------------------------------------------|
+| Open the terminal emulator (kitty).                                             | `windows+enter`                                        |
+| Open the terminal-emulator (qterminal), doesn't apply the pywal color.          | `alt+right mouse click`                                |
+| Launch the power menu.                                                          | `windows+q`                                            |
+| Close the current window.                                                       | `windows+w`                                            |
+| Restart the bspwm configuration.                                                | `windows+alt+r`                                        |
+| Logout from the system.                                                         | `windows+alt+q`                                        |
+| Move through the windows in the current workspace.                              | `windows+⬆⬅⬇➡` or `windows+h,j,k,l`                  |
+| Open rofi and Esc to exit.                                                      | `windows+d`                                            |
+| Open rofi and run commands as sudo, useful for tools such as wireshark.         | `windows+ctrl+d`                                       |
+| Change the workspace.                                                           | `windows+1,2,3,4,5,6,7,8,9`                            |
+| Change the current window to tiling mode.                                       | `windows+t`                                            |
+| Change the current window to "full" mode.                                       | `windows+m`                                            |
+| Change the current window to full-screen mode                                   | `windows+f`                                            |
+| Change the current window to floating mode.                                     | `windows+s`                                            |
+| Move the current window to another workspace.                                   | `windows+shift+1,2,3,4,5,6,7,8,9`                      |
+| Resize current window (only works if you are in terminal or floating mode).     | `windows+alt+⬆⬅⬇➡` or `windows+alt+h,j,k,l`          |
+| Change the position of the current window (only works in floating mode).        | `windows+ctrl+⬆⬅⬇➡` or `windows+ctrl+h,j,k,l`        |
+| Show a preselection and then open a window.                                     | `windows+ctrl+alt+⬆⬅⬇➡` or `windows+ctrl+alt+h,j,k,l`|
+| Undo the preselection.                                                          | `windows+ctrl+space`                                    |
+| Close and kill.                                                                 | `windows+shift+w`                                       |
+| Alternate between the tiled and monocle layout.                                 | `windows+m`                                             |
+| Set the window state.                                                           | `windows+shift+t,s,f`                                   |
+| Set the node flags.                                                             | `windows+ctrl+m,x,y,z`                                  |
+| Focus on older or newer node in the focus history.                              | `windows+o,i`                                           |
+| Focus the last node/desktop.                                                    | `Windows+grave,Tab`                                     |
+| Focus the next/previous desktop in the current monitor.                         | `windows+bracket{left,right}` or `windows+bracket{h,l}` |
+| Focus the next/previous window in the current desktop.                          | `windows+shift+c`                                       |
+| Focus the node for the given path jump.                                         | `windows+p,b,comma,period`                              |
+| Focus the node in the given direction (swap window).                            | `windows+shift+⬆⬅⬇➡` or `windows+shift+h,j,k,l`       |
 
-`Windows + Ctrl + Enter`: Open the terminal-emulator (qterminal), doesn't apply the pywal color **(used for tools that have colored outputs)**
+### Special Keyboard Shortcuts
 
-`Windows + Q`: Launch the power menu.
+| Action                                         | Shortcut                |
+|------------------------------------------------|-------------------------|
+| Activate the bspwm workspace preview then view the workspaces preview with the `Windows` key. Once, you're done, you can close the process with `Alt + D`.                                              | `alt+w`                 |
+| Shuffle through wallpapers with pywal.         | `windows+alt+w`         |
+| Change to a specific wallpaper using the GUI.  | `windows+alt+e`         |
+| Select wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`.                                              | `windows+alt+x`         |
+| Change the terminal font size.                 | `windows+alt+f`         |
+| Change the **corners** of the windows and the polybar to **rounded or sharp** corners.| `windows+alt+b`         |
+| Execute the lock screen and type the current user session password to log in.| `alt+shift+x`           |
+| Take a screenshot with `flameshot`.            | `print`                 |
 
-`Windows + W`: Close the current window.
+# Kitty Sessions & Shorcuts
 
-`Windows + Alt + R`: Restart the bspwm configuration.
+According to the [kitty documentation](https://sw.kovidgoyal.net/kitty/) we can define windows that can be tiled next to each other in arbitrary arrangements, based on [layouts](https://sw.kovidgoyal.net/kitty/overview/#layouts). Additionally, kitty also has the ability for window management, tabs management, layout management, and sessions. This means that kitty can be used as a replacement for tmux.
 
-`Windows + Alt + Q`: Logout.
+***Why use tmux?***
 
-`Windows + (⬆⬅⬇➡)` or `Windows + h,j,k,l`: Move through the windows in the current workspace.
+Tmux is used for `qterminal` since as of this date it doesn't have these features that `kitty` does have.
 
-`Windows + D`: Open Rofi and Esc to exit.
+Although it could also be used in kitty; it is not recommended as seen [here](https://github.com/kovidgoyal/kitty/issues/391#issuecomment-638320745).
 
-`Windows + Ctrl + D`: Open Rofi and run commands as sudo, useful for tools such as wireshark.
+## Kitty Sessions
 
-`Windows + (1,2,3,4,5,6,7,8,9)`: Change the workspace.
+The [kitty command line interface](https://sw.kovidgoyal.net/kitty/invocation/?highlight=session#the-kitty-command-line-interface) provides an option to create sessions.
 
-`Windows + T`: Change current window to "terminal" (normal) mode. It helps us when the window is in full or floating screen mode.
+A session allows you to create one or more customized tabs on startup.
 
-`Windows + M`: Change the current window to "full" mode. Press the same keys to return to "terminal" (normal) mode.
+We can create a session with the following example:
 
-`Windows + F`: Change the current window to full-screen mode (it occupies everything including the polybar).
+```sh
+kitty --session startup.conf
+```
 
-`Windows + S`: Change the current window to "floating" mode.
+We can find more [information here](https://sw.kovidgoyal.net/kitty/overview/#startup-sessions).
 
-`Windows + Shift + (1,2,3,4,5,6,7,8,9)`: Move the current window to another workspace.
+## Kitty Window Management Shortcuts
 
-`Windows + Alt + (⬆⬅⬇➡)` or `Windows + Alt + h,j,k,l`: Resize current window (only works if you are in terminal or floating mode).
+Default keyboard shortcuts:
 
-`Windows + Ctrl + (⬆⬅⬇➡)` or `Windows + Ctrl + h,j,k,l`: Change the position of the current window (only works in floating mode).
+| Action                	| Shortcut                                                                                               	|
+|-----------------------	|--------------------------------------------------------------------------------------------------------	|
+| New window            	| `ctrl+shift+enter`                                                                   	                  |
+| New OS window         	| `ctrl+shift+n`                                                                       	                  |
+| Close window          	| `ctrl+shift+w`                                                                     	                    |
+| Next window           	| `ctrl+shift+]`                                                                                         	|
+| Previous window       	| `ctrl+shift+[`                                                                                         	|
+| Move window forward   	| `ctrl+shift+f`                                                                                         	|
+| Move window backward  	| `ctrl+shift+b`                                                                                         	|
+| Move window to top    	| `ctrl+shift+`\`                                                                                        	|
+| Visually focus window 	| `ctrl+shift+f7`                                                                                        	|
+| Visually swap window  	| `ctrl+shift+f8`                                                                                        	|
+| Focus specific window 	| `ctrl+shift+1, ctrl+shift+2 … ctrl+shift+0` (clockwise from the top-left)	                              |
 
-`Windows + Ctrl + Alt + (⬆⬅⬇➡)` or `Windows + Ctrl + Alt + h,j,k,l`: Show a preselection and then open a window (a terminal, firefox, a file, etc.).
+## Kitty Tab Management Shortcuts
 
-`Windows + Ctrl + Space`: Undo the preselection.
+Default keyboard shortcuts:
 
-`Windows + Shift + W`: Close and Kill
+| Action            	| Shortcut                                        	|
+|-------------------	|-------------------------------------------------	|
+| New tab           	| `ctrl+shift+t`               	                    |
+| Close tab         	| `ctrl+shift+q`               	                    |
+| Next tab          	| `ctrl+shift+right`	                              |
+| Previous tab      	| `ctrl+shift+left`	                                |
+| Next layout       	| `ctrl+shift+l`                                  	|
+| Move tab forward  	| `ctrl+shift+.`                                  	|
+| Move tab backward 	| `ctrl+shift+,`                                  	|
+| Set tab title     	| `ctrl+shift+alt+t`         	                      |
 
-`Windows + M`: Alternate between the tiled and monocle layout
+## Kitty Layout Management Shortcuts
 
-`Windows + Shift + T,S,F`: Set the window state
+Default keyboard shortcuts:
 
-`Windows + Ctrl + M,X,Y,Z`: Set the node flags
+| Action                                                                                                    	| Shortcut             	|
+|-----------------------------------------------------------------------------------------------------------	|----------------------	|
+| Next layout                                                                                               	| `ctrl+shift+up`      	|
+| Go to layout (tall,stack, etc)                                                                            	| `ctrl+shift+down`    	|
+| Previous layout                                                                                           	| `ctrl+shift+page_up` 	|
+| Toggle layout (switches to the named layout or the previous layout) 	                                      | `ctrl+shift+page_down`|
 
-`Windows + O,I`: Focus on older or newer node in the focus history
+## Kitty Scrolling Shortcuts
 
-`Windows + grave,Tab`: Focus the last node/desktop
+Default keyboard shortcuts:
 
-`Windows + bracket{left,right}` or `Windows + bracket{h,l}`: Focus the next/previous desktop in the current monitor
+| Action                    	| Shortcut             	|
+|---------------------------	|----------------------	|
+| Line up                   	| `ctrl+shift+up`      	|
+| Line down                 	| `ctrl+shift+down`    	|
+| Page up                   	| `ctrl+shift+page_up` 	|
+| Page down                 	| `ctrl+shift+page_down`|
+| Top                       	| `ctrl+shift+home`    	|
+| Bottom                    	| `ctrl+shift+end`     	|
+| Previous shell prompt     	| `ctrl+shift+z`       	|
+| Next shell prompt         	| `ctrl+shift+x`       	|
+| Browse scrollback in less 	| `ctrl+shift+h`       	|
+| Browse last cmd output    	| `ctrl+shift+g`       	|
 
-`Windows + Shift + C`: Focus the next/previous window in the current desktop
+## Kitty Font Size Shortcuts
 
-`Windows + p,b,comma,period`: Focus the node for the given path jump
+The [font size shortcuts](https://sw.kovidgoyal.net/kitty/conf/#font-sizes) are the default as well.
 
-`Windows + Shift + {Left,Down,Up,Right}` or `Windows + Shift + h,j,k,l`: Focus the node in the given direction (swap window)
+## Kitty Other Shortcuts
 
-### Special Shortcuts
+Other shortcuts can be [found here](https://sw.kovidgoyal.net/kitty/overview/?highlight=sessions#other-keyboard-shortcuts).
 
-`Alt + W`: Activate the bspwm workspace preview then view the workspaces preview with the `Windows` key. Once, you're done, you can close the process with `Alt + D`.
+## Upgrade Kitty
 
-`Windows + Alt + W`: Shuffle through wallpapers with pywal.
-
-`Windows + Alt + E`: Change to a specific wallpaper using the GUI.
-
-`Windows + Alt + X`: Select wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`
-
-`Windows + Alt + F`: Change the terminal font size.
-
-`Windows + Alt + B`: Change the **corners** of the windows and the polybar to **rounded or sharp** corners.
-
-`Alt + Shift + X`: Execute the lock screen and type the current user session password to log in.
-
-`Print Screen`: Take a screenshot with `flameshot`.
+You can upgrade kitty by following the [install documentation](https://sw.kovidgoyal.net/kitty/binary/).
 
 # Compositor Blur
 
@@ -804,6 +917,28 @@ Then run picom with `experimental-backends`:
 ```sh
 picom --experimental-backends
 ```
+
+> Note: You will need to edit the scripts and the bspwm configuration file `bspwmrc`.
+
+# Terminal Emulator Performance Test
+
+Install the required package:
+
+```sh
+sudo apt install tree
+```
+
+We can perform a performance test with the following command:
+
+```sh
+time tree /
+```
+
+> Note: I usually run the command above using my zsh configuration because I can see the time in seconds in the terminal prompt.
+
+Then simply compare the results with another terminal emulator such as alacritty or qterminal.
+
+> Note: The less time it takes to finish then the faster it is.
 
 # Neovim
 
@@ -866,60 +1001,29 @@ Check out this repo: https://github.com/rafi/awesome-vim-colorschemes
 
 Check out this wiki: https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
 
+## Upgrade Neovim
+
+If you need to upgrade neovim, you can do it in the [releases page](https://github.com/neovim/neovim/releases/). Alternatively, you could build it from the source but it may not be stable.
+
 ## Neovim Shortcuts
 
 These are the neovim shortcuts:
 
-```vim
-" Navigation
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+| Action            	| Shortcut                                                     	|
+|-------------------	|--------------------------------------------------------------	|
+| Resize windows    	| `alt+h,j,k,l` (Normal Mode)                                   |
+| Escape            	| `jk` or `kj` (from Insert Mode to Normal Mode)               	|
+| Save              	| `ctrl+s` (Normal Mode)                                       	|
+| Quit              	| `ctrl+q` (Normal Mode)                                       	|
+| Another Escape    	| `ctrl+c` (from Insert Mode to Normal Mode)                   	|
+| Tabbing           	| `shift+left` or `shift+right` (Visual Mode) 	                |
+| Tabs              	| `tab` or `shift+tab` (Insert Mode)                           	|
+| Window Navigation 	| `ctrl+h,j,k,l` (Normal Mode)                                	|
+| Text Navigation   	| `h,j,k,l` (Normal Mode)                                      	|
 
-" Use **alt** which is M + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
+# Apps Setup for Debian Based Distros (Optional)
 
-" I hate escape more than anything else, quick and dirty Escape
-inoremap jk <Esc>
-inoremap kj <Esc>
-
-" Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
-
-" TAB in general mode will move to text buffer
-nnoremap <TAB> :bnext<CR>
-" SHIFT-TAB will go back
-nnoremap <S-TAB> :bprevious<CR>
-
-" Alternate way to save
-nnoremap <C-s> :w<CR>
-" Alternate way to quit
-nnoremap <C-Q> :wq!<CR>
-" Use control-c instead of escape
-nnoremap <C-c> <Esc>
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Better tabbing
-vnoremap < <gv
-vnoremap > >gv
-
-" Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-nnoremap <Leader>o o<Esc>^Da
-nnoremap <Leader>O O<Esc>^Da
-```
-
-## Optional (Apps Setup) - Debian Based Distros
-
-If you want to install some apps that I use, run this script:
+If you want to install some apps that I use then run this script:
 
 ```sh
 chmod +x apps.sh && ./apps.sh
@@ -937,6 +1041,8 @@ chmod +x apps.sh && ./apps.sh
 - https://github.com/baskerville/bspwm
 - https://github.com/baskerville/sxhkd
 - https://github.com/jwilm/alacritty 
+- https://github.com/kovidgoyal/kitty
+- https://github.com/polybar/polybar
 - https://github.com/adi1090x/polybar-themes
 - https://github.com/davatorium/rofi
 - https://github.com/ohmyzsh/ohmyzsh

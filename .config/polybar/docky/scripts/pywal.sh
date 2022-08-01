@@ -41,6 +41,12 @@ change_color() {
 	  ac:   ${AC}FF;
 	}
 	EOF
+
+	# kitty
+	sed -i -e "s/active_tab_background   #.*/active_tab_background   $AC/g" $KFILE
+	sed -i -e "s/inactive_tab_background #.*/inactive_tab_background $SC/g" $KFILE
+	sed -i -e "s/tab_bar_background #.*/tab_bar_background $BG/g" $KFILE
+
 }
 
 hex_to_rgb() {

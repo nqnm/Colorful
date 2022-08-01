@@ -35,7 +35,12 @@ change_color() {
 	  fg:    ${FG}FF;
 	}
 	EOF
-	
+
+	# kitty
+	sed -i -e "s/active_tab_background   #.*/active_tab_background   $AC/g" $KFILE
+	sed -i -e "s/inactive_tab_background #.*/inactive_tab_background $FG/g" $KFILE
+	sed -i -e "s/tab_bar_background #.*/tab_bar_background $BG/g" $KFILE
+
 	polybar-msg cmd restart
 }
 

@@ -307,6 +307,10 @@ sudo cp $cwd/scripts/change-polybar /usr/local/bin/change-polybar >> install_log
 sudo chown $USER:$GRP /usr/local/bin/change-polybar >> install_log.txt 2>&1
 sudo chmod +x /usr/local/bin/change-polybar >> install_log.txt 2>&1
 
+sudo cp $cwd/scripts/shortcuts /usr/local/bin/shortcuts >> install_log.txt 2>&1
+sudo chown $USER:$GRP /usr/local/bin/shortcuts >> install_log.txt 2>&1
+sudo chmod +x /usr/local/bin/shortcuts >> install_log.txt 2>&1
+
 echo "[+] ZSH Symbolic link with root!"
 sudo ln -s -f ~/.zshrc /root/.zshrc >> install_log.txt 2>&1
 if [ $? != 0 ]; then

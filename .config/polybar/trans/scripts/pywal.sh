@@ -40,6 +40,11 @@ change_color() {
          disabled: ${SH4};
 	}
 	EOF
+
+	# kitty
+	sed -i -e "s/active_tab_background   #.*/active_tab_background   $SH1/g" $KFILE
+	sed -i -e "s/inactive_tab_background #.*/inactive_tab_background $SH2/g" $KFILE
+	sed -i -e "s/tab_bar_background #.*/tab_bar_background $BGT/g" $KFILE
 	
 	polybar-msg cmd restart
 }

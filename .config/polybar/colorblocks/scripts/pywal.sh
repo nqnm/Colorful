@@ -3,6 +3,7 @@
 # Color files
 PFILE="$HOME/.config/polybar/colorblocks/colors.ini"
 RFILE="$HOME/.config/polybar/colorblocks/scripts/rofi/colors.rasi"
+KFILE="$HOME/.config/kitty/kitty.conf"
 
 # Get colors
 pywal_get() {
@@ -44,7 +45,12 @@ change_color() {
 	  fg:    ${FGA}FF;
 	}
 	EOF
-	
+
+	# kitty
+	sed -i -e "s/active_tab_background   #.*/active_tab_background   $SH1/g" $KFILE
+	sed -i -e "s/inactive_tab_background #.*/inactive_tab_background $SH2/g" $KFILE
+	sed -i -e "s/tab_bar_background #.*/tab_bar_background $BG/g" $KFILE
+
 	polybar-msg cmd restart
 }
 
