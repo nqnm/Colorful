@@ -253,6 +253,10 @@ else
     fi
 fi
 
+# zsh Insecure Shell Fix
+echo "[+] Fixing the zsh insecure shell!"
+sudo chown -R root:root /usr/local/share/zsh/site-functions/_bspc &>/dev/null && sudo chmod -R 755 /usr/local/share/zsh/site-functions/_bspc &>/dev/null
+
 draw_progress_bar 70
 echo "[+] Adding the wallpapers!"
 mkdir -p ~/Pictures/Wallpapers >> install_log.txt 2>&1
