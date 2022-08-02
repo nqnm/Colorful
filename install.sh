@@ -277,10 +277,12 @@ GRP=$(id -gn $USER) >> install_log.txt 2>&1
 chmod +x ~/.config/bspwm/bspwmrc >> install_log.txt 2>&1
 chmod +x ~/.config/bspwm/bspwm_resize >> install_log.txt 2>&1
 chmod +x ~/.config/scripts/*.sh >> install_log.txt 2>&1
+chmod +x ~/.config/sxiv/exec/key-handler >> install_log.txt 2>&1
 chmod -R 755 ~/.config/polybar >> install_log.txt 2>&1
 sudo chmod +x /root/.config/bspwm/bspwmrc >> install_log.txt 2>&1
 sudo chmod +x /root/.config/bspwm/bspwm_resize >> install_log.txt 2>&1
 sudo chmod +x /root/.config/scripts/*.sh >> install_log.txt 2>&1
+sudo chmod +x /root/.config/sxiv/exec/key-handler >> install_log.txt 2>&1
 sudo chmod -R 755 /root/.config/polybar >> install_log.txt 2>&1
 sudo cp $cwd/scripts/changer /usr/local/bin/changer >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/local/bin/changer >> install_log.txt 2>&1
