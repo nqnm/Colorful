@@ -44,6 +44,9 @@ function change_borders(){
         fi
     fi
 
+    killall dunst 2>/dev/null
+    dunst --config ~/.config/dunst/dunstrc > /dev/null 2>&1 &
+
     # Restart polybar (avoids issues)
     /usr/bin/bash ~/.config/polybar/launch.sh
     #return $status

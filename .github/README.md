@@ -51,6 +51,7 @@ Here are some features that I have made by creating scripts because I love autom
 - **Dynamic wallpaper resize**
 - **BSPWM workspace previewer, allows you to see which windows are open in each workspace**
 - **Live wallpapers using my gpu-video-wallpaper fork**
+- **Randomize wallpapers or set a default wallpaper at log in**
 - **Dynamic colors for terminals, rofi, bars, and others**
 - **Automatically change borders from round to sharp and vice versa**
 - **Dynamic ethernet, vpn, target (for pen-testing), network configuration**
@@ -364,7 +365,7 @@ polybar-changer --help
 You can use `Windows + Q` to open the power menu:
 
 <p align="center">
-  <img src="assets/images/power-menu.png" alt="bspwm-workspace-preview" />
+  <img src="assets/images/powermenu.png" alt="powermenu" />
 </p>
 
 You can escape or exit the powermenu with the `Escape/Esc` key in your keyboard.
