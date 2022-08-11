@@ -2,6 +2,7 @@
 
 PCOM="$HOME/.config/picom/picom.conf"
 POLY="$HOME/.config/polybar/colorblocks/config.ini"
+DUN="$HOME/.config/dunst/dunstrc"
 
 CON=$(grep 'corner-radius = 15' $PCOM)
 #COFF=$(grep 'corner-radius = 0' $PCOM)
@@ -16,6 +17,7 @@ function change_borders(){
     #local status=$?
     if echo $CON $PON | grep -q -E 'corner-radius = 15|radius-top = 15|radius-bottom = 15'; then
         echo 'Changing the borders to sharp borders'
+        sed -i -e "s/corner_radius = 15/corner_radius = 0/g" $DUN
         sed -i -e "s/corner-radius = 15.0/corner-radius = 0.0/g" $PCOM
         sed -i -e "s/radius-top = 15/radius-top = 0/g" $POLY
         sed -i -e "s/radius-bottom = 15/radius-bottom = 0/g" $POLY
@@ -29,6 +31,7 @@ function change_borders(){
         fi
     else
         echo 'Changing the borders to rounded borders'
+        sed -i -e "s/corner_radius = 0/corner_radius = 15/g" $DUN
         sed -i -e "s/corner-radius = 0.0/corner-radius = 15.0/g" $PCOM
         sed -i -e "s/radius-top = 0/radius-top = 15/g" $POLY
         sed -i -e "s/radius-bottom = 0/radius-bottom = 15/g" $POLY

@@ -16,6 +16,8 @@ wait $!
 # Load Picom
 picom --config ~/.config/picom/picom.conf &
 # compton --config ~/.config/compton/compton.conf &
+# Dunst Daemon
+dunst --config ~/.config/dunst/dunstrc &
 # Vmware Support
 vmware-user  &
 # WM

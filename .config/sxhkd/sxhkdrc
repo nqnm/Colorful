@@ -18,6 +18,10 @@ super + d
 super + ctrl + d
     SUDO_ASKPASS=/usr/local/bin/sudo-rofi $(cat ~/.sudo-launch) 'sudo -A \{cmd\}'
 
+# mouse right click jgmenu (not using the config because of different systems)
+super + ~@button3
+    jgmenu
+
 # bspwm workspace preview
 alt + w
    del=$(cat ~/.pid_of_bspwm_preview.txt); kill -9 $del 2>/dev/null; python3 /opt/bspwm-workspace-preview/main.py & echo $! > ~/.pid_of_bspwm_preview.txt 

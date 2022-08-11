@@ -11,6 +11,7 @@ BSPWM Mouse Keyboard Shortcuts
 |------------------------------------------------|-------------------------|
 | Move a floating window or swap a tiled window. | alt+left mouse click    |
 | Resize any tiling or floating window.          | alt+right mouse click   |
+| Open jgmenu for context menu.                  | super+right mouse click |
 
 BSPWM Keyboard Shortcuts
 

@@ -1,0 +1,48 @@
+#!/usr/bin/bash
+
+PCOM="$HOME/.config/picom/picom.conf"
+
+
+print_help() {
+    echo "Usage: pshadow [--enable] [--disable]"
+    echo "--enable: Enable picom shadow."
+    echo "--disable: Disable picom shadow."
+    echo "--help: Print this help menu."
+}
+
+# Parse parameters
+while true
+    do if [ $# -gt 0 ]
+        then case $1 in
+        --enable*)
+            echo "Enabling picom shadows"
+            sed -i -e "s/shadow = false/shadow = true/g" $PCOM
+            bspc wm -r
+            exit 0
+            ;;
+	    --disable*)
+            echo "Disabling picom shadows"
+            sed -i -e "s/shadow = true/shadow = false/g" $PCOM
+            bspc wm -r
+            exit 0
+            ;;
+        --help*)
+            print_help
+            exit 1
+            ;;
+            *)
+            print_help
+            exit 1
+            ;;	
+        esac
+    else
+        print_help
+        exit 1
+    fi
+done
+
+# Picom Configuration
+if ! pgrep -x "picom" > /dev/null
+then
+    picom --config ~/.config/picom/picom.conf &
+fi

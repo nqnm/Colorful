@@ -4,6 +4,7 @@
 PFILE="$HOME/.config/polybar/colorblocks/colors.ini"
 RFILE="$HOME/.config/polybar/colorblocks/scripts/rofi/colors.rasi"
 KFILE="$HOME/.config/kitty/kitty.conf"
+DFILE="$HOME/.config/dunst/dunstrc"
 
 # Get colors
 pywal_get() {
@@ -37,12 +38,12 @@ change_color() {
 	/* colors */
 
 	* {
-	  al:    #00000000;
-	  bg:    ${BG}FF;
-	  bg1:   ${SH8}FF;
-	  bg2:   ${SH7}FF;
-	  bg3:   ${SH6}FF;
-	  fg:    ${FGA}FF;
+	 al:    #00000000;
+	 bg:    ${BG}FF;
+	 bg1:   ${SH8}FF;
+	 bg2:   ${SH7}FF;
+	 bg3:   ${SH6}FF;
+	 fg:    ${FGA}FF;
 	}
 	EOF
 
@@ -51,7 +52,15 @@ change_color() {
 	sed -i -e "s/inactive_tab_background #.*/inactive_tab_background $SH2/g" $KFILE
 	sed -i -e "s/tab_bar_background #.*/tab_bar_background $BG/g" $KFILE
 
-	polybar-msg cmd restart
+    # dunst
+    #cat $DFILE | grep "urgency_low" -A 3 | grep "background" | sed -i -e "s/background = \"#.*\"/background= \"$BG\"/g" $DFILE
+    #cat $DFILE | grep "urgency_normal" -A 3 | grep "background" | sed -i -e "s/background = \"#.*\"/background= \"$BG\"/g" $DFILE
+    sed -i -e "s/frame_color = \"#.*\"/frame_color = \"$SH1\"/g" $DFILE
+    killall dunst
+    dunst --config $DFILE > /dev/null 2>&1 &
+	
+    polybar-msg cmd restart
+    
 }
 
 # Main

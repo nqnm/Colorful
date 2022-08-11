@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="media/logos/colorful-dotfiles.png" alt="colorful-dotfiles.png" />
+  <img src="assets/logos/colorful-dotfiles.png" alt="colorful-dotfiles.png" />
 </p>
 
 # Table of Contents
@@ -19,9 +19,11 @@
 
 A truly colorful linux configuration.
 
-This is my personal collection of configuration files, feel free to use it.
+This is my personal collection of configuration files, feel free to use it but don't forget to give me **credits** :). 
 
-Automated installation scripts are also provided for multiple Linux distributions.
+> Note: This configuration was made for pen-testing/hacking purposes at first.
+
+The [installation section](#installation) will guide you through a step by step installation process.
 
 **Don't forget to give me a ⭐ to motivate me to continue adding cool features to this configuration**.
 
@@ -30,17 +32,41 @@ Here are some details about my setup:
 - **WM**: [bspwm](https://github.com/baskerville/bspwm)
 - **Hotkey**: [sxhkd](https://github.com/baskerville/sxhkd)
 - **Locker**: [i3lock-fancy](https://github.com/meskarune/i3lock-fancy)
+- **Menu**: [jgmenu](https://github.com/johanmalm/jgmenu)
+- **Notifications**: [dunst](https://github.com/dunst-project/dunst)
 - **Shell**: [zsh](https://www.zsh.org/)
 - **Editor**: [neovim](https://neovim.io/)
 - **Bars**: [polybar](https://github.com/polybar/polybar)
-- **Compositor**: [picom](https://github.com/yshui/picom)
-- **File Manager**: [Thunar](https://docs.xfce.org/xfce/thunar/start)
-- **Font Terminal**: [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka)
+- **Compositor**: [picom (yshui)](https://github.com/yshui/picom)
+- **File Manager**: [thunar](https://docs.xfce.org/xfce/thunar/start)
+- **Font Terminal**: [iosevka](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka)
 - **Application Launcher**: [rofi](https://github.com/davatorium/rofi)
-- **Browsers**: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-- **Terminals**: [kitty](https://sw.kovidgoyal.net/kitty/) (for aesthetics) and [qterminal](https://github.com/lxqt/qterminal) (for pentesting)
+- **Browsers**: [firefox](https://www.mozilla.org/en-US/firefox/new/)
+- **Terminals**: [kitty](https://sw.kovidgoyal.net/kitty/) (for aesthetics) and [qterminal](https://github.com/lxqt/qterminal) (for pen-testing)
 - **Static Wallpaper**: [feh](https://github.com/derf/feh)
 - **Live Wallpaper**: [gpu-video-wallpaper](https://github.com/nozerobit/gpu-video-wallpaper)
+
+Here are some features that I have made by creating scripts because I love automating things:
+
+- **Dynamic wallpaper resize**
+- **BSPWM workspace previewer, allows you to see which windows are open in each workspace**
+- **Live wallpapers using my gpu-video-wallpaper fork**
+- **Dynamic colors for terminals, rofi, bars, and others**
+- **Automatically change borders from round to sharp and vice versa**
+- **Dynamic ethernet, vpn, target (for pen-testing), network configuration**
+- **Copy ethernet IP, vpn IP, and target IP from bars**
+- **Automatically change polybar themes**
+- **Automatically change fonts sizes**
+- **Automatically change colors**
+- **Automatically enable or disable picom shadows**
+- **Shuffle through wallpapers and change colors dynamically**
+- **Select wallpapers using file managers such as thunar**
+- **Select wallpapers with preview using sxiv**
+- **Identify the target operating based on TTL values, useful for pen-testing**
+- **Extract nmap ports and copy to the ports to the clipboard**
+- **Print shortcuts of sxhkd, kitty, and neovim**
+
+All these features can be seen in the [overview](#overview) section.
 
 ---
 
@@ -59,83 +85,82 @@ Animated wallpapers site:
 There are multiple polybars:
 
 <p align="center">
-  <img src="media/gifs/preview.gif" alt="preview.gif" />
+  <img src="assets/gifs/preview.gif" alt="preview.gif" />
 </p>
 
 Each polybar theme has a custom launcher:
 
 <p align="center">
-  <img src="media/gifs/look.gif" alt="look.gif" />
+  <img src="assets/gifs/look.gif" alt="look.gif" />
 </p>
 
 Normally you would use `Windows + Alt + R` to reload bspwm in order to fix the wallpaper resolution scale and the polybar when changing screen resolution but I have made a ~~script~~ with xeventbind and a polybar configuration so that you don't have to reload bspwm. In other words, it automatically changes the wallpaper and the polybar resolution/size when changing the screen resolution **without** the need to reload bspwm:
 
 <p align="center">
-  <img src="media/gifs/wallpaper-resize.gif" alt="wallpaper-resize.gif" />
+  <img src="assets/gifs/wallpaper-resize.gif" alt="wallpaper-resize.gif" />
 </p>
 
 These are the available polybars:
 
 <p align="center">
-  <img src="media/gifs/polybars.gif" alt="polybars" />
+  <img src="assets/gifs/polybars.gif" alt="polybars" />
 </p>
 
-Note: The color of these bars is dynamic and the colors change according to the wallpaper.
+> Note: The color of these bars is dynamic and the colors change according to the wallpaper.
 
-**1. colorblocks bar (default)**:
+Transparent theme created by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/colorblocks.png" alt="colorblocks" />
+  <img src="assets/images/transparent.png" alt="trans" />
 </p>
 
-**2. forest bar (no pywal)**:
+Colorblocks theme (default), theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/forest.png" alt="forest" />
+  <img src="assets/images/colorblocks.png" alt="colorblocks" />
 </p>
 
-**3. shapes bar**:
+Forest theme (no pywal), theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/shapes.png" alt="shapes" />
+  <img src="assets/images/forest.png" alt="forest" />
 </p>
 
-**4. docky bar**:
+Shapes theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/docky.png" alt="docky" />
+  <img src="assets/images/shapes.png" alt="shapes" />
 </p>
 
-**5. grayblocks bar**:
+Docky theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/grayblocks.png" alt="grayblocks" />
+  <img src="assets/images/docky.png" alt="docky" />
 </p>
 
-**6. material bar**:
+Grayblocks theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/material.png" alt="material" />
+  <img src="assets/images/grayblocks.png" alt="grayblocks" />
 </p>
 
-**7. hack bar (top part)**:
+Material theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/hack-top.png" alt="hack" />
+  <img src="assets/images/material.png" alt="material" />
 </p>
 
-**7. hack bar (bottom part)**:
+Hack top bar theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/hack-bottom.png" alt="hack" />
+  <img src="assets/images/hack_top.png" alt="hack" />
 </p>
 
-**8. trans bar (transparent)**:
+Hack bottom bar theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
-  <img src="media/images/trans.png" alt="trans" />
+  <img src="assets/images/hack_bottom.png" alt="hack" />
 </p>
-
 
 Some polybars themes have audio volume modules. The volume can be adjusted with the mouse wheel.
 
@@ -178,7 +203,7 @@ Replace the following line:
 You can use `Windows + Alt + W` to shuffle wallpapers and change colors on the fly:
 
 <p align="center">
-  <img src="media/gifs/changer.gif" alt="changer.gif" />
+  <img src="assets/gifs/changer.gif" alt="changer.gif" />
 </p>
 
 > Note: In the weird case that the polybar dies, you can use `Windows + Alt + R` to restart BSPWM.
@@ -191,13 +216,13 @@ You can use `Windows + Alt + W` to shuffle wallpapers and change colors on the f
 Alternatively, you could use `Windows + Alt + E` to change to a specific wallpaper using the GUI:
 
 <p align="center">
-  <img src="media/gifs/wallpaper_selector.gif" alt="wallpaper_selector.gif" />
+  <img src="assets/gifs/wallpaper_selector.gif" alt="wallpaper_selector.gif" />
 </p>
 
 Alternatively, you can use `Windows + Alt + X` to select the wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`:
 
 <p align="center">
-  <img src="media/gifs/wallpaper_preview_selector.gif" alt="wallpaper_preview_selector.gif" />
+  <img src="assets/gifs/wallpaper_preview_selector.gif" alt="wallpaper_preview_selector.gif" />
 </p>
 
 We can also use **live wallpaper / animated wallpapers** with `vwallpaper` (demo script):
@@ -207,7 +232,7 @@ vwallpaper --start ~/Videos/wallpapers-animated/Cyberpunk-2077-City-Live-Wallpap
 ```
 
 <p align="center">
-  <img src="media/gifs/animated_wallpaper.gif" alt="animated_wallpaper.gif" />
+  <img src="assets/gifs/animated_wallpaper.gif" alt="animated_wallpaper.gif" />
 </p>
 
 We can stop the **live wallpaper / animated wallpapers** with the following:
@@ -264,7 +289,7 @@ For more information about video output drivers read the mpv repo [vo.rst](https
 The animated wallpapers also support automatic resizing:
 
 <p align="center">
-  <img src="media/gifs/animated_wallpaper_resize.gif" alt="animated_wallpaper_resize.gif" />
+  <img src="assets/gifs/animated_wallpaper_resize.gif" alt="animated_wallpaper_resize.gif" />
 </p>
 
 We can close an animated wallpaper with the following command:
@@ -278,7 +303,7 @@ You could also use `Windows + Alt + W` or `Windows + Alt + E` to change the wall
 The terminal font size can be changed with `Windows + Alt + F`:
 
 <p align="center">
-  <img src="media/gifs/font_changer.gif" alt="font_changer.gif" />
+  <img src="assets/gifs/font_changer.gif" alt="font_changer.gif" />
 </p>
 
 > Note: When using `qterminal` is recommended to use the GUI preferences window instead. Also, you need to open a new terminal to see the changes.
@@ -286,13 +311,13 @@ The terminal font size can be changed with `Windows + Alt + F`:
 You can change the **corners** of the windows and the polybar to **rounded or sharp** corners with the shorcut `Windows + Alt + B`.
 
 <p align="center">
-  <img src="media/gifs/corners.gif" alt="corners.gif" />
+  <img src="assets/gifs/corners.gif" alt="corners.gif" />
 </p>
 
 You can also **copy IPs** to the clipboard with a **left click** on the bar (ethernet, vpn or target):
 
 <p align="center">
-  <img src="media/gifs/copy_ip.gif" alt="copy_ip.gif" />
+  <img src="assets/gifs/copy_ip.gif" alt="copy_ip.gif" />
 </p>
 
 > Note: There's a VPN status bar, it shows your VPN IP when connected and it tells you when you're disconnected from a VPN.
@@ -300,13 +325,13 @@ You can also **copy IPs** to the clipboard with a **left click** on the bar (eth
 There's a network bar where you can configure your network:
 
 <p align="center">
-  <img src="media/gifs/network.gif" alt="network.gif" />
+  <img src="assets/gifs/network.gif" alt="network.gif" />
 </p>
 
 On zsh you can set the target IP with the command `setarget 10.10.10.10`. You can use the command `notarget` to remove the target IP:
 
 <p align="center">
-  <img src="media/gifs/target.gif" alt="target.gif" />
+  <img src="assets/gifs/target.gif" alt="target.gif" />
 </p>
 
 You can set a **default wallpaper** that will be used at startup with the following:
@@ -327,7 +352,7 @@ killall polybar; default-wallpaper --set ~/Pictures/Wallpapers/i-love-8-bit-qhd-
 You can also customize the polybar theme colorblocks:
 
 <p align="center">
-  <img src="media/gifs/polybar-changer.gif" alt="polybar-changer.gif" />
+  <img src="assets/gifs/polybar-changer.gif" alt="polybar-changer.gif" />
 </p>
 
 This is the command for the `polybar-changer` help menu:
@@ -338,7 +363,9 @@ polybar-changer --help
 
 You can use `Windows + Q` to open the power menu:
 
-![lock](https://user-images.githubusercontent.com/83516002/174217518-9a360794-79b1-4df8-8b35-47ea14ec3da6.png)
+<p align="center">
+  <img src="assets/images/power-menu.png" alt="bspwm-workspace-preview" />
+</p>
 
 You can escape or exit the powermenu with the `Escape/Esc` key in your keyboard.
 
@@ -347,7 +374,7 @@ You can escape or exit the powermenu with the `Escape/Esc` key in your keyboard.
 You can also see a preview of each workspace, this is very useful when we want to know which applications or windows are open in each workspace.
 
 <p align="center">
-  <img src="media/images/bspwm-workspace-preview.png" alt="bspwm-workspace-preview" />
+  <img src="assets/images/bspwm-workspace-preview.png" alt="bspwm-workspace-preview" width=90% height=90% />
 </p>
 
 Activate the bspwm workspace preview with the keyboard shortcut `Alt + W`, then view the workspaces preview with the `Windows` key. Once, you're done, you can close the process with `Alt + D`.
@@ -410,6 +437,17 @@ Usage: shortcuts [--sxhkd] [--kitty] [--neovim]
 Info: Arrows = Left,Up,Down,Right keys
 ```
 
+You can enable or disable picom shadows with `pshadow`:
+
+```sh
+pshadow
+
+Usage: pshadow [--enable] [--disable]
+--enable: Enable picom shadow.
+--disable: Disable picom shadow.
+--help: Print this help menu.
+```
+
 # APT Tool
 
 In the case that you're in a "bloated" system, you can use the `apt-uninstaller` tool:
@@ -428,7 +466,7 @@ In the case that you're in a "bloated" system, you can use the `apt-uninstaller`
 
 It is recommended to disable sleep because the script can take a while to finish:
 
-<div style="text-align:center"><img src="media/images/power-manager.png" /></div>
+<div style="text-align:center"><img src="assets/images/power-manager.png" /></div>
 
 These are the installation steps:
 
@@ -444,7 +482,7 @@ Then use the correct installation script and make sure you use one of the compat
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-i91a">Operating System</th>
+    <th class="tg-i91a">Operating Systems Tested</th>
     <th class="tg-i91a">Installation Script</th>
     <th class="tg-0lax">Compatible Desktop Environments (Important)</th>
   </tr>
@@ -453,38 +491,40 @@ Then use the correct installation script and make sure you use one of the compat
   <tr>
     <td class="tg-btxf">Kali Linux</td>
     <td class="tg-btxf">install.sh</td>
-    <td class="tg-buh4">Xfce, Mate</td>
+    <td class="tg-buh4">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-0pky">ParrotOS</td>
     <td class="tg-0pky">install.sh</td>
-    <td class="tg-0lax">Xfce, Mate</td>
+    <td class="tg-0lax">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-btxf">Ubuntu</td>
     <td class="tg-btxf">install.sh</td>
-    <td class="tg-buh4">Xfce, Mate</td>
+    <td class="tg-buh4">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-0pky">Pop!_OS</td>
     <td class="tg-0pky">install.sh</td>
-    <td class="tg-0lax">Xfce, Mate</td>
+    <td class="tg-0lax">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-btxf">Debian</td>
     <td class="tg-btxf">install.sh</td>
-    <td class="tg-buh4">Xfce, Mate</td>
+    <td class="tg-buh4">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-0pky">Arch Linux</td>
     <td class="tg-0pky">arch_install.sh</td>
-    <td class="tg-0lax">Xfce, Mate</td>
+    <td class="tg-0lax">Xfce (recommended), Mate</td>
   </tr>
 </tbody>
 </table>
 </center>
 
-> Note: If the desktop environment is not in the table above then it is recommended to install a compatible desktop environment and log in using that particular desktop environment that you decided to install.
+> **Note**: The installation scripts may work on other Debian-based or Arch-based distributions.
+
+> **Tip**: If the desktop environment is not in the table above then it is recommended to install a compatible desktop environment and log in using that particular desktop environment that you decided to install.
 
 > **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo/wheel` group.
 
@@ -525,7 +565,7 @@ A log is also created for troubleshooting purposes.
 reboot || systemctl reboot
 ```
 
-![bspwm-login](media/images/bspwm-login.png)
+![bspwm-login](assets/images/bspwm-login.png)
 
 Once you have rebooted the machine, select bspwm as the window manager and then log in. 
 
@@ -670,13 +710,13 @@ More information [here](https://access.redhat.com/documentation/en-us/red_hat_en
 Enable `Hyper-V Enhanced Session` in Hyper-V Settings:
 
 <p align="center">
-  <img src="media/images/hyper-v-enchanced.png" alt="hyper-v-enchanced" />
+  <img src="assets/images/hyper-v-enchanced.png" alt="hyper-v-enchanced" />
 </p>
 
 Enable `Guest services` in Hyper-V VM Settings:
 
 <p align="center">
-  <img src="media/images/hyper-v-guest.png" alt="hyper-v-guest" />
+  <img src="assets/images/hyper-v-guest.png" alt="hyper-v-guest" />
 </p>
 
 Lastly, read the official [Kali Linux documentation](https://www.kali.org/docs/virtualization/install-hyper-v-guest-enhanced-session-mode/) and follow the steps.
@@ -745,6 +785,8 @@ If you would like to change some settings, here are the locations of the configu
 |------------------------------------------------|-------------------------|
 | Move a floating window or swap a tiled window. | `alt+left mouse click`  |
 | Resize any tiling or floating window.          | `alt+right mouse click` |
+| Open jgmenu for context menu.                  | `super+right mouse click` |
+
 
 ## Keyboard Shortcuts
 
@@ -890,15 +932,35 @@ Other shortcuts can be [found here](https://sw.kovidgoyal.net/kitty/overview/?hi
 
 You can upgrade kitty by following the [install documentation](https://sw.kovidgoyal.net/kitty/binary/).
 
+# Notifications
+
+Make sure that your previous desktop environment doesn't have a notifications daemon enabled such as `xfce4-notifyd` which will prevent dunst from acquiring `org.freedesktop.Notifications` through D-Bus. We can disable it by renaming the service:
+
+```sh
+sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled
+```
+
 # Compositor Blur
 
 If you want to enable blur on the picom compositor, you can use this settings:
 
 ```sh
 blur-method = "box";
-blur-strength = 5;
+blur-strength = 8;
 blur-background = true;
+backend = "xrender";
 ```
+
+Alternatively, you can use `dual_kawase` with the `glx` backend:
+
+```sh
+blur-method = "dual_kawase";
+blur-strength = 8;
+blur-background = true;
+backend = "glx";
+```
+
+> Note: This will affect the performance, especially in virtual machines.
 
 Then run picom with `experimental-backends`:
 
@@ -1025,7 +1087,7 @@ chmod +x apps.sh && ./apps.sh
 **xeventbind**:
 - https://github.com/ritave/xeventbind
 
-**Configurations**:
+**Configuration related software**:
 - https://github.com/baskerville/bspwm
 - https://github.com/baskerville/sxhkd
 - https://github.com/jwilm/alacritty 

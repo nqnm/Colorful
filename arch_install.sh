@@ -48,7 +48,7 @@ fi
 
 draw_progress_bar 10
 echo "[+] Installing the programs (very slow)!"
-yay -S zsh zsh-autosuggestions zsh-syntax-highlighting kitty neofetch wmname i3lock-fancy-git ffmpeg ffmpegthumbnailer sxiv mpd mpv yad bat cargo arandr flameshot fzf ripgrep universal-ctags xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar htop lxappearance unclutter meson papirus-icon-theme imagemagick neovim ranger nodejs npm libx11 libxext the_silver_searcher arc-gtk-theme pcre python-pip man-pages xorgproto libxrender nm-connection-editor firefox openvpn zenity
+yay -S zsh dunst-git jgmenu zsh-autosuggestions zsh-syntax-highlighting kitty neofetch wmname i3lock-fancy-git ffmpeg ffmpegthumbnailer sxiv mpd mpv yad bat cargo arandr flameshot fzf ripgrep universal-ctags xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar htop lxappearance unclutter meson papirus-icon-theme imagemagick neovim ranger nodejs npm libx11 libxext the_silver_searcher arc-gtk-theme pcre python-pip man-pages xorgproto libxrender nm-connection-editor firefox openvpn zenity
 if [ $? != 0 ]; then
     cat << EOF
 [-] Failed to install some packages, please verify the source.list and check if there's a firewall or an Anti-Virus blocking the traffic!
@@ -67,6 +67,12 @@ if [ $? != 0 ]; then
 EOF
     exit
 fi
+
+# Disable xfce4 notifications (only applicable for xfce4)
+# This prevents xfce4-notifyd from acquiring org.freedesktop.Notifications through D-Bus
+sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled
+# To enable xfce4 notifications (this will cause an issue with dunst and in some scenarios the dunst daemon won't run because of it)
+#  sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service
 
 echo "[+] Changing default shell"
 sudo chsh $USER -s $(which zsh) >> install_log.txt 2>&1
@@ -316,6 +322,10 @@ sudo chmod +x /usr/local/bin/sxiv_pywal.sh >> install_log.txt 2>&1
 sudo cp $cwd/scripts/change-polybar /usr/local/bin/change-polybar >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/local/bin/change-polybar >> install_log.txt 2>&1
 sudo chmod +x /usr/local/bin/change-polybar >> install_log.txt 2>&1
+
+sudo cp $cwd/scripts/pshadow /usr/local/bin/pshadow >> install_log.txt 2>&1
+sudo chown $USER:$GRP /usr/local/bin/pshadow >> install_log.txt 2>&1
+sudo chmod +x /usr/local/bin/pshadow >> install_log.txt 2>&1
 
 sudo cp $cwd/scripts/shortcuts /usr/local/bin/shortcuts >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/local/bin/shortcuts >> install_log.txt 2>&1
