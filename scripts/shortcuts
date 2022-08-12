@@ -45,7 +45,7 @@ BSPWM Keyboard Shortcuts
 | Focus on older or newer node in the focus history.                              | windows+o,i                                                           |
 | Focus the last node/desktop.                                                    | windows+grave,Tab or ctrl+grave,Tab                                   |
 | Focus the next/previous desktop in the current monitor.                         | windows+bracket{left,right} or windows+bracket{h,l}                   |
-| Focus the next/previous window in the current desktop.                          | windows+shift+c or ctrl+shift+c                                       |
+| Focus the next/previous window in the current desktop.                          | windows+shift+c                                                       |
 | Focus the node for the given path jump.                                         | windows+p,b,comma,period                                              |
 | Focus the node in the given direction (swap window).                            | windows+shift+left,down,up,right or windows+shift+h,j,k,l             |
 
