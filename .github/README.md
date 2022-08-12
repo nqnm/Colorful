@@ -21,8 +21,6 @@ A truly colorful linux configuration.
 
 This is my personal collection of configuration files, feel free to use it but don't forget to give me **credits** :). 
 
-> Note: This configuration was made for pen-testing/hacking purposes at first.
-
 The [installation section](#installation) will guide you through a step by step installation process.
 
 **Don't forget to give me a ⭐ to motivate me to continue adding cool features to this configuration**.
@@ -791,48 +789,53 @@ If you would like to change some settings, here are the locations of the configu
 
 ## Keyboard Shortcuts
 
+Since some keyboards don't have the arrow keys; the `HJKL` keys are used instead.
+Also since some keyboards don't have the right `windows` key; the `ctrl` key is used instead because the `ctrl` key is almost always on the left side and right side of a keyboard.
+
 | Action                                                                          | Shortcut                                               |
 |---------------------------------------------------------------------------------|--------------------------------------------------------|
 | Open the terminal emulator (kitty).                                             | `windows+enter`                                        |
 | Open the terminal-emulator (qterminal), doesn't apply the pywal color.          | `alt+right mouse click`                                |
-| Launch the power menu.                                                          | `windows+q`                                            |
-| Close the current window.                                                       | `windows+w`                                            |
-| Restart the bspwm configuration.                                                | `windows+alt+r`                                        |
-| Logout from the system.                                                         | `windows+alt+q`                                        |
+| Launch the power menu.                                                          | `windows+q` or `ctrl+q`                                |
+| Close the current window.                                                       | `windows+w` or `ctrl+w`                                |
+| Restart the bspwm configuration.                                                | `windows+alt+r` or `ctrl+alt+r`                        |
+| Logout from the system.                                                         | `windows+alt+q` or `ctrl+alt+q`                        |
 | Move through the windows in the current workspace.                              | `windows+⬆⬅⬇➡` or `windows+h,j,k,l`                  |
-| Open rofi and Esc to exit.                                                      | `windows+d`                                            |
+| Open rofi and Esc to exit.                                                      | `windows+d` or `ctrl+d`                                |
 | Open rofi and run commands as sudo, useful for tools such as wireshark.         | `windows+ctrl+d`                                       |
-| Change the workspace.                                                           | `windows+1,2,3,4,5,6,7,8,9`                            |
-| Change the current window to tiling mode.                                       | `windows+t`                                            |
-| Change the current window to "full" mode.                                       | `windows+m`                                            |
-| Change the current window to full-screen mode                                   | `windows+f`                                            |
-| Change the current window to floating mode.                                     | `windows+s`                                            |
-| Move the current window to another workspace.                                   | `windows+shift+1,2,3,4,5,6,7,8,9`                      |
+| Change the workspace.                                                           | `windows+1,2,3,4,5,6,7,8,9` or `ctrl+1,2,3,4,5,6,7,8,9` |
+| Change the current window to tiling mode.                                       | `windows+t` or `ctrl+t`                                |
+| Change the current window to "full" mode.                                       | `windows+m` or `ctrl+m`                                |
+| Change the current window to full-screen mode                                   | `windows+f` or `ctrl+f`                                |
+| Change the current window to floating mode.                                     | `windows+s` or `ctrl+s`                                |
+| Move the current window to another workspace.                                   | `windows+shift+1,2,3,4,5,6,7,8,9` or `ctrl+shift+1,2,3,4,5,6,7,8,9` |
 | Resize current window (only works if you are in terminal or floating mode).     | `windows+alt+⬆⬅⬇➡` or `windows+alt+h,j,k,l`          |
 | Change the position of the current window (only works in floating mode).        | `windows+ctrl+⬆⬅⬇➡` or `windows+ctrl+h,j,k,l`        |
 | Show a preselection and then open a window.                                     | `windows+ctrl+alt+⬆⬅⬇➡` or `windows+ctrl+alt+h,j,k,l`|
 | Undo the preselection.                                                          | `windows+ctrl+space`                                    |
-| Close and kill.                                                                 | `windows+shift+w`                                       |
-| Alternate between the tiled and monocle layout.                                 | `windows+m`                                             |
-| Set the window state.                                                           | `windows+shift+t,s,f`                                   |
+| Close and kill.                                                                 | `windows+shift+w` or `ctrl+shift+w`                     |
+| Alternate between the tiled and monocle layout.                                 | `windows+m` or `ctrl+m`                                 |
+| Set the window state.                                                           | `windows+shift+t,s,f` or `ctrl+shift+t,s,f`             |
 | Set the node flags.                                                             | `windows+ctrl+m,x,y,z`                                  |
 | Focus on older or newer node in the focus history.                              | `windows+o,i`                                           |
-| Focus the last node/desktop.                                                    | `Windows+grave,Tab`                                     |
+| Focus the last node/desktop.                                                    | `windows+grave,Tab` or `ctrl+grave,Tab`                 |
 | Focus the next/previous desktop in the current monitor.                         | `windows+bracket{left,right}` or `windows+bracket{h,l}` |
-| Focus the next/previous window in the current desktop.                          | `windows+shift+c`                                       |
+| Focus the next/previous window in the current desktop.                          | `windows+shift+c` or `ctrl+shift+c`                     |
 | Focus the node for the given path jump.                                         | `windows+p,b,comma,period`                              |
 | Focus the node in the given direction (swap window).                            | `windows+shift+⬆⬅⬇➡` or `windows+shift+h,j,k,l`       |
+
+> Note: The HJKL navigation uses the format: left = h, down = j, up = k, right = l 
 
 ### Special Keyboard Shortcuts
 
 | Action                                         | Shortcut                |
 |------------------------------------------------|-------------------------|
-| Activate the bspwm workspace preview then view the workspaces preview with the `Windows` key. Once, you're done, you can close the process with `Alt + D`.                                              | `alt+w`                 |
-| Shuffle through wallpapers with pywal.         | `windows+alt+w`         |
-| Change to a specific wallpaper using the GUI.  | `windows+alt+e`         |
-| Select wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`.                                              | `windows+alt+x`         |
-| Change the terminal font size.                 | `windows+alt+f`         |
-| Change the **corners** of the windows and the polybar to **rounded or sharp** corners.| `windows+alt+b`         |
+| Activate the bspwm workspace preview then view the workspaces preview with the `Windows` key. Once, you're done, you can close the process with `Alt + D`.                                              | `alt+w`                |
+| Shuffle through wallpapers with pywal.         | `windows+alt+w` or `ctrl+alt+w`        |
+| Change to a specific wallpaper using the GUI.  | `windows+alt+e` or `ctrl+alt+e`        |
+| Select wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`.                                              | `windows+alt+x` or `ctrl+alt+x`        |
+| Change the terminal font size.                 | `windows+alt+f` or `ctrl+alt+f`        |
+| Change the **corners** of the windows and the polybar to **rounded or sharp** corners.| `windows+alt+b` or `ctrl+alt+b`        |
 | Execute the lock screen and type the current user session password to log in.| `alt+shift+x`           |
 | Take a screenshot with `flameshot`.            | `print`                 |
 
