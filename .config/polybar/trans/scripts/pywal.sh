@@ -46,7 +46,7 @@ change_color() {
 	# kitty
 	sed -i -e "s/active_tab_background   #.*/active_tab_background   $SH1/g" $KFILE
 	sed -i -e "s/inactive_tab_background #.*/inactive_tab_background $SH2/g" $KFILE
-	sed -i -e "s/tab_bar_background #.*/tab_bar_background $BGT/g" $KFILE
+	sed -i -e "s/tab_bar_background #.*/tab_bar_background $BG/g" $KFILE
 
     # dunst
     #cat $DFILE | grep "urgency_low" -A 3 | grep "background" | sed -i -e "s/background = \"#.*\"/background= \"$BG\"/g" $DFILE

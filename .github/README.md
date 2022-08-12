@@ -795,7 +795,7 @@ Also since some keyboards don't have the right `windows` key; the `ctrl` key is 
 | Action                                                                          | Shortcut                                               |
 |---------------------------------------------------------------------------------|--------------------------------------------------------|
 | Open the terminal emulator (kitty).                                             | `windows+enter`                                        |
-| Open the terminal-emulator (qterminal), doesn't apply the pywal color.          | `alt+right mouse click`                                |
+| Open the terminal-emulator (qterminal), doesn't apply the pywal color.          | `windows+ctrl+enter`                                   |
 | Launch the power menu.                                                          | `windows+q` or `ctrl+q`                                |
 | Close the current window.                                                       | `windows+w` or `ctrl+w`                                |
 | Restart the bspwm configuration.                                                | `windows+alt+r` or `ctrl+alt+r`                        |
