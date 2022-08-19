@@ -55,7 +55,7 @@ function change_borders(){
 # Picom Configuration and Reload polybar
 if ! pgrep -x "picom" > /dev/null
 then
-    picom --config ~/.config/picom/picom.conf &
+    picom --config ~/.config/picom/picom.conf -b
 fi
 
 WALL=$(tail -n 1 ~/.fehbg | cut -d ' ' -f 4 | sed -e "s/^'//" -e "s/'$//")

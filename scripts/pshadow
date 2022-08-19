@@ -44,5 +44,5 @@ done
 # Picom Configuration
 if ! pgrep -x "picom" > /dev/null
 then
-    picom --config ~/.config/picom/picom.conf &
+    picom --config ~/.config/picom/picom.conf -b
 fi

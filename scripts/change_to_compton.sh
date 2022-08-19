@@ -5,7 +5,7 @@ function configure_compton(){
     sudo apt purge picom -y && sudo apt update && sudo apt install -y compton
     sudo rm -rf /usr/local/bin/picom
   # Comment picom and uncomment compton in bspwmrc
-    sed -i -e "s/picom --config ~\/.config\/picom\/picom.conf \&/#picom --config ~\/.config\/picom\/picom.conf \&/g" ~/.config/bspwm/bspwmrc
+    sed -i -e "s/picom --config ~\/.config\/picom\/picom.conf \-b/#picom --config ~\/.config\/picom\/picom.conf \-b/g" ~/.config/bspwm/bspwmrc
     sed -i -e "s/# compton --config ~\/.config\/compton\/compton.conf \&/compton --config ~\/.config\/compton\/compton.conf \&/g" ~/.config/bspwm/bspwmrc
   # Comment picom and uncomment compton in changer script
     sudo echo '' > /usr/local/bin/changer

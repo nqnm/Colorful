@@ -13,8 +13,8 @@ wait $!
 # Needs a polybar running then change the wallpaper
 #~/.pywal &
 /usr/local/bin/changer
-# Load Picom
-picom --config ~/.config/picom/picom.conf &
+# Daemonize Picom
+picom --config ~/.config/picom/picom.conf -b
 # compton --config ~/.config/compton/compton.conf &
 # Dunst Daemon
 dunst --config ~/.config/dunst/dunstrc &

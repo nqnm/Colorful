@@ -14,7 +14,7 @@ super + ctrl + Return
 super + d
    	/usr/local/bin/rofi.sh
 
-ctrl + d
+alt + d
    	/usr/local/bin/rofi.sh
 
 # sudo program launcher
@@ -26,18 +26,19 @@ super + ~@button3
     jgmenu
 
 # bspwm workspace preview
-alt + w
+ctrl + alt + p
    del=$(cat ~/.pid_of_bspwm_preview.txt); kill -9 $del 2>/dev/null; python3 /opt/bspwm-workspace-preview/main.py & echo $! > ~/.pid_of_bspwm_preview.txt 
 
 # kill bspwm workspace preview process
-alt + d
+ctrl + alt + d
     del=$(cat ~/.pid_of_bspwm_preview.txt) && kill -9 $del
 
 # powermenu
 super + q
     /usr/local/bin/powermenu.sh
     
-ctrl + q
+
+alt + q
     /usr/local/bin/powermenu.sh
 
 # lockscreen
@@ -48,7 +49,7 @@ alt + shift + x
 super + Escape
 	pkill -USR1 -x sxhkd
 
-ctrl + Escape
+alt + Escape
 	pkill -USR1 -x sxhkd
 
 #
@@ -66,14 +67,14 @@ ctrl + alt + {q,r}
 super + {_,shift + }w
 	bspc node -{c,k}
 
-ctrl + {_,shift + }w
+alt + {_,shift + }w
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
 
-ctrl + m
+alt + m
 	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
@@ -92,7 +93,7 @@ super + g
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-ctrl + {t,shift + t,s,f}
+alt + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -129,7 +130,7 @@ super + bracket{h,l}
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
-ctrl + {grave,Tab}
+alt + {grave,Tab}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
@@ -142,7 +143,7 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 	
-ctrl + {_,shift + }{1-9,0}
+alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #
