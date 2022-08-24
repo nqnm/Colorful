@@ -27,11 +27,16 @@ super + ~@button3
 
 # bspwm workspace preview
 ctrl + alt + p
-   del=$(cat ~/.pid_of_bspwm_preview.txt); kill -9 $del 2>/dev/null; python3 /opt/bspwm-workspace-preview/main.py & echo $! > ~/.pid_of_bspwm_preview.txt 
+   del=`ps -ef | grep "/usr/bin/python /opt/bspwm-workspace-preview/main.py" | grep -v color | awk '{printf $2}'`;\
+   kill -9 $del 2>/dev/null;\
+   /opt/bspwm-workspace-preview/main.py & echo $! > ~/.pid_of_bspwm_workspace.txt;\
+   rm ~/.pid_of_bspwm_xeventbind.txt;\
+   xeventbind resolution ~/.workspace_preview.sh
 
 # kill bspwm workspace preview process
 ctrl + alt + d
-    del=$(cat ~/.pid_of_bspwm_preview.txt) && kill -9 $del
+   for pid in `cat ~/.pid_of_bspwm_workspace.txt`; do kill -9 $pid 2>/dev/null; done;\
+   for pid in `cat ~/.pid_of_bspwm_xeventbind.txt`; do kill -9 $pid 2>/dev/null; done
 
 # powermenu
 super + q

@@ -53,7 +53,10 @@ BSPWM Keyboard Shortcuts
 
 | Action                                         | Shortcut                               |
 |------------------------------------------------|----------------------------------------|
-| Activate the bspwm workspace preview           | windows+alt+w or ctrl+alt+p            |
+| Shuffle wallpapers on the fly		         | windows+alt+w or ctrl+alt+w	          |
+| Activate the bspwm workspace preview           | ctrl+alt+p            	          |
+| Deactivate the bspwm workspace preview         | ctrl+alt+d                             |
+| Show bspwm workspace preview			 | windows				  |
 | Change to a specific wallpaper using the GUI.  | windows+alt+e or ctrl+alt+e            |
 | Select wallpaper with a preview                | windows+alt+x or ctrl+alt+x            |
 | Change the terminal font size.                 | windows+alt+f or ctrl+alt+f            |
@@ -69,45 +72,45 @@ function kitty_keys {
 Window Management Keyboard Shortcuts
 
 | Action                	| Shortcut                                                                                                |
-|-----------------------	|---------------------------------------------------------------------------------------------------------|
+|-------------------------------|---------------------------------------------------------------------------------------------------------|
 | New window            	| ctrl+shift+enter                                                                   	                  |
 | New OS window         	| ctrl+shift+n                                                                       	                  |
-| Close window          	| ctrl+shift+w                                                                     	                      |
+| Close window          	| ctrl+shift+w                                                                     	                  |
 | Next window           	| ctrl+shift+]                                                                                            |
 | Previous window       	| ctrl+shift+[                                                                                            |
 | Move window forward   	| ctrl+shift+f                                                                                            |
 | Move window backward  	| ctrl+shift+b                                                                                            |
-| Move window to top    	| ctrl+shift+\`                                                                                           |
+| Move window to top    	| ctrl+shift+\`                                                                                            |
 | Visually focus window 	| ctrl+shift+f7                                                                                           |
 | Visually swap window  	| ctrl+shift+f8                                                                                           |
-| Focus specific window 	| ctrl+shift+1, ctrl+shift+2 … ctrl+shift+0 (clockwise from the top-left)	                              |
+| Focus specific window 	| ctrl+shift+1, ctrl+shift+2 … ctrl+shift+0 (clockwise from the top-left)	                          |
 
 Tab Management Keyboard Shortcuts
 
-| Action            	| Shortcut                                        	|
-|-------------------	|---------------------------------------------------|
+| Action            	| Shortcut                                          |
+|-----------------------|---------------------------------------------------|
 | New tab           	| ctrl+shift+t               	                    |
 | Close tab         	| ctrl+shift+q               	                    |
-| Next tab          	| ctrl+shift+right	                                |
-| Previous tab      	| ctrl+shift+left	                                |
-| Next layout       	| ctrl+shift+l                                  	|
-| Move tab forward  	| ctrl+shift+.                                  	|
-| Move tab backward 	| ctrl+shift+,                                  	|
-| Set tab title     	| ctrl+shift+alt+t         	                        |
+| Next tab          	| ctrl+shift+right	                            |
+| Previous tab      	| ctrl+shift+left	                            |
+| Next layout       	| ctrl+shift+l                                      |
+| Move tab forward  	| ctrl+shift+.                                      |
+| Move tab backward 	| ctrl+shift+,                                      |
+| Set tab title     	| ctrl+shift+alt+t         	                    |
 
 Layout Management Keyboard Shortcuts
 
-| Action                                                                                                    	| Shortcut             	|
-|-----------------------------------------------------------------------------------------------------------	|----------------------	|
-| Next layout                                                                                               	| ctrl+shift+up      	|
-| Go to layout (tall,stack, etc)                                                                            	| ctrl+shift+down    	|
-| Previous layout                                                                                           	| ctrl+shift+page_up 	|
-| Toggle layout (switches to the named layout or the previous layout) 	                                        | ctrl+shift+page_down  |
+| Action                                                                 | Shortcut           	|
+|------------------------------------------------------------------------|----------------------|
+| Next layout                                                            | ctrl+shift+up      	|
+| Go to layout (tall,stack, etc)                                         | ctrl+shift+down    	|
+| Previous layout                                                        | ctrl+shift+page_up 	|
+| Toggle layout (switches to the named layout or the previous layout) 	 | ctrl+shift+page_down |
 
 Scrolling Keyboard Shortcuts
 
 | Action                    	| Shortcut             	|
-|---------------------------	|----------------------	|
+|-------------------------------|-----------------------|
 | Line up                   	| ctrl+shift+up      	|
 | Line down                 	| ctrl+shift+down    	|
 | Page up                   	| ctrl+shift+page_up 	|
@@ -116,7 +119,7 @@ Scrolling Keyboard Shortcuts
 | Bottom                    	| ctrl+shift+end     	|
 | Previous shell prompt     	| ctrl+shift+z       	|
 | Next shell prompt         	| ctrl+shift+x       	|
-| Browse scrollback less 	    | ctrl+shift+h       	|
+| Browse scrollback less 	| ctrl+shift+h       	|
 | Browse last cmd output    	| ctrl+shift+g       	|
 EOF
 }
@@ -127,14 +130,14 @@ function neovim_keys {
 Neovim Custom Shortcuts
 
 | Action            	| Shortcut                                                     	|
-|-------------------	|--------------------------------------------------------------	|
+|-----------------------|---------------------------------------------------------------|
 | Resize windows    	| alt+h,j,k,l (Normal Mode)                                     |
-| Escape            	| jk or kj (from Insert Mode to Normal Mode)               	    |
+| Escape            	| jk or kj (from Insert Mode to Normal Mode)            	|
 | Save              	| ctrl+s (Normal Mode)                                       	|
 | Quit              	| ctrl+q (Normal Mode)                                       	|
 | Another Escape    	| ctrl+c (from Insert Mode to Normal Mode)                   	|
 | Tabbing           	| mouse highlight (Visual Mode) then shift+left or shift+right 	|
-| Tabs              	| tab or shift+tab (Insert Mode)                           	    |
+| Tabs              	| tab or shift+tab (Insert Mode)                           	|
 | Window Navigation 	| ctrl+h,j,k,l (Normal Mode)                                	|
 | Text Navigation   	| h,j,k,l (Normal Mode)                                      	|
 EOF

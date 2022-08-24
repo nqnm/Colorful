@@ -798,7 +798,7 @@ Also since some keyboards don't have the right `windows` key; the `alt` key is u
 | Set the node flags.                                                             | `windows+ctrl+m,x,y,z`                                                 |
 | Focus on older or newer node in the focus history.                              | `windows+o,i`                                                          |
 | Focus the last node/desktop.                                                    | `windows+grave,Tab` or `alt+grave,Tab`                                 |
-| Focus the next/previous desktop in the current monitor.                         | `windows+bracket{left,right}` or windows+bracket{h,l}`                 |
+| Focus the next/previous desktop in the current monitor.                         | `windows+bracket{left,right}` or `windows+bracket{h,l}`                |
 | Focus the next/previous window in the current desktop.                          | `windows+shift+c`                                                      |
 | Focus the node for the given path jump.                                         | `windows+p,b,comma,period`                                             |
 | Focus the node in the given direction (swap window).                            | `windows+shift+left,down,up,right` or `windows+shift+h,j,k,l`          |
@@ -807,16 +807,18 @@ Also since some keyboards don't have the right `windows` key; the `alt` key is u
 
 ### Special Keyboard Shortcuts
 
-| Action                                         | Shortcut                |
-|------------------------------------------------|-------------------------|
-| Activate the bspwm workspace preview then view the workspaces preview with the `Windows` key. Once, you're done, you can close the process with `ctrl+alt+d`.                                              | `ctrl+alt+p`                |
-| Shuffle through wallpapers with pywal.         | `windows+alt+w` or `ctrl+alt+w`        |
-| Change to a specific wallpaper using the GUI.  | `windows+alt+e` or `ctrl+alt+e`        |
-| Select wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`.                                              | `windows+alt+x` or `ctrl+alt+x`        |
-| Change the terminal font size.                 | `windows+alt+f` or `ctrl+alt+f`        |
-| Change the **corners** of the windows and the polybar to **rounded or sharp** corners.| `windows+alt+b` or `ctrl+alt+b`        |
-| Execute the lock screen and type the current user session password to log in.| `alt+shift+x`           |
-| Take a screenshot with `flameshot`.            | `print`                 |
+| Action                                         | Shortcut                               |
+|------------------------------------------------|----------------------------------------|
+| Shuffle wallpapers on the fly		        | `windows+alt+w` or `ctrl+alt+w`	         |
+| Activate the bspwm workspace preview           | `ctrl+alt+p`            	         |
+| Deactivate the bspwm workspace preview         | `ctrl+alt+d`                             |
+| Show bspwm workspace preview (when activated)			| `windows`				 |
+| Change to a specific wallpaper using the GUI.  | `windows+alt+e or ctrl+alt+e`            |
+| Select wallpaper with a preview                | `windows+alt+x or ctrl+alt+x`            |
+| Change the terminal font size.                 | `windows+alt+f` or `ctrl+alt+f`            |
+| Change the corners of the windows.             | `windows+alt+b` or `ctrl+alt+b`            |
+| Execute the lock screen.                       | `alt+shift+x`                            |
+| Take a screenshot with flameshot.              | `print`                                  |
 
 # Kitty Sessions & Shorcuts
 

@@ -365,6 +365,13 @@ sudo cp $cwd/tools/apt-uninstaller.sh /usr/local/bin/apt-uninstaller.sh >> insta
 sudo chown $USER:$GRP /usr/local/bin/apt-uninstaller.sh >> install_log.txt 2>&1
 sudo chmod +x /usr/local/bin/apt-uninstaller.sh >> install_log.txt 2>&1
 
+sudo cp $cwd/scripts/workspace_preview.sh ~/.workspace_preview.sh >> install_log.txt 2>&1
+sudo chown $USER:$GRP ~/.workspace_preview.sh >> install_log.txt 2>&1
+sudo chmod +x  ~/.workspace_preview.sh >> install_log.txt 2>&1
+sudo cp $cwd/scripts/workspace_preview.sh /root/.workspace_preview.sh >> install_log.txt 2>&1
+sudo chown $USER:$GRP  /root/.workspace_preview.sh >> install_log.txt 2>&1
+sudo chmod +x /root/.workspace_preview.sh >> install_log.txt 2>&1
+
 echo "[+] ZSH Symbolic link with root!"
 sudo ln -s -f ~/.zshrc /root/.zshrc >> install_log.txt 2>&1
 if [ $? != 0 ]; then
