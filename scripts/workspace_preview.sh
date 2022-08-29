@@ -1,17 +1,12 @@
 #!/usr/bin/bash
 
-# Kill previous process
-del=`cat ~/.pid_of_bspwm_workspace.txt`
-kill -9 $del &> /dev/null
+# Description: 
+# This script is executed when BSPWM workspace preview is enabled with SXHKD
+# It is re-executed on X11 resolution changes; this is the reason why previous PIDs are killed before launching a new PID
 
-# xeventbind process
-FILE=~/.pid_of_bspwm_xeventbind.txt
-/opt/bspwm-workspace-preview/main.py & echo $! >> $FILE
-LINES=`wc -l $FILE | cut -d ' ' -f 1`
-
-# Kill the previous process and remove the PID from the file
-if [[ $LINES -gt 1 ]]; then
-    pid=`head -n 1 $FILE` 
-    kill -9 $pid &> /dev/null
-    sed -i '1d' $FILE  
-fi
+ps -ef |\
+ grep "/usr/bin/python /opt/bspwm-workspace-preview/main.py"\
+  | grep -v color |\
+   awk '{printf "%s\n", $2}' |\
+    while read line; do kill -9 $line 2>/dev/null; done
+/opt/bspwm-workspace-preview/main.py &

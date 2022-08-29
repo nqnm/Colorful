@@ -56,13 +56,16 @@ BSPWM Keyboard Shortcuts
 | Shuffle wallpapers on the fly		         | windows+alt+w or ctrl+alt+w	          |
 | Activate the bspwm workspace preview           | ctrl+alt+p            	          |
 | Deactivate the bspwm workspace preview         | ctrl+alt+d                             |
-| Show bspwm workspace preview			 | windows				  |
+| Show bspwm workspace preview (when active)			 | windows				  |
 | Change to a specific wallpaper using the GUI.  | windows+alt+e or ctrl+alt+e            |
 | Select wallpaper with a preview                | windows+alt+x or ctrl+alt+x            |
 | Change the terminal font size.                 | windows+alt+f or ctrl+alt+f            |
 | Change the corners of the windows.             | windows+alt+b or ctrl+alt+b            |
 | Execute the lock screen.                       | alt+shift+x                            |
 | Take a screenshot with flameshot.              | print                                  |
+
+> New: ctrl+alt+p also deactivates bspwm workspace preview
+
 EOF
 }
 

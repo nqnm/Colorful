@@ -25,18 +25,15 @@ super + ctrl + d
 super + ~@button3
     jgmenu
 
-# bspwm workspace preview
+# bspwm workspace preview (re-execute on X11 resolution changes, kill the process if already running)
 ctrl + alt + p
-   del=`ps -ef | grep "/usr/bin/python /opt/bspwm-workspace-preview/main.py" | grep -v color | awk '{printf $2}'`;\
-   kill -9 $del 2>/dev/null;\
-   /opt/bspwm-workspace-preview/main.py & echo $! > ~/.pid_of_bspwm_workspace.txt;\
-   rm ~/.pid_of_bspwm_xeventbind.txt;\
-   xeventbind resolution ~/.workspace_preview.sh
+   ~/.workspace_kill.sh;\
+   /opt/bspwm-workspace-preview/main.py &;\
+   xeventbind resolution ~/.workspace_preview.sh &
 
 # kill bspwm workspace preview process
 ctrl + alt + d
-   for pid in `cat ~/.pid_of_bspwm_workspace.txt`; do kill -9 $pid 2>/dev/null; done;\
-   for pid in `cat ~/.pid_of_bspwm_xeventbind.txt`; do kill -9 $pid 2>/dev/null; done
+	~/.workspace_kill.sh
 
 # powermenu
 super + q

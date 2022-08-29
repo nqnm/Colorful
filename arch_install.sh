@@ -48,7 +48,7 @@ fi
 
 draw_progress_bar 10
 echo "[+] Installing the programs (very slow)!"
-yay -S zsh dunst-git jgmenu zsh-autosuggestions zsh-syntax-highlighting kitty neofetch wmname i3lock-fancy-git ffmpeg ffmpegthumbnailer sxiv mpd mpv yad bat cargo arandr flameshot fzf ripgrep universal-ctags xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar htop lxappearance unclutter meson papirus-icon-theme imagemagick neovim ranger nodejs npm libx11 libxext the_silver_searcher arc-gtk-theme pcre python-pip man-pages xorgproto libxrender nm-connection-editor firefox openvpn zenity
+yay -S wget zsh dunst-git jgmenu zsh-autosuggestions zsh-syntax-highlighting kitty neofetch wmname i3lock-fancy-git ffmpeg ffmpegthumbnailer sxiv mpd mpv yad bat cargo arandr flameshot fzf ripgrep universal-ctags xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar htop lxappearance unclutter meson papirus-icon-theme imagemagick neovim ranger nodejs npm libx11 libxext the_silver_searcher arc-gtk-theme pcre python-pip man-pages xorgproto libxrender nm-connection-editor firefox openvpn zenity
 if [ $? != 0 ]; then
     cat << EOF
 [-] Failed to install some packages, please verify the source.list and check if there's a firewall or an Anti-Virus blocking the traffic!
@@ -164,10 +164,25 @@ if [ $? != 0 ]; then
 fi
 
 draw_progress_bar 50
+
+# Installing from the latest source code may bring problems such as black corners in windows.
+# Note: This is not always the case but it has happened before, for more information view the commits history:
+# Link: https://github.com/yshui/picom/commits/next
+# This section installs the picom version 9.1 release
+# Link: https://github.com/yshui/picom/releases/tag/v9.1
+
 echo "[+] Installing picom!"
-git clone https://github.com/yshui/picom >> install_log.txt 2>&1
-cd picom/ >> install_log.txt 2>&1
-git submodule update --init --recursive >> install_log.txt 2>&1
+#git clone https://github.com/yshui/picom >> install_log.txt 2>&1
+wget "https://github.com/yshui/picom/archive/refs/tags/v9.1.tar.gz" -O picomv9.1.tar.gz >> install_log.txt 2>&1
+if [ -f "picomv9.1.tar.gz" ]; then
+    echo "[+] The file picomv9.1.tar.gz was downloaded."
+else 
+    echo "[-] The file picomv9.1.tar.gz was not downloaded."
+    exit
+fi
+tar -xf picomv9.1.tar.gz >> install_log.txt 2>&1
+cd picom-9.1 >> install_log.txt 2>&1
+#git submodule update --init --recursive >> install_log.txt 2>&1
 meson --buildtype=release . build >> install_log.txt 2>&1
 ninja -C build >> install_log.txt 2>&1
 sudo ninja -C build install >> install_log.txt 2>&1
@@ -337,6 +352,13 @@ sudo chmod +x  ~/.workspace_preview.sh >> install_log.txt 2>&1
 sudo cp $cwd/scripts/workspace_preview.sh /root/.workspace_preview.sh >> install_log.txt 2>&1
 sudo chown $USER:$GRP  /root/.workspace_preview.sh >> install_log.txt 2>&1
 sudo chmod +x /root/.workspace_preview.sh >> install_log.txt 2>&1
+
+sudo cp $cwd/scripts/workspace_kill.sh ~/.workspace_kill.sh >> install_log.txt 2>&1
+sudo chown $USER:$GRP ~/.workspace_kill.sh >> install_log.txt 2>&1
+sudo chmod +x  ~/.workspace_kill.sh >> install_log.txt 2>&1
+sudo cp $cwd/scripts/workspace_kill.sh /root/.workspace_kill.sh >> install_log.txt 2>&1
+sudo chown $USER:$GRP  /root/.workspace_kill.sh >> install_log.txt 2>&1
+sudo chmod +x /root/.workspace_kill.sh >> install_log.txt 2>&1
 
 echo "[+] ZSH Symbolic link with root!"
 sudo ln -s -f ~/.zshrc /root/.zshrc >> install_log.txt 2>&1

@@ -355,9 +355,9 @@ You can also see a preview of each workspace, this is very useful when we want t
   <img src="assets/images/bspwm-workspace-preview.png" alt="bspwm-workspace-preview" width=90% height=90% />
 </p>
 
-Activate the bspwm workspace preview with the keyboard shortcut `Ctrl + Alt + P`, then view the workspaces preview with the `Windows` key. Once, you're done, you can close the process with `Ctrl + Alt + D`.
+Activate the bspwm workspace preview with the keyboard shortcut `Ctrl + Alt + P`, then view the workspaces preview with the `Windows` key. Then it takes a screenshot of each workspace when you navigate or change the workspace.
 
-> Important: Make sure to always use `Ctrl + Alt + D` when you finish using the bspwm workspace preview.
+Once you're done, you can close the process with `Ctrl + Alt + D`.
 
 Create pentesting project directories with `mk`:
 
@@ -732,6 +732,8 @@ If you would like to change some settings, here are the locations of the configu
 ```shell
 ~/.config/picom/picom.conf
 ```
+
+> Note: If you have issues with picom features, go to the [yshui repo](https://github.com/yshui/picom) and view the [issues](https://github.com/yshui/picom/issues).
 
 `nvim` Terminal Text Editor Configuration:
 
