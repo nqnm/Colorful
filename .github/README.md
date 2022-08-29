@@ -98,43 +98,43 @@ Colorblocks theme (default), theme created by [@adi1090x](https://github.com/adi
   <img src="assets/images/colorblocks.png" alt="colorblocks" />
 </p>
 
-Forest theme (no pywal), theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
+Forest theme (no pywal), theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
   <img src="assets/images/forest.png" alt="forest" />
 </p>
 
-Shapes theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
+Shapes theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
   <img src="assets/images/shapes.png" alt="shapes" />
 </p>
 
-Docky theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
+Docky theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
   <img src="assets/images/docky.png" alt="docky" />
 </p>
 
-Grayblocks theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
+Grayblocks theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
   <img src="assets/images/grayblocks.png" alt="grayblocks" />
 </p>
 
-Material theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
+Material theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
   <img src="assets/images/material.png" alt="material" />
 </p>
 
-Hack top bar theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
+Hack top bar theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
   <img src="assets/images/hack_top.png" alt="hack" />
 </p>
 
-Hack bottom bar theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and heavily modified by [@nozerobit](https://github.com/nozerobit) (me):
+Hack bottom bar theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
 
 <p align="center">
   <img src="assets/images/hack_bottom.png" alt="hack" />
@@ -357,7 +357,10 @@ You can also see a preview of each workspace, this is very useful when we want t
 
 Activate the bspwm workspace preview with the keyboard shortcut `Ctrl + Alt + P`, then view the workspaces preview with the `Windows` key. Then it takes a screenshot of each workspace when you navigate or change the workspace.
 
-Once you're done, you can close the process with `Ctrl + Alt + D`.
+Once you're done, you can close the process with `Ctrl + Alt + D` or `Ctrl + Alt + P`.
+
+> Use `Ctrl + Alt + P` to completely de/activate bspwm workspace preview.
+> Use `Ctrl + Alt + D` to deactivate bspwm workspace preview for the current screen resolution but automatically activate it again when the screen resolution changes.
 
 Create pentesting project directories with `mk`:
 
@@ -502,7 +505,7 @@ Then use the correct installation script and make sure you use one of the compat
 
 > **Note**: The installation scripts may work on other Debian-based or Arch-based distributions.
 
-> **Tip**: If the desktop environment is not in the table above then it is recommended to install a compatible desktop environment and log in using that particular desktop environment that you decided to install.
+> **Tip**: If the desktop environment is not in the table above then it is recommended to install a compatible desktop environment and log in using that particular desktop environment that you decided to install. I recommend Xfce as it is the one that is tested the most.
 
 > **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo/wheel` group.
 
@@ -513,6 +516,12 @@ Then use the correct installation script and make sure you use one of the compat
 ```bash
 ./install.sh
 ```
+
+> This installation script is mostly tested in **Kali Linux Xfce only** as this config is mainly meant for pentesting purposes.
+
+> **Reason**: Distribution updates and upgrades do sometimes change the dependencies and also other installations steps do change over time so it is a challenge to consistently maintain this installation script compatible for multiple distributions.
+
+> **Solution**: If you find an issue, you may need to modify the installation script.
 
 If you're installing this in Arch Linux:
 
@@ -543,9 +552,9 @@ A log is also created for troubleshooting purposes.
 reboot || systemctl reboot
 ```
 
-![bspwm-login](assets/images/bspwm-login.png)
-
 Once you have rebooted the machine, select bspwm as the window manager and then log in. 
+
+![bspwm-login](assets/images/bspwm-login.png)
 
 You can restart bspwm at any time with `Windows + Alt + R`, this is useful to fix a WM issue.
 
@@ -811,16 +820,20 @@ Also since some keyboards don't have the right `windows` key; the `alt` key is u
 
 | Action                                         | Shortcut                               |
 |------------------------------------------------|----------------------------------------|
-| Shuffle wallpapers on the fly		        | `windows+alt+w` or `ctrl+alt+w`	         |
-| Activate the bspwm workspace preview           | `ctrl+alt+p`            	         |
-| Deactivate the bspwm workspace preview         | `ctrl+alt+d`                             |
-| Show bspwm workspace preview (when activated)			| `windows`				 |
-| Change to a specific wallpaper using the GUI.  | `windows+alt+e or ctrl+alt+e`            |
-| Select wallpaper with a preview                | `windows+alt+x or ctrl+alt+x`            |
-| Change the terminal font size.                 | `windows+alt+f` or `ctrl+alt+f`            |
-| Change the corners of the windows.             | `windows+alt+b` or `ctrl+alt+b`            |
-| Execute the lock screen.                       | `alt+shift+x`                            |
-| Take a screenshot with flameshot.              | `print`                                  |
+| Shuffle wallpapers on the fly		               | `windows+alt+w` or `ctrl+alt+w`        |
+| Activate the bspwm workspace preview           | `ctrl+alt+p`            	              |
+| Deactivate the bspwm workspace preview         | `ctrl+alt+d`                           |
+| Show bspwm workspace preview (when activated)	 | `windows`				                      |
+| Change to a specific wallpaper using the GUI.  | `windows+alt+e or ctrl+alt+e`          |
+| Select wallpaper with a preview                | `windows+alt+x or ctrl+alt+x`          |
+| Change the terminal font size.                 | `windows+alt+f` or `ctrl+alt+f`        |
+| Change the corners of the windows.             | `windows+alt+b` or `ctrl+alt+b`        |
+| Execute the lock screen.                       | `alt+shift+x`                          |
+| Take a screenshot with flameshot.              | `print`                                |
+
+> BSPWM Workpace Preview Functions: 
+> Use `ctrl+alt+p` to completely de/activate bspwm workspace preview.
+> Use `ctrl+alt+d` to deactive bspwm workspace preview for the current screen resolution but activate it again when the screen resolution changes.
 
 # Kitty Sessions & Shorcuts
 

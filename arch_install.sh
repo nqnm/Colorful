@@ -48,11 +48,11 @@ fi
 
 draw_progress_bar 10
 echo "[+] Installing the programs (very slow)!"
-yay -S wget zsh dunst-git jgmenu zsh-autosuggestions zsh-syntax-highlighting kitty neofetch wmname i3lock-fancy-git ffmpeg ffmpegthumbnailer sxiv mpd mpv yad bat cargo arandr flameshot fzf ripgrep universal-ctags xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar htop lxappearance unclutter meson papirus-icon-theme imagemagick neovim ranger nodejs npm libx11 libxext the_silver_searcher arc-gtk-theme pcre python-pip man-pages xorgproto libxrender nm-connection-editor firefox openvpn zenity
+yay -S wget thunar zsh dunst-git jgmenu zsh-autosuggestions zsh-syntax-highlighting kitty neofetch wmname i3lock-fancy-git ffmpeg ffmpegthumbnailer sxiv mpd mpv yad bat cargo arandr flameshot fzf ripgrep universal-ctags xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar htop lxappearance unclutter meson papirus-icon-theme imagemagick neovim ranger nodejs npm libx11 libxext the_silver_searcher arc-gtk-theme pcre python-pip man-pages xorgproto libxrender nm-connection-editor firefox openvpn zenity
 if [ $? != 0 ]; then
     cat << EOF
 [-] Failed to install some packages, please verify the source.list and check if there's a firewall or an Anti-Virus blocking the traffic!
-[-] Also verify if some package names have changed!
+[-] Also verify if some package names have changed for this distribution!
 EOF
     exit
 fi
@@ -63,16 +63,22 @@ yay -S check startup-notification librsvg libevent ncurses5-compat-libs libxext 
 if [ $? != 0 ]; then
     cat << EOF
 [-] Failed to install some packages, please verify the source.list and check if there's a firewall or an Anti-Virus blocking the traffic!
-[-] Failed to install some dependencies, please verify if a package is outdated or if the name has changed!
+[-] Failed to install some dependencies, verify if some package names have changed for this distribution!
 EOF
     exit
 fi
 
 # Disable xfce4 notifications (only applicable for xfce4)
 # This prevents xfce4-notifyd from acquiring org.freedesktop.Notifications through D-Bus
-sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled
+sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled >> install_log.txt 2>&1
 # To enable xfce4 notifications (this will cause an issue with dunst and in some scenarios the dunst daemon won't run because of it)
 #  sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service
+
+# Disable MATE notifications (only applicable for MATE)
+# This prevents MATE from acquiring org.freedesktop.Notifications through D-Bus
+# gsettings set org.mate.caja.preferences show-notifications false >> install_log.txt 2>&1
+# To enable MATE notifications (this will cause an issue with dunst and in some scenarios the dunst daemon won't run because of it)
+#  gsettings set org.mate.caja.preferences show-notifications true
 
 echo "[+] Changing default shell"
 sudo chsh $USER -s $(which zsh) >> install_log.txt 2>&1

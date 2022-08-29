@@ -45,11 +45,11 @@ fi
 
 draw_progress_bar 10
 echo "[+] Installing the programs (very slow)!"
-sudo apt-get install -y wget zsh kitty jgmenu neofetch wmname manpages-dev i3lock-fancy ffmpeg ffmpegthumbnailer sxiv mpd mpv pcregrep python3-pyqt5 yad bat cargo arandr scrub flameshot arc-theme fzf ripgrep universal-ctags silversearcher-ag fd-find xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar rbenv htop lxappearance python3-pip unclutter meson papirus-icon-theme imagemagick neovim ranger watchman nodejs npm >> install_log.txt 2>&1
+sudo apt-get install -y wget thunar zsh kitty jgmenu neofetch wmname manpages-dev i3lock-fancy ffmpeg ffmpegthumbnailer sxiv mpd mpv pcregrep python3-pyqt5 yad bat cargo arandr scrub flameshot arc-theme fzf ripgrep universal-ctags silversearcher-ag fd-find xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar rbenv htop lxappearance python3-pip unclutter meson papirus-icon-theme imagemagick neovim ranger watchman nodejs npm >> install_log.txt 2>&1
 if [ $? != 0 ]; then
     cat << EOF
 [-] Failed to install some packages, please verify the source.list and check if there's a firewall or an Anti-Virus blocking the traffic!
-[-] Also verify if some package names have changed!
+[-] Also verify if some package names have changed for this distribution!
 EOF
     exit
 fi
@@ -60,7 +60,7 @@ sudo apt-get install -y libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev
 if [ $? != 0 ]; then
     cat << EOF
 [-] Failed to install some packages, please verify the source.list and check if there's a firewall or an Anti-Virus blocking the traffic!
-[-] Failed to install some dependencies, please verify if a package is outdated or if the name has changed!
+[-] Failed to install some dependencies, verify if some package names have changed for this distribution!
 EOF
     exit
 fi
@@ -85,7 +85,7 @@ fi
 
 # Disable xfce4 notifications (only applicable for xfce4)
 # This prevents xfce4-notifyd from acquiring org.freedesktop.Notifications through D-Bus
-sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled
+sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled >> install_log.txt 2>&1
 # To enable xfce4 notifications (this will cause an issue with dunst and in some scenarios the dunst daemon won't run because of it)
 #  sudo mv /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service.disabled /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service
 
