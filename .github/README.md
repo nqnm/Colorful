@@ -471,27 +471,27 @@ Then use the correct installation script and make sure you use one of the compat
 <tbody>
   <tr>
     <td class="tg-btxf">Kali Linux</td>
-    <td class="tg-btxf">install.sh</td>
+    <td class="tg-btxf">install.sh, install_clear.sh</td>
     <td class="tg-buh4">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-0pky">ParrotOS</td>
-    <td class="tg-0pky">install.sh</td>
+    <td class="tg-0pky">install.sh, install_clear.sh</td>
     <td class="tg-0lax">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-btxf">Ubuntu</td>
-    <td class="tg-btxf">install.sh</td>
+    <td class="tg-btxf">install.sh, install_clear.sh</td>
     <td class="tg-buh4">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-0pky">Pop!_OS</td>
-    <td class="tg-0pky">install.sh</td>
+    <td class="tg-0pky">install.sh, install_clear.sh</td>
     <td class="tg-0lax">Xfce (recommended), Mate</td>
   </tr>
   <tr>
     <td class="tg-btxf">Debian</td>
-    <td class="tg-btxf">install.sh</td>
+    <td class="tg-btxf">install.sh, install_clear.sh</td>
     <td class="tg-buh4">Xfce (recommended), Mate</td>
   </tr>
   <tr>
@@ -514,12 +514,15 @@ Then use the correct installation script and make sure you use one of the compat
 2. Run the installation script from the `colorful-dotfiles` directory:
 
 ```bash
-./install.sh
+chmod +x install_clear.sh && ./install_clear.sh
 ```
 
-> This installation script is mostly tested in **Kali Linux Xfce only** as this config is mainly meant for pentesting purposes.
+You can use one of these scripts:
 
-> **Reason**: Distribution updates and upgrades do sometimes change the dependencies and also other installations steps do change over time so it is a challenge to consistently maintain this installation script compatible for multiple distributions.
+- install.sh: Hides the output and stores it in a log.
+- install_clear.sh (Recommended): Doesn't hide any output. This is better for troubleshooting.
+
+> **Note**: Distribution updates and upgrades do sometimes change the dependencies and also other installations steps do change over time so it is a challenge to consistently maintain this installation script compatible for multiple distributions.
 
 > **Solution**: If you find an issue, you may need to modify the installation script.
 
