@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
 # Source progress bar
-source ./progress_bar.sh
-enable_trapping
-setup_scroll_area
+#source ./progress_bar.sh
+#enable_trapping
+#setup_scroll_area
 
 ###########################################
 #---------------) Colors (----------------#
@@ -26,11 +26,11 @@ FDIR="$HOME/.local/share/fonts"
 #        echo -e "\nTrapped CTRL-C\n"
 #}
 
-draw_progress_bar 1
+#draw_progress_bar 1
 echo "[+] Sudo privileges required"
 sudo test
 
-draw_progress_bar 5
+#draw_progress_bar 5
 #echo "[!] If an error occurs you can read the log at $cwd/install_log.txt"
 echo "[+] Updating package information!"
 sudo apt-get update 
@@ -43,7 +43,7 @@ EOF
     exit
 fi
 
-draw_progress_bar 10
+#draw_progress_bar 10
 echo "[+] Installing the programs (very slow)!"
 sudo apt-get install -y wget thunar zsh kitty jgmenu neofetch wmname manpages-dev i3lock-fancy ffmpeg ffmpegthumbnailer sxiv mpd mpv pcregrep python3-pyqt5 yad bat cargo arandr scrub flameshot arc-theme fzf ripgrep universal-ctags silversearcher-ag fd-find xclip xsel zsh zsh-autosuggestions zsh-syntax-highlighting feh bspwm sxhkd polybar rbenv htop lxappearance python3-pip unclutter meson papirus-icon-theme imagemagick neovim ranger watchman nodejs npm 
 if [ $? != 0 ]; then
@@ -54,7 +54,7 @@ EOF
     exit
 fi
 
-draw_progress_bar 15
+#draw_progress_bar 15
 echo "[+] Installing the dependencies (slow)!"
 sudo apt-get install -y libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 python3-dev libssl-dev libffi-dev build-essential libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev bison flex check libpango-1.0-0 libpango1.0-dev libpangocairo-1.0-0 libcairo2 libglib2.0-dev libgdk-pixbuf-2.0-0 libstartup-notification0 libstartup-notification0-dev libgdk-pixbuf-2.0-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-xkb-dev libxcb-randr0-dev libxcb-xinerama0-dev libxcb-util-dev libxcb-cursor-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xrm-dev librsvg2-dev libevent-dev build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git 
 if [ $? != 0 ]; then
@@ -93,7 +93,7 @@ echo "[+] Changing default shell"
 sudo chsh $USER -s $(which zsh) 
 sudo chsh root -s $(which zsh) 
 
-draw_progress_bar 20
+#draw_progress_bar 20
 # Install rofi version 1.5.4 (The version 1.7.1 has a foreground color issue with drun elements) this version (1.5.4) avoids this issue.
 echo "[+] Installing rofi!"
 wget https://github.com/davatorium/rofi/releases/download/1.5.4/rofi-1.5.4.tar.gz -O rofi-1.5.4.tar.gz 
@@ -115,7 +115,7 @@ if [ $? != 0 ]; then
 fi
 cd $cwd
 
-draw_progress_bar 25
+#draw_progress_bar 25
 # Install tmux version 3.1c (The version 3.2a has background color issue, the terminal color is different from alacritty) this version (3.1) avoids this issue.
 echo "[+] Installing tmux!"
 wget https://github.com/tmux/tmux/releases/download/3.1c/tmux-3.1c.tar.gz -O tmux-3.1c.tar.gz 
@@ -143,7 +143,7 @@ else
     cp -rf $cwd/fonts/* "$FDIR" 
 fi
 
-draw_progress_bar 30
+#draw_progress_bar 30
 echo "[+] Installing Iosevka Nerd Fonts!"
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip -O Iosevka.zip 
 if [ -f "Iosevka.zip" ]; then
@@ -160,14 +160,14 @@ if [ $? != 0 ]; then
 fi
 rm *.zip 
 
-draw_progress_bar 35
+#draw_progress_bar 35
 echo "[+] Install Calc and Pulseaudio"
 sudo apt install -y calc pulseaudio 
 
 echo "[+] Enabling MPD service!"
 sudo systemctl enable mpd.service 
 
-draw_progress_bar 40
+#draw_progress_bar 40
 echo "[+] Installing BSPWM workspace previewer"
 sudo apt-get install -y fonts-freefont-otf fonts-freefont-ttf 
 sudo mkdir -p /opt/bspwm-workspace-preview 
@@ -179,7 +179,7 @@ if [ $? != 0 ]; then
     exit
 fi
 
-draw_progress_bar 50
+#draw_progress_bar 50
 
 # Installing from the latest source code may bring problems such as black corners in windows.
 # Note: This is not always the case but it has happened before, for more information view the commits history:
@@ -208,7 +208,7 @@ if [ $? != 0 ]; then
 fi
 cd $cwd
 
-draw_progress_bar 55
+#draw_progress_bar 55
 echo "[+] Adding display configuration!"
 cp .xinitrc ~/.xinitrc 
 if [ $? != 0 ]; then
@@ -250,7 +250,7 @@ if [ $? != 0 ]; then
     exit
 fi
 
-draw_progress_bar 60
+#draw_progress_bar 60
 echo "[+] Installing pip3 modules!"
 sudo pip3 install pywal 
 if [ $? != 0 ]; then
@@ -274,7 +274,7 @@ if [ $? != 0 ]; then
     exit
 fi
 
-draw_progress_bar 65
+#draw_progress_bar 65
 echo "[+] Installing LSD and BAT!"
 wget "https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb" -O lsd_0.20.1_amd64.deb 
 sudo dpkg -i "lsd_0.20.1_amd64.deb" 
@@ -296,7 +296,7 @@ fi
 echo "[+] Fixing the zsh insecure shell!"
 sudo chown -R root:root /usr/local/share/zsh/site-functions/_bspc &>/dev/null && sudo chmod -R 755 /usr/local/share/zsh/site-functions/_bspc &>/dev/null
 
-draw_progress_bar 70
+#draw_progress_bar 70
 echo "[+] Adding the wallpapers!"
 mkdir -p ~/Pictures/Wallpapers 
 sudo mkdir -p /root/Pictures/Wallpapers 
@@ -408,7 +408,7 @@ if [ $? != 0 ]; then
     exit
 fi
 
-draw_progress_bar 75
+#draw_progress_bar 75
 # xeventbind (Used for resolutions and reloading feh and wal)
 echo "[+] Installing xeventbind!"
 git clone https://github.com/ritave/xeventbind.git 
@@ -421,7 +421,7 @@ fi
 sudo cp xeventbind /usr/local/bin 
 cd $cwd
 
-draw_progress_bar 80
+#draw_progress_bar 80
 echo "[+] Adding the feh background!"
 cp $cwd/.fehbg ~/ 
 if [ $? != 0 ]; then
@@ -448,7 +448,7 @@ fi
 # Delete weird symlink when script is re-executed
 rm -rf /home/$USER/.cache/wal/wal 
 
-draw_progress_bar 85
+#draw_progress_bar 85
 echo "[+] Installing xwinwrap for live wallpapers!"
 sudo apt-get install xorg-dev build-essential libx11-dev x11proto-xext-dev libxrender-dev libxext-dev -y 
 git clone https://github.com/mmhobi7/xwinwrap.git 
@@ -462,7 +462,7 @@ fi
 make clean 
 cd $cwd
 
-draw_progress_bar 90
+#draw_progress_bar 90
 echo "[+] Installing gpu-video-wallpaper for live wallpapers!"
 git clone https://github.com/nozerobit/gpu-video-wallpaper 
 cd gpu-video-wallpaper 
@@ -487,8 +487,8 @@ if [ $? != 0 ]; then
     exit
 fi
 
-draw_progress_bar 100
-destroy_scroll_area
+#draw_progress_bar 100
+#destroy_scroll_area
 duration=$SECONDS
 echo -e "[+] $(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed."
 #echo -e "[+] A log was created in $cwd/install_log.txt"

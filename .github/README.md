@@ -505,7 +505,7 @@ Then use the correct installation script and make sure you use one of the compat
 
 > **Note**: The installation scripts may work on other Debian-based or Arch-based distributions.
 
-> **Tip**: If the desktop environment is not in the table above then it is recommended to install a compatible desktop environment and log in using that particular desktop environment that you decided to install. I recommend Xfce as it is the one that is tested the most.
+> **Tip**: If your desktop environment is not in the table above then it is recommended to install a compatible desktop environment and log in using that particular desktop environment that you decided to install. I recommend Xfce as it is the one that is tested the most.
 
 > **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo/wheel` group.
 
@@ -546,8 +546,6 @@ The script has four (4) symbols:
 4. `[i]` = Information to solve the error
 
 The installation can take a while because it downloads a lot of things. The time that it takes to finish will depend mostly on your internet download bandwidth provided by your ISP.
-
-A log is also created for troubleshooting purposes.
 
 3. Reboot the machine (required):
 
@@ -836,7 +834,7 @@ Also since some keyboards don't have the right `windows` key; the `alt` key is u
 
 > BSPWM Workpace Preview Functions: 
 > Use `ctrl+alt+p` to completely de/activate bspwm workspace preview.
-> Use `ctrl+alt+d` to deactive bspwm workspace preview for the current screen resolution but activate it again when the screen resolution changes.
+> Use `ctrl+alt+d` to deactivate bspwm workspace preview for the current screen resolution but automatically activate it again when the screen resolution changes.
 
 # Kitty Sessions & Shorcuts
 
@@ -1081,6 +1079,48 @@ If you want to install some apps that I use then run this script:
 ```sh
 chmod +x apps.sh && ./apps.sh
 ```
+
+## Update AppImage
+
+You can update an AppImage with the by following the steps here.
+
+In this scenario we'll be updating Obsidian.
+
+First, go to the releases page:
+
+- https://github.com/obsidianmd/obsidian-releases/releases
+
+Then download the latest release:
+
+```sh
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.15.9/Obsidian-0.15.9.AppImage -O Obsidian-0.15.9.AppImage 
+```
+
+Add execution permissions:
+
+```sh
+chmod +x Obsidian-0.15.9.AppImage
+```
+
+Now copy the latest release to the correct folder/directory:
+
+```sh
+sudo cp Obsidian-0.15.9.AppImage /opt/appimages
+```
+
+Then edit the `Obsidian.desktop` file:
+
+```
+vim ~/.local/share/applications/Obsidian.desktop
+```
+
+Change the executable variable:
+
+```sh
+Exec=/opt/appimages/Obsidian-0.15.9.AppImage
+```
+
+Save the changes and that's it.
 
 # References & Credits
 
