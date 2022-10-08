@@ -327,6 +327,24 @@ Some polybars themes are slower to load than others so it is recommended to kill
 killall polybar; default-wallpaper --set ~/Pictures/Wallpapers/i-love-8-bit-qhd-1920x1080.jpg
 ```
 
+You can also schedule a cronjob to change your desktop wallpapers and colors every x minutes:
+
+```sh
+❯ wallpaper_scheduler.sh
+Script usage: wallpaper_scheduler.sh [-h] [-e] [-d] [-m <minutes>]
+Example:
+ 	wallpaper_scheduler.sh -m 5
+Options:
+ 	-h: Print this help menu.
+ 	-e: Enable the cronjob.
+ 	-d: Disable the cronjob.
+ 	-m: Amount of minutes within the range of (1-59).
+```
+
+This is awesome if you want your system to change your desktop wallpapers automatically every x minutes. This gives it a more "dynamic" feel to your setup.
+
+> Note: If the color palette differ from the console and polybar, just use `Alt+Ctrl+R` to reset the colors.
+
 You can also customize the polybar theme colorblocks:
 
 <p align="center">

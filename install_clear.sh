@@ -394,6 +394,10 @@ sudo cp $cwd/scripts/workspace_kill.sh /root/.workspace_kill.sh
 sudo chown $USER:$GRP  /root/.workspace_kill.sh 
 sudo chmod +x /root/.workspace_kill.sh 
 
+sudo cp $cwd/scripts/wallpaper_scheduler.sh /usr/local/bin/wallpaper_scheduler.sh
+sudo chown $USER:$GRP/usr/local/bin/wallpaper_scheduler.sh
+sudo chmod +x  /usr/local/bin/wallpaper_scheduler.sh
+
 echo "[+] ZSH Symbolic link with root!"
 sudo ln -s -f ~/.zshrc /root/.zshrc 
 if [ $? != 0 ]; then

@@ -15,13 +15,13 @@
 #fi
 
 enable_cronjob(){
-    crontab -l | sed "/^#.*\/usr\/bin\/bash \/usr\/local\/bin\/changer/s/^#//" | crontab -
+    crontab -l | sed "/^#.* DISPLAY=:0 \/usr\/bin\/bash \/usr\/local\/bin\/changer/s/^#//" | crontab -
     /bin/echo "[+] Enabled the cronjob"
     crontab -l
 }
 
 disable_cronjob(){
-    crontab -l | sed "/^[^#].*\/usr\/bin\/bash \/usr\/local\/bin\/changer/s/^/#/" | crontab -
+    crontab -l | sed "/^[^#].* DISPLAY=:0 \/usr\/bin\/bash \/usr\/local\/bin\/changer/s/^/#/" | crontab -
     /bin/echo "[+] Disabled the cronjob"
     crontab -l
 }
@@ -47,7 +47,7 @@ configure_cronjob(){
     CRON_FILE="/var/spool/cron/crontabs/$USER"
 	if sudo [ ! -f $CRON_FILE ]; then
         /bin/echo "[+] Creating a cron file!"
-        /bin/echo "*/$MINUTE * * * * /usr/bin/bash /usr/local/bin/changer" | crontab -
+        /bin/echo "*/$MINUTE * * * * DISPLAY=:0 /usr/bin/bash /usr/local/bin/changer" | crontab -
         #/usr/bin/crontab $CRON_FILE
         /bin/echo "[+] The current user: $USER now has the following cronjob/s:"
         /usr/bin/crontab -u $USER -l

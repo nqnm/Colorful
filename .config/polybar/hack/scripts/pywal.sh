@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 # Color files
 PFILE="$HOME/.config/polybar/hack/colors.ini"
@@ -8,7 +8,8 @@ DFILE="$HOME/.config/dunst/dunstrc"
 
 # Get colors
 pywal_get() {
-	wal -i "$1" -q -t
+    /usr/local/bin/wal --backend /usr/local/bin/wal -i "$1" -q \
+        || /usr/bin/wal --backend /usr/bin/wal -i "$1" -q
 }
 
 # Change colors
