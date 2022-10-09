@@ -1,11 +1,11 @@
 #!/usr/bin/bash
 
-count=`ps -ef | grep -vE "grep|vim" | grep -c "changer"`
-if [[ $count > 2 ]]; then
-    echo "[-] This script is running multiple times, killing it"
-    killall changer
-    exit
-fi
+#count=`ps -ef | grep -vE "grep|vim" | grep -c "changer"`
+#if [[ $count > 2 ]]; then
+#    echo "[-] This script is running multiple times, killing it"
+#    killall changer
+#    exit
+#fi
 
 tcount=`ps -ef | grep -v grep | grep -c 'polybar -q top -c /home/.*/.config/polybar/.*/config.ini'`
 bcount=`ps -ef | grep -v grep | grep -c 'polybar -q bottom -c /home/.*/.config/polybar/.*/config.ini'`
