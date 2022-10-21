@@ -34,8 +34,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias shopt='/usr/bin/shopt'
-alias cat='/usr/bin/bat'
-alias catn='/usr/bin/cat'
 alias vim='/usr/bin/nvim'
 
 #####################################################
@@ -191,12 +189,11 @@ function kp() {
 }
 
 # Extract Nmap Ports
-function xp(){
-    ports="$(cat $1 | grep -oP '\d{1,5}/open' | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)"
-    echo "[+] Open ports: $ports"  >> xp.tmp
-    printf $ports | xclip -sel clip
-    echo "[+] Ports copied to clipboard"  >> xp.tmp
-    cat xp.tmp; rm xp.tmp
+function xp () {
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | sed -z 's/\/open//g; s/\n/,/g; s/,$/\n/')" 
+	echo "[+] Open ports: $ports"
+	printf $ports | xclip -sel clip
+	echo "[+] Ports copied to clipboard"
 }
 
 # OS Identifier
