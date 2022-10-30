@@ -398,6 +398,10 @@ sudo cp $cwd/scripts/wallpaper_scheduler.sh /usr/local/bin/wallpaper_scheduler.s
 sudo chown $USER:$GRP/usr/local/bin/wallpaper_scheduler.sh
 sudo chmod +x  /usr/local/bin/wallpaper_scheduler.sh
 
+sudo cp $cwd/scripts/default-polybar /usr/local/bin/default-polybar
+sudo chown $USER:$GRP/usr/local/bin/default-polybar
+sudo chmod +x  /usr/local/bin/default-polybar
+
 echo "[+] ZSH Symbolic link with root!"
 sudo ln -s -f ~/.zshrc /root/.zshrc 
 if [ $? != 0 ]; then

@@ -1,0 +1,53 @@
+#!/usr/bin/bash
+
+function help(){
+    echo "Usage: default-polybar <theme_name>"
+    echo "Example: default-polybar trans"
+    echo -e "\nThe available polybar themes are the following:
+colorblocks
+docky
+hack
+forest
+grayblocks
+trans
+shapes
+material"
+}
+
+if [ -z $1 ]; then
+    help
+    exit 1
+fi
+
+BSPWM=~/.config/bspwm/bspwmrc
+PREV=$(cat $BSPWM | grep "^~/.config" | cut -d " " -f 2 | sed 's/--//g')
+CURR=$1
+
+if [[ ! "$CURR" =~ ^(colorblocks|docky|hack|forest|grayblocks|trans|shapes|material)$ ]]; then
+    echo "[-] Invalid polybar theme"
+    echo "[i] Please use a valid polybar theme"
+    echo "[i] The available polybar themes are the following:
+colorblocks
+docky
+hack
+forest
+grayblocks
+trans
+shapes
+material"
+    exit 1
+else
+    echo "[+] Changing the default polybar theme to: $CURR"
+    #sed -ie "s/~\/.config\/polybar\/launch.sh --$PREV \&/~\/.config\/polybar\/launch.sh --$CURR \&/g" $BSPWM
+    sed -ie "s/$PREV/$CURR/g" $BSPWM
+    if [ $? -eq 0 ]; then
+        echo "[+] Resetting BSPWM configuration"
+        bspc wm -r
+        echo "[+] Success: Your default polybar theme is now set to '$CURR'"
+    else
+        echo "[-] Error: Couldn't change the polybar theme"
+        help
+        #echo "[i] Please use a valid polybar theme"
+        #exit 1
+    fi
+fi

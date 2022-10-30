@@ -166,16 +166,31 @@ Some polybars are slower to load than others so it is recommended to kill the po
 killall polybar; change-polybar --material
 ```
 
-If you want to change the default polybar simply edit the BSPWM configuration file:
+If you want to change the default polybar theme you can use the `default-polybar` script:
 
 ```sh
-vim ~/.config/bspwm/bspwmrc
+❯ default-polybar
+Usage: default-polybar <theme_name>
+Example: default-polybar trans
+
+The available polybar themes are the following:
+colorblocks
+docky
+hack
+forest
+grayblocks
+trans
+shapes
+material
 ```
 
-Replace the following line:
+Change the polybar theme:
 
 ```sh
-~/.config/polybar/launch.sh --colorblocks &
+❯ default-polybar trans
+[+] Changing the default polybar theme to: trans
+[+] Resetting BSPWM configuration
+[+] Success: Your default polybar theme is now set to 'trans'
 ```
 
 You can use `Windows + Alt + W` to shuffle wallpapers and change colors on the fly:
