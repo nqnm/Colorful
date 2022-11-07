@@ -1,7 +1,8 @@
 #!/bin/bash
 # Written by: SwallowYourDreams
 name="video-wallpaper"
-installdir="/home/$USER/.local/bin"
+#installdir="/home/$USER/.local/bin"
+installdir="/usr/local/bin"
 xwinwrap_dl="https://github.com/mmhobi7/xwinwrap/releases/download/v0.9/xwinwrap"
 dependencies=("mpv" "pcregrep" "xrandr" "python3-pyqt5")
 missingDependencies=""
