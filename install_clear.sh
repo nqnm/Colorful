@@ -477,7 +477,7 @@ echo "[+] Installing gpu-video-wallpaper for live wallpapers!"
 cd modules/gpu-video-wallpaper 
 mkdir -p ~/.local/share/applications 
 chmod +x install-promptless.sh 
-./install-promptless.sh 
+sudo ./install-promptless.sh 
 if [ $? != 0 ]; then
     echo -e "[-] Failed to install gpu-video-wallpaper!"
     exit

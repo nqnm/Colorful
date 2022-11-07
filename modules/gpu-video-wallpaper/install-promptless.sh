@@ -7,13 +7,14 @@ xwinwrap_dl="https://github.com/mmhobi7/xwinwrap/releases/download/v0.9/xwinwrap
 dependencies=("mpv" "pcregrep" "xrandr" "python3-pyqt5")
 missingDependencies=""
 #installdir="/usr/local/share/$name"
-files=("$name.sh" "$name.py" "gui.ui" "xwinwrap")
+#files=("$name.sh" "$name.py" "gui.ui" "xwinwrap")
+files=("$name.sh" "xwinwrap")
 
 check_dependencies() {
 	# Downloading xwinwrap
 	if [ ! -f "$installdir/xwinwrap" ] ; then
-	    wget "$xwinwrap_dl" -O "$installdir/xwinwrap"
-	    chmod +x "$installdir/xwinwrap"
+	    sudo wget "$xwinwrap_dl" -O "$installdir/xwinwrap"
+	    sudo chmod +x "$installdir/xwinwrap"
 	fi
 	
 	# Distro-agnostic mode
@@ -42,10 +43,10 @@ check_dependencies() {
 }
 
 install() {
-	mkdir -p $installdir
+	#mkdir -p $installdir
 	for file in ${files[@]} ; do
 		if [ "$file" != "xwinwrap" ] ; then
-			cp "./$file" $installdir
+			sudo cp "./$file" $installdir
 		fi
 	done
 	#if [ ! -f "/.local/share/applications/$name.desktop" ] ; then
@@ -59,7 +60,7 @@ install() {
 uninstall() {
 	# Remove program files
 	for file in ${files[@]} ; do
-		rm "$installdir/$file"
+		sudo rm "$installdir/$file"
 	done
 	#rm ~/.local/share/applications/"$name".desktop # Menu entry
 }

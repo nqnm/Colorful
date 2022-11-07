@@ -448,7 +448,7 @@ echo "[+] gpu-video-wallpaper for live wallpapers is NOT supported in Arch yet!"
 #cd gpu-video-wallpaper >> install_log.txt 2>&1
 #mkdir -p ~/.local/share/applications >> install_log.txt 2>&1
 #chmod +x install-promptless.sh >> install_log.txt 2>&1
-#./install-promptless.sh >> install_log.txt 2>&1
+#sudo ./install-promptless.sh >> install_log.txt 2>&1
 #if [ $? != 0 ]; then
 #    echo -e "[-] Failed to install gpu-video-wallpaper!"
 #    exit
