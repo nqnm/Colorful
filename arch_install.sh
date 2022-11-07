@@ -453,6 +453,7 @@ echo "[+] gpu-video-wallpaper for live wallpapers is NOT supported in Arch yet!"
 #    echo -e "[-] Failed to install gpu-video-wallpaper!"
 #    exit
 #fi
+#sudo chmod +x /usr/local/bin/video-wallpaper.sh
 #cd $cwd
 
 echo "[+] Installing NVIM plugins!"

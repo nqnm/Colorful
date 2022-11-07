@@ -482,6 +482,7 @@ if [ $? != 0 ]; then
     echo -e "[-] Failed to install gpu-video-wallpaper!"
     exit
 fi
+sudo chmod +x /usr/local/bin/video-wallpaper.sh
 cd $cwd
 
 echo "[+] Installing NVIM plugins!"
