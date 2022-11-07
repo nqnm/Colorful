@@ -3,6 +3,6 @@
 while read file; do
     fullpath="$(pwd)/$file"
     case "$1" in
-    "w") bash /usr/local/bin/sxiv_pywal.sh $file ;;
+    "w") bash /usr/local/bin/sxiv-pywal $file ;;
     esac
 done

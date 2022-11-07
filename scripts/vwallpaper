@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Execute this script in VMware Full Screen Mode first.
-# Exit this script by using by using the command: `video-wallpaper.sh --stop` OR simply execute the scripts: `changer and wallpaper_selector`
+# Exit this script by using by using the command: `video-wallpaper.sh --stop` OR simply execute the scripts: `changer and wallpaper-selector`
 
 # Wallpaper Path
 WAL="$2"

@@ -171,7 +171,8 @@ sudo systemctl enable mpd.service
 echo "[+] Installing BSPWM workspace previewer"
 sudo apt-get install -y fonts-freefont-otf fonts-freefont-ttf 
 sudo mkdir -p /opt/bspwm-workspace-preview 
-sudo git clone https://github.com/nozerobit/bspwm-workspace-preview /opt/bspwm-workspace-preview 
+#sudo git clone https://github.com/nozerobit/bspwm-workspace-preview /opt/bspwm-workspace-preview 
+sudo cp -r modules/bspwm-workspace-preview /opt/
 sudo chmod +x /opt/bspwm-workspace-preview/*.py 
 python3 -m pip install -r /opt/bspwm-workspace-preview/requirements.txt 
 if [ $? != 0 ]; then
@@ -326,20 +327,20 @@ sudo chmod -R 755 /root/.config/polybar
 sudo cp $cwd/scripts/changer /usr/local/bin/changer 
 sudo chown $USER:$GRP /usr/local/bin/changer 
 sudo chmod +x /usr/local/bin/changer 
-sudo cp $cwd/scripts/font_kitty /usr/local/bin/font_kitty 
-sudo chown $USER:$GRP /usr/local/bin/font_kitty 
-sudo chmod +x /usr/local/bin/font_kitty 
+sudo cp $cwd/scripts/font-kitty /usr/local/bin/font-kitty 
+sudo chown $USER:$GRP /usr/local/bin/font-kitty 
+sudo chmod +x /usr/local/bin/font-kitty 
 sudo cp $cwd/scripts/border_rounded_or_sharp /usr/local/bin/border_rounded_or_sharp 
 sudo chown $USER:$GRP /usr/local/bin/border_rounded_or_sharp 
 sudo chmod +x /usr/local/bin/border_rounded_or_sharp 
-sudo cp $cwd/scripts/wallpaper_selector /usr/local/bin/wallpaper_selector 
-sudo chown $USER:$GRP /usr/local/bin/wallpaper_selector 
-sudo chmod +x /usr/local/bin/wallpaper_selector 
+sudo cp $cwd/scripts/wallpaper-selector /usr/local/bin/wallpaper-selector 
+sudo chown $USER:$GRP /usr/local/bin/wallpaper-selector 
+sudo chmod +x /usr/local/bin/wallpaper-selector 
 sudo chown $USER:$GRP ~/.config/sxiv/exec/key-handler 
 sudo chmod +x ~/.config/sxiv/exec/key-handler 
-sudo cp $cwd/scripts/font_changer /usr/local/bin/font_changer 
-sudo chown $USER:$GRP /usr/local/bin/font_changer 
-sudo chmod +x /usr/local/bin/font_changer 
+sudo cp $cwd/scripts/font-changer /usr/local/bin/font-changer 
+sudo chown $USER:$GRP /usr/local/bin/font-changer 
+sudo chmod +x /usr/local/bin/font-changer 
 sudo cp $cwd/scripts/shopt /usr/bin/ 
 sudo chown $USER:$GRP /usr/bin/shopt 
 sudo chmod +x /usr/bin/shopt 
@@ -358,12 +359,12 @@ sudo chmod +x /usr/local/bin/polybar-changer
 sudo cp $cwd/scripts/rofi.sh /usr/local/bin/rofi.sh 
 sudo chown $USER:$GRP /usr/local/bin/rofi.sh 
 sudo chmod +x /usr/local/bin/rofi.sh 
-sudo cp $cwd/scripts/powermenu.sh /usr/local/bin/powermenu.sh 
-sudo chown $USER:$GRP /usr/local/bin/powermenu.sh 
-sudo chmod +x /usr/local/bin/powermenu.sh 
-sudo cp $cwd/scripts/sxiv_pywal.sh /usr/local/bin/sxiv_pywal.sh 
-sudo chown $USER:$GRP /usr/local/bin/sxiv_pywal.sh 
-sudo chmod +x /usr/local/bin/sxiv_pywal.sh 
+sudo cp $cwd/scripts/powermenu /usr/local/bin/powermenu 
+sudo chown $USER:$GRP /usr/local/bin/powermenu 
+sudo chmod +x /usr/local/bin/powermenu 
+sudo cp $cwd/scripts/sxiv-pywal /usr/local/bin/sxiv-pywal 
+sudo chown $USER:$GRP /usr/local/bin/sxiv-pywal 
+sudo chmod +x /usr/local/bin/sxiv-pywal 
 sudo cp $cwd/scripts/change-polybar /usr/local/bin/change-polybar 
 sudo chown $USER:$GRP /usr/local/bin/change-polybar 
 sudo chmod +x /usr/local/bin/change-polybar 
@@ -380,23 +381,23 @@ sudo cp $cwd/tools/apt-uninstaller.sh /usr/local/bin/apt-uninstaller.sh
 sudo chown $USER:$GRP /usr/local/bin/apt-uninstaller.sh 
 sudo chmod +x /usr/local/bin/apt-uninstaller.sh 
 
-sudo cp $cwd/scripts/workspace_preview.sh ~/.workspace_preview.sh 
-sudo chown $USER:$GRP ~/.workspace_preview.sh 
-sudo chmod +x  ~/.workspace_preview.sh 
-sudo cp $cwd/scripts/workspace_preview.sh /root/.workspace_preview.sh 
-sudo chown $USER:$GRP  /root/.workspace_preview.sh 
-sudo chmod +x /root/.workspace_preview.sh 
+sudo cp $cwd/scripts/workspace-preview ~/.workspace-preview 
+sudo chown $USER:$GRP ~/.workspace-preview 
+sudo chmod +x  ~/.workspace-preview 
+sudo cp $cwd/scripts/workspace-preview /root/.workspace-preview 
+sudo chown $USER:$GRP  /root/.workspace-preview 
+sudo chmod +x /root/.workspace-preview 
 
-sudo cp $cwd/scripts/workspace_kill.sh ~/.workspace_kill.sh 
-sudo chown $USER:$GRP ~/.workspace_kill.sh 
-sudo chmod +x  ~/.workspace_kill.sh 
-sudo cp $cwd/scripts/workspace_kill.sh /root/.workspace_kill.sh 
-sudo chown $USER:$GRP  /root/.workspace_kill.sh 
-sudo chmod +x /root/.workspace_kill.sh 
+sudo cp $cwd/scripts/workspace-kill ~/.workspace-kill 
+sudo chown $USER:$GRP ~/.workspace-kill 
+sudo chmod +x  ~/.workspace-kill 
+sudo cp $cwd/scripts/workspace-kill /root/.workspace-kill 
+sudo chown $USER:$GRP  /root/.workspace-kill 
+sudo chmod +x /root/.workspace-kill 
 
-sudo cp $cwd/scripts/wallpaper_scheduler.sh /usr/local/bin/wallpaper_scheduler.sh
-sudo chown $USER:$GRP/usr/local/bin/wallpaper_scheduler.sh
-sudo chmod +x  /usr/local/bin/wallpaper_scheduler.sh
+sudo cp $cwd/scripts/wallpaper-scheduler /usr/local/bin/wallpaper-scheduler
+sudo chown $USER:$GRP/usr/local/bin/wallpaper-scheduler
+sudo chmod +x  /usr/local/bin/wallpaper-scheduler
 
 sudo cp $cwd/scripts/default-polybar /usr/local/bin/default-polybar
 sudo chown $USER:$GRP/usr/local/bin/default-polybar
@@ -472,8 +473,8 @@ cd $cwd
 
 #draw_progress_bar 90
 echo "[+] Installing gpu-video-wallpaper for live wallpapers!"
-git clone https://github.com/nozerobit/gpu-video-wallpaper 
-cd gpu-video-wallpaper 
+#git clone https://github.com/nozerobit/gpu-video-wallpaper 
+cd modules/gpu-video-wallpaper 
 mkdir -p ~/.local/share/applications 
 chmod +x install-promptless.sh 
 ./install-promptless.sh 

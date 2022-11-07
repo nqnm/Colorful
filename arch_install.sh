@@ -161,7 +161,8 @@ sudo systemctl enable mpd.service >> install_log.txt 2>&1
 draw_progress_bar 40
 echo "[+] Installing BSPWM workspace previewer"
 sudo mkdir -p /opt/bspwm-workspace-preview >> install_log.txt 2>&1
-sudo git clone https://github.com/nozerobit/bspwm-workspace-preview /opt/bspwm-workspace-preview >> install_log.txt 2>&1
+#sudo git clone https://github.com/nozerobit/bspwm-workspace-preview /opt/bspwm-workspace-preview >> install_log.txt 2>&1
+sudo cp -r modules/bspwm-workspace-preview /opt/ >> install_log.txt 2>&1
 sudo chmod +x /opt/bspwm-workspace-preview/*.py >> install_log.txt 2>&1
 python3 -m pip install -r /opt/bspwm-workspace-preview/requirements.txt >> install_log.txt 2>&1
 if [ $? != 0 ]; then
@@ -302,20 +303,20 @@ sudo chmod -R 755 /root/.config/polybar >> install_log.txt 2>&1
 sudo cp $cwd/scripts/changer /usr/local/bin/changer >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/local/bin/changer >> install_log.txt 2>&1
 sudo chmod +x /usr/local/bin/changer >> install_log.txt 2>&1
-sudo cp $cwd/scripts/font_kitty /usr/local/bin/font_kitty >> install_log.txt 2>&1
-sudo chown $USER:$GRP /usr/local/bin/font_kitty >> install_log.txt 2>&1
-sudo chmod +x /usr/local/bin/font_kitty >> install_log.txt 2>&1
+sudo cp $cwd/scripts/font-kitty /usr/local/bin/font-kitty >> install_log.txt 2>&1
+sudo chown $USER:$GRP /usr/local/bin/font-kitty >> install_log.txt 2>&1
+sudo chmod +x /usr/local/bin/font-kitty >> install_log.txt 2>&1
 sudo cp $cwd/scripts/border_rounded_or_sharp /usr/local/bin/border_rounded_or_sharp >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/local/bin/border_rounded_or_sharp >> install_log.txt 2>&1
 sudo chmod +x /usr/local/bin/border_rounded_or_sharp >> install_log.txt 2>&1
-sudo cp $cwd/scripts/wallpaper_selector /usr/local/bin/wallpaper_selector >> install_log.txt 2>&1
-sudo chown $USER:$GRP /usr/local/bin/wallpaper_selector >> install_log.txt 2>&1
-sudo chmod +x /usr/local/bin/wallpaper_selector >> install_log.txt 2>&1
+sudo cp $cwd/scripts/wallpaper-selector /usr/local/bin/wallpaper-selector >> install_log.txt 2>&1
+sudo chown $USER:$GRP /usr/local/bin/wallpaper-selector >> install_log.txt 2>&1
+sudo chmod +x /usr/local/bin/wallpaper-selector >> install_log.txt 2>&1
 sudo chown $USER:$GRP ~/.config/sxiv/exec/key-handler >> install_log.txt 2>&1
 sudo chmod +x ~/.config/sxiv/exec/key-handler >> install_log.txt 2>&1
-sudo cp $cwd/scripts/font_changer /usr/local/bin/font_changer >> install_log.txt 2>&1
-sudo chown $USER:$GRP /usr/local/bin/font_changer >> install_log.txt 2>&1
-sudo chmod +x /usr/local/bin/font_changer >> install_log.txt 2>&1
+sudo cp $cwd/scripts/font-changer /usr/local/bin/font-changer >> install_log.txt 2>&1
+sudo chown $USER:$GRP /usr/local/bin/font-changer >> install_log.txt 2>&1
+sudo chmod +x /usr/local/bin/font-changer >> install_log.txt 2>&1
 sudo cp $cwd/scripts/shopt /usr/bin/ >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/bin/shopt >> install_log.txt 2>&1
 sudo chmod +x /usr/bin/shopt >> install_log.txt 2>&1
@@ -334,12 +335,12 @@ sudo chmod +x /usr/local/bin/polybar-changer >> install_log.txt 2>&1
 sudo cp $cwd/scripts/rofi.sh /usr/local/bin/rofi.sh >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/local/bin/rofi.sh >> install_log.txt 2>&1
 sudo chmod +x /usr/local/bin/rofi.sh >> install_log.txt 2>&1
-sudo cp $cwd/scripts/powermenu.sh /usr/local/bin/powermenu.sh >> install_log.txt 2>&1
-sudo chown $USER:$GRP /usr/local/bin/powermenu.sh >> install_log.txt 2>&1
-sudo chmod +x /usr/local/bin/powermenu.sh >> install_log.txt 2>&1
-sudo cp $cwd/scripts/sxiv_pywal.sh /usr/local/bin/sxiv_pywal.sh >> install_log.txt 2>&1
-sudo chown $USER:$GRP /usr/local/bin/sxiv_pywal.sh >> install_log.txt 2>&1
-sudo chmod +x /usr/local/bin/sxiv_pywal.sh >> install_log.txt 2>&1
+sudo cp $cwd/scripts/powermenu /usr/local/bin/powermenu >> install_log.txt 2>&1
+sudo chown $USER:$GRP /usr/local/bin/powermenu >> install_log.txt 2>&1
+sudo chmod +x /usr/local/bin/powermenu >> install_log.txt 2>&1
+sudo cp $cwd/scripts/sxiv-pywal /usr/local/bin/sxiv-pywal >> install_log.txt 2>&1
+sudo chown $USER:$GRP /usr/local/bin/sxiv-pywal >> install_log.txt 2>&1
+sudo chmod +x /usr/local/bin/sxiv-pywal >> install_log.txt 2>&1
 sudo cp $cwd/scripts/change-polybar /usr/local/bin/change-polybar >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/local/bin/change-polybar >> install_log.txt 2>&1
 sudo chmod +x /usr/local/bin/change-polybar >> install_log.txt 2>&1
@@ -352,23 +353,23 @@ sudo cp $cwd/scripts/shortcuts /usr/local/bin/shortcuts >> install_log.txt 2>&1
 sudo chown $USER:$GRP /usr/local/bin/shortcuts >> install_log.txt 2>&1
 sudo chmod +x /usr/local/bin/shortcuts >> install_log.txt 2>&1
 
-sudo cp $cwd/scripts/workspace_preview.sh ~/.workspace_preview.sh >> install_log.txt 2>&1
-sudo chown $USER:$GRP ~/.workspace_preview.sh >> install_log.txt 2>&1
-sudo chmod +x  ~/.workspace_preview.sh >> install_log.txt 2>&1
-sudo cp $cwd/scripts/workspace_preview.sh /root/.workspace_preview.sh >> install_log.txt 2>&1
-sudo chown $USER:$GRP  /root/.workspace_preview.sh >> install_log.txt 2>&1
-sudo chmod +x /root/.workspace_preview.sh >> install_log.txt 2>&1
+sudo cp $cwd/scripts/workspace-preview ~/.workspace-preview >> install_log.txt 2>&1
+sudo chown $USER:$GRP ~/.workspace-preview >> install_log.txt 2>&1
+sudo chmod +x  ~/.workspace-preview >> install_log.txt 2>&1
+sudo cp $cwd/scripts/workspace-preview /root/.workspace-preview >> install_log.txt 2>&1
+sudo chown $USER:$GRP  /root/.workspace-preview >> install_log.txt 2>&1
+sudo chmod +x /root/.workspace-preview >> install_log.txt 2>&1
 
-sudo cp $cwd/scripts/workspace_kill.sh ~/.workspace_kill.sh >> install_log.txt 2>&1
-sudo chown $USER:$GRP ~/.workspace_kill.sh >> install_log.txt 2>&1
-sudo chmod +x  ~/.workspace_kill.sh >> install_log.txt 2>&1
-sudo cp $cwd/scripts/workspace_kill.sh /root/.workspace_kill.sh >> install_log.txt 2>&1
-sudo chown $USER:$GRP  /root/.workspace_kill.sh >> install_log.txt 2>&1
-sudo chmod +x /root/.workspace_kill.sh >> install_log.txt 2>&1
+sudo cp $cwd/scripts/workspace-kill ~/.workspace-kill >> install_log.txt 2>&1
+sudo chown $USER:$GRP ~/.workspace-kill >> install_log.txt 2>&1
+sudo chmod +x  ~/.workspace-kill >> install_log.txt 2>&1
+sudo cp $cwd/scripts/workspace-kill /root/.workspace-kill >> install_log.txt 2>&1
+sudo chown $USER:$GRP  /root/.workspace-kill >> install_log.txt 2>&1
+sudo chmod +x /root/.workspace-kill >> install_log.txt 2>&1
 
-sudo cp $cwd/scripts/wallpaper_scheduler.sh /usr/local/bin/wallpaper_scheduler.sh >> install_log.txt 2>&1
-sudo chown $USER:$GRP/usr/local/bin/wallpaper_scheduler.sh >> install_log.txt 2>&1
-sudo chmod +x  /usr/local/bin/wallpaper_scheduler.sh >> install_log.txt 2>&1
+sudo cp $cwd/scripts/wallpaper-scheduler /usr/local/bin/wallpaper-scheduler >> install_log.txt 2>&1
+sudo chown $USER:$GRP/usr/local/bin/wallpaper-scheduler >> install_log.txt 2>&1
+sudo chmod +x  /usr/local/bin/wallpaper-scheduler >> install_log.txt 2>&1
 
 sudo cp $cwd/scripts/default-polybar /usr/local/bin/default-polybar >> install_log.txt 2>&1
 sudo chown $USER:$GRP/usr/local/bin/default-polybar >> install_log.txt 2>&1

@@ -1,0 +1,5 @@
+tk
+pillow
+pynput
+configparser
+PyAutoGUI

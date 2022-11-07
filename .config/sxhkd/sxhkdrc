@@ -27,21 +27,21 @@ super + ~@button3
 
 # bspwm workspace preview (re-execute on X11 resolution changes, kill the process if already running)
 ctrl + alt + p
-   ~/.workspace_kill.sh;\
+   ~/.workspace-kill;\
    /opt/bspwm-workspace-preview/main.py &;\
-   xeventbind resolution ~/.workspace_preview.sh &
+   xeventbind resolution ~/.workspace-preview &
 
 # kill bspwm workspace preview process
 ctrl + alt + d
-	~/.workspace_kill.sh
+	~/.workspace-kill
 
 # powermenu
 super + q
-    /usr/local/bin/powermenu.sh
+    /usr/local/bin/powermenu
     
 
 alt + q
-    /usr/local/bin/powermenu.sh
+    /usr/local/bin/powermenu
 
 # lockscreen
 alt + shift + x
@@ -206,10 +206,10 @@ ctrl + alt + w
 
 # GUI Wallpaper Selector
 super + alt + e
-    wallpaper_selector
+    wallpaper-selector
 
 ctrl + alt + e
-    wallpaper_selector
+    wallpaper-selector
 
 # GUI Wallpaper Preview Selector
 super + alt + x
@@ -227,10 +227,10 @@ ctrl + alt + b
 
 # Change the alacritty font
 super + alt + f
-    font_changer
+    font-changer
 
 ctrl + alt + f
-    font_changer
+    font-changer
 
 # Screenshot Flameshot
 @Print

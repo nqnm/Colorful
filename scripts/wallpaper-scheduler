@@ -5,7 +5,7 @@
 # Support: Used only in colorful-dotfiles created by nozerobit
 
 # Usage:
-# wallpaper_scheduler.sh -m <amount_of_minutes>
+# wallpaper-scheduler -m <amount_of_minutes>
 # Data type of <amount_of_minutes>: Integer
 # Range of <amount_of_minutes>: 1-59
 
@@ -67,9 +67,9 @@ configure_cronjob(){
 }
 
 help(){
-    /bin/echo "Script usage: wallpaper_scheduler.sh [-h] [-e] [-d] [-m <minutes>]"
+    /bin/echo "Script usage: wallpaper-scheduler [-h] [-e] [-d] [-m <minutes>]"
     /bin/echo -e "Example:\n" \
-        "\twallpaper_scheduler.sh -m 5\nOptions:\n" \
+        "\twallpaper-scheduler -m 5\nOptions:\n" \
         "\t-h: Print this help menu.\n" \
         "\t-e: Enable the cronjob.\n" \
         "\t-d: Disable the cronjob.\n" \

@@ -14,6 +14,7 @@
 * [Keyboard Shortcuts](#Keyboard-Shortcuts)
 * [Theme](#Theme)
 * [Neovim](#Neovim)
+* [References](#References)
 
 # Introduction
 
@@ -22,8 +23,6 @@ A truly colorful linux configuration.
 This is my personal collection of configuration files, feel free to use it but don't forget to give me **credits** :). 
 
 The [installation section](#installation) will guide you through a step-by-step installation process.
-
-**Don't forget to give me a ⭐ to motivate me to continue adding cool features to this configuration**.
 
 Here are some details about my setup:
 
@@ -209,7 +208,7 @@ You can use `Windows + Alt + W` to shuffle wallpapers and change colors on the f
 Alternatively, you could use `Windows + Alt + E` to change to a specific wallpaper using the GUI:
 
 <p align="center">
-  <img src="assets/gifs/wallpaper_selector.gif" alt="wallpaper_selector.gif" />
+  <img src="assets/gifs/wallpaper-selector.gif" alt="wallpaper-selector.gif" />
 </p>
 
 Alternatively, you can use `Windows + Alt + X` to select the wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`:
@@ -296,7 +295,7 @@ You could also use `Windows + Alt + W` or `Windows + Alt + E` to change the wall
 The terminal font size can be changed with `Windows + Alt + F`:
 
 <p align="center">
-  <img src="assets/gifs/font_changer.gif" alt="font_changer.gif" />
+  <img src="assets/gifs/font-changer.gif" alt="font-changer.gif" />
 </p>
 
 > Note: When using `qterminal` is recommended to use the GUI preferences window instead. Also, you need to open a new terminal to see the changes.
@@ -345,10 +344,10 @@ killall polybar; default-wallpaper --set ~/Pictures/Wallpapers/i-love-8-bit-qhd-
 You can also schedule a cronjob to change your desktop wallpapers and colors every x minutes:
 
 ```sh
-❯ wallpaper_scheduler.sh
-Script usage: wallpaper_scheduler.sh [-h] [-e] [-d] [-m <minutes>]
+❯ wallpaper-scheduler
+Script usage: wallpaper-scheduler [-h] [-e] [-d] [-m <minutes>]
 Example:
- 	wallpaper_scheduler.sh -m 5
+ 	wallpaper-scheduler -m 5
 Options:
  	-h: Print this help menu.
  	-e: Enable the cronjob.
@@ -1155,7 +1154,7 @@ Exec=/opt/appimages/Obsidian-0.15.9.AppImage
 
 Save the changes and that's it.
 
-# References & Credits
+# References
 
 **Progress Bar**:
 - https://github.com/pollev/bash_progress_bar
@@ -1189,3 +1188,8 @@ Save the changes and that's it.
 - https://github.com/junegunn/fzf
 - https://github.com/airblade/vim-rooter
 
+**Previous Forks**:
+- https://github.com/johnathan-coe/bspwm-workspace-preview
+  - My Fork (modified version, now in this repo and changing soon): https://github.com/nozerobit/bspwm-workspace-preview
+- https://github.com/SwallowYourDreams/gpu-video-wallpaper
+  - My Fork (modified version, now in this repo and changing soon): https://github.com/nozerobit/gpu-video-wallpaper
