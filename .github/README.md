@@ -418,7 +418,7 @@ These are the installation steps:
 git clone https://github.com/nozerobit/Colorful && cd Colorful
 ```
 
-> **Warning**: Don't run this script as the `root` user. Run it with a user that's in the `sudo` group. Also, don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).**
+> **Warning**: Don't run this script as the `root` user. Run it with a user that's in the `sudo` group. Also, don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).
 
 If you copied this project from a Windows system you may want to convert it to unix:
 
@@ -431,6 +431,8 @@ find . -type f -print0 | xargs -0 dos2unix
 ```bash
 chmod +x install.sh && ./install.sh
 ```
+
+> If a file fails download then verify if you can download it manually, if you can. You could try running the script again.
 
 If you want to perform a manual installation you can read the script and manually install it step-by-step.
 
