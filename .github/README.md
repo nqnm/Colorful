@@ -21,7 +21,7 @@ A truly colorful linux configuration.
 
 This is my first dotfiles, feel free to use it but don't forget to give me credits [@nozerobit](https://github.com/nozerobit).
 
-**Info** name history:
+**History**:
 - 2021: kali-config
 - 2021: colorful-kali
 - 2022: colorful-dotfiles
