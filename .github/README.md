@@ -126,7 +126,7 @@ You can use `Windows + Alt + W` to shuffle wallpapers and change colors on the f
 > The polybar `hack` theme is the slowest.
 > The polybar `forest` theme is not supported.
 
-> Important: Avoid spamming this keyboard shortcut.
+> **Warning**: Avoid spamming this keyboard shortcut.
 
 Alternatively, you could use `Windows + Alt + E` to change to a specific wallpaper using the GUI:
 
