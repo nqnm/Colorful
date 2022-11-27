@@ -55,13 +55,7 @@ Normally you would use `Windows + Alt + R` to reload bspwm in order to fix the w
   <img src="assets/gifs/wallpaper-resize.gif" alt="wallpaper-resize.gif" />
 </p>
 
-These are the available polybars:
-
-<p align="center">
-  <img src="assets/gifs/polybars.gif" alt="polybars" />
-</p>
-
-> Note: The color of these bars is dynamic and the colors change according to the wallpaper.
+> **Note**: The color of these bars is dynamic and the colors change according to the wallpaper.
 
 Transparent theme created by [@nozerobit](https://github.com/nozerobit) (me):
 
@@ -127,7 +121,7 @@ You can use `Windows + Alt + W` to shuffle wallpapers and change colors on the f
   <img src="assets/gifs/changer.gif" alt="changer.gif" />
 </p>
 
-> Note: In the weird case that the polybar dies, you can use `Windows + Alt + R` to restart BSPWM.
+> **Note**: In the weird case that the polybar dies, you can use `Windows + Alt + R` to restart BSPWM.
 > Some polybars themes do take more time to load since they use more scripts and icons.
 > The polybar `hack` theme is the slowest.
 > The polybar `forest` theme is not supported.
@@ -187,7 +181,7 @@ If you want to add transparency to a VM add the following flags:
 -vo x11 --hwdec=auto-safe --profile=sw-fast
 ```
 
-> Note: This may increase the CPU usage up to 15%-25% in VMs. 
+> **Warning**: This may increase the CPU usage up to 15%-25% in VMs. 
 
 If you don't care about the performance then you can follow this example:
 
@@ -227,7 +221,7 @@ The terminal font size can be changed with `Windows + Alt + F`:
   <img src="assets/gifs/font-changer.gif" alt="font-changer.gif" />
 </p>
 
-> Note: When using `qterminal` is recommended to use the GUI preferences window instead. Also, you need to open a new terminal to see the changes.
+> **Note**: When using `qterminal` is recommended to use the GUI preferences window instead. Also, you need to open a new terminal to see the changes.
 
 You can change the **corners** of the windows and the polybar to **rounded or sharp** corners with the shortcut `Windows + Alt + B`.
 
@@ -241,7 +235,7 @@ You can also **copy IPs** to the clipboard with a **left click** on the bar (eth
   <img src="assets/gifs/copy-ip.gif" alt="copy-ip.gif" />
 </p>
 
-> Note: There's a VPN status bar, it shows your VPN IP when connected and it tells you when you're disconnected from a VPN.
+> **Note**: There's a VPN status bar, it shows your VPN IP when connected and it tells you when you're disconnected from a VPN.
 
 There's a network bar where you can configure your network:
 
@@ -286,7 +280,7 @@ Options:
 
 This is awesome if you want your system to change your desktop wallpapers automatically every x minutes. This gives it a more "dynamic" feel to your setup.
 
-> Note: If the color palette differ from the console and polybar, just use `Alt+Ctrl+R` to reset the colors.
+> **Warning**: If the color palette differ from the console and polybar, just use `Alt+Ctrl+R` to reset the colors.
 
 You can also customize the polybar theme colorblocks:
 
@@ -418,9 +412,7 @@ These are the installation steps:
 git clone https://github.com/nozerobit/colorful-dotfiles.git && cd colorful-dotfiles
 ```
 
-> **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo` group.
-
-> **Please don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).**
+> **Warning**: Don't run this script as the `root` user. Run it with a user that's in the `sudo` group. Also, don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).**
 
 If you copied this project from a Windows system you may want to convert it to unix:
 
@@ -434,13 +426,11 @@ find . -type f -print0 | xargs -0 dos2unix
 chmod +x install.sh && ./install.sh
 ```
 
-> If you want to perform a manual installation you can read the script and manually install it step-by-step.
+If you want to perform a manual installation you can read the script and manually install it step-by-step.
 
-> **Info**: The installation script may work on other Debian-based systems but it is always tested on `Xfce` using **Kali Linux**.
+> **Note**: The installation script may work on other Debian-based systems but it is always tested on `Xfce` using **Kali Linux**.
 
-> **Note**: Distribution updates and upgrades do sometimes change the dependencies and also other installations steps do change over time so it is a challenge to consistently maintain this installation script compatible for multiple distributions.
-
-> **Solution**: If you find an issue, you may need to modify the installation script.
+> **Warning**: Distribution updates and upgrades do sometimes change the dependencies and also other installations steps do change over time so it is a challenge to consistently maintain this installation script compatible for multiple distributions.
 
 The script has four (4) symbols:
 
@@ -467,7 +457,7 @@ That's it, now hit two (2) times the following keyboard shortcuts:
 
 - `Windows + Alt + W` and `Windows + Alt + B` and see which look you like the most. 
 
-> Note: You may need to hit those keyboard shortcuts multiple times when you first install this configuration.
+> **Note**: You may need to hit those keyboard shortcuts multiple times when you first install this configuration.
 
 It is recommended to verify the [Neovim](#Neovim) plugins.
 
@@ -633,7 +623,7 @@ If you would like to change some settings, here are the locations of the configu
 ~/.config/picom/picom.conf
 ```
 
-> Note: If you have issues with picom features, go to the [yshui repo](https://github.com/yshui/picom) and view the [issues](https://github.com/yshui/picom/issues).
+> **Warning**: If you have issues with picom features, go to the [yshui repo](https://github.com/yshui/picom) and view the [issues](https://github.com/yshui/picom/issues).
 
 `polybar` Workspace and Desktop Panel Configuration:
 
@@ -699,7 +689,7 @@ Also since some keyboards don't have the right `windows` key; the `alt` key is u
 | Focus the node for the given path jump.                                         | `windows+p,b,comma,period`                                             |
 | Focus the node in the given direction (swap window).                            | `windows+shift+left,down,up,right` or `windows+shift+h,j,k,l`          |
 
-> Note: The HJKL navigation uses the format: left = h, down = j, up = k, right = l 
+> **Note**: The HJKL navigation uses the format: left = h, down = j, up = k, right = l 
 
 ### Special Keyboard Shortcuts
 
@@ -845,7 +835,7 @@ blur-background = true;
 backend = "glx";
 ```
 
-> Note: This will affect the performance, especially in virtual machines.
+> **Warning**: This will affect the performance, especially in virtual machines.
 
 Then run picom with `experimental-backends`:
 
@@ -853,7 +843,7 @@ Then run picom with `experimental-backends`:
 picom --experimental-backends
 ```
 
-> Note: You will need to edit the scripts and the bspwm configuration file `bspwmrc`.
+> **Warning**: You will need to edit the scripts and the bspwm configuration file `bspwmrc`.
 
 # Terminal Emulator Performance Test
 
@@ -869,11 +859,11 @@ We can perform a performance test with the following command:
 time tree /
 ```
 
-> Note: I usually run the command above using my zsh configuration because I can see the time in seconds in the terminal prompt.
+> **Note**: I usually run the command above using my zsh configuration because I can see the time in seconds in the terminal prompt.
 
 Then simply compare the results with another terminal emulator such as alacritty or qterminal.
 
-> Note: The less time it takes to finish then the faster it is.
+> **Note**: The less time it takes to finish then the faster it is.
 
 # References
 
