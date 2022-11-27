@@ -13,18 +13,19 @@
 * [BSPWM Mouse](#BSPWM-Mouse)
 * [Keyboard Shortcuts](#Keyboard-Shortcuts)
 * [Theme](#Theme)
-* [Neovim](#Neovim)
 * [References](#References)
 
 # Introduction
 
 A truly colorful linux configuration.
 
-This is my personal collection of configuration files, feel free to use it but don't forget to give me **credits** :). 
+This is my first dotfiles, feel free to use it but don't forget to give me credits [@nozerobit](https://github.com/nozerobit).
+
+> **Last tested on Kali GNU/Linux Rolling 2022.3 Xfce with lightdm**: 11/27/2022
 
 The [installation section](#installation) will guide you through a step-by-step installation process.
 
-Here are some details about my setup:
+This setup uses the following software:
 
 - **WM**: [bspwm](https://github.com/baskerville/bspwm)
 - **Hotkey**: [sxhkd](https://github.com/baskerville/sxhkd)
@@ -32,7 +33,6 @@ Here are some details about my setup:
 - **Menu**: [jgmenu](https://github.com/johanmalm/jgmenu)
 - **Notifications**: [dunst](https://github.com/dunst-project/dunst)
 - **Shell**: [zsh](https://www.zsh.org/)
-- **Editor**: [neovim](https://neovim.io/)
 - **Bars**: [polybar](https://github.com/polybar/polybar)
 - **Compositor**: [picom (yshui)](https://github.com/yshui/picom)
 - **File Manager**: [thunar](https://docs.xfce.org/xfce/thunar/start)
@@ -41,35 +41,13 @@ Here are some details about my setup:
 - **Browsers**: [firefox](https://www.mozilla.org/en-US/firefox/new/)
 - **Terminals**: [kitty](https://sw.kovidgoyal.net/kitty/) (for aesthetics) and [qterminal](https://github.com/lxqt/qterminal) (for pen-testing)
 - **Static Wallpaper**: [feh](https://github.com/derf/feh)
-- **Live Wallpaper**: [gpu-video-wallpaper](https://github.com/nozerobit/gpu-video-wallpaper)
+- **Live Wallpaper**: [gpu-video-wallpaper](https://github.com/SwallowYourDreams/gpu-video-wallpaper)
 
 All the features can be seen in the [overview](#overview) section.
-
----
-
-Static wallpapers site:
-
-- [hdqwalls](https://hdqwalls.com/)
-
-Animated wallpapers site:
-
-- [desktophut](https://www.desktophut.com/)
 
 # Overview
 
 **Note: This section contains highly compressed / low-quality GIFs, in reality is not blurry and grainy.**
-
-There are multiple polybars:
-
-<p align="center">
-  <img src="assets/gifs/preview.gif" alt="preview.gif" />
-</p>
-
-Each polybar theme has a custom launcher:
-
-<p align="center">
-  <img src="assets/gifs/look.gif" alt="look.gif" />
-</p>
 
 Normally you would use `Windows + Alt + R` to reload bspwm in order to fix the wallpaper resolution scale and the polybar when changing screen resolution but I have made a ~~script~~ with xeventbind and a polybar configuration so that you don't have to reload bspwm. In other words, it automatically changes the wallpaper and the polybar resolution/size when changing the screen resolution **without** the need to reload bspwm:
 
@@ -97,48 +75,6 @@ Colorblocks theme (default), theme created by [@adi1090x](https://github.com/adi
   <img src="assets/images/colorblocks.png" alt="colorblocks" />
 </p>
 
-Forest theme (no pywal), theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
-
-<p align="center">
-  <img src="assets/images/forest.png" alt="forest" />
-</p>
-
-Shapes theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
-
-<p align="center">
-  <img src="assets/images/shapes.png" alt="shapes" />
-</p>
-
-Docky theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
-
-<p align="center">
-  <img src="assets/images/docky.png" alt="docky" />
-</p>
-
-Grayblocks theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
-
-<p align="center">
-  <img src="assets/images/grayblocks.png" alt="grayblocks" />
-</p>
-
-Material theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
-
-<p align="center">
-  <img src="assets/images/material.png" alt="material" />
-</p>
-
-Hack top bar theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
-
-<p align="center">
-  <img src="assets/images/hack_top.png" alt="hack" />
-</p>
-
-Hack bottom bar theme, theme created by [@adi1090x](https://github.com/adi1090x/polybar-themes) and modified by [@nozerobit](https://github.com/nozerobit) (me):
-
-<p align="center">
-  <img src="assets/images/hack_bottom.png" alt="hack" />
-</p>
-
 Some polybars themes have audio volume modules. The volume can be adjusted with the mouse wheel.
 
 You can change the polybar theme with the launcher:
@@ -148,21 +84,20 @@ You can change the polybar theme with the launcher:
 Usage: change-polybar --theme
 
 Available Themes:
---colorblocks   --docky		   --hack  
---forest        --grayblocks   --trans  
---shapes	--material
+--colorblocks
+--trans  
 ```
 
 Here is an example:
 
 ```sh
-change-polybar --hack
+change-polybar --trans
 ```
 
 Some polybars are slower to load than others so it is recommended to kill the polybar first:
 
 ```sh
-killall polybar; change-polybar --material
+killall polybar; change-polybar --colorblocks
 ```
 
 If you want to change the default polybar theme you can use the `default-polybar` script:
@@ -174,13 +109,7 @@ Example: default-polybar trans
 
 The available polybar themes are the following:
 colorblocks
-docky
-hack
-forest
-grayblocks
 trans
-shapes
-material
 ```
 
 Change the polybar theme:
@@ -214,7 +143,7 @@ Alternatively, you could use `Windows + Alt + E` to change to a specific wallpap
 Alternatively, you can use `Windows + Alt + X` to select the wallpaper with a preview, then hit `Ctrl + x` and then `W` to change the wallpaper. Once the wallpaper is set we can close the program with `Windows + W`:
 
 <p align="center">
-  <img src="assets/gifs/wallpaper_preview_selector.gif" alt="wallpaper_preview_selector.gif" />
+  <img src="assets/gifs/wallpaper-preview-selector.gif" alt="wallpaper-preview-selector.gif" />
 </p>
 
 We can also use **live wallpaper / animated wallpapers** with `vwallpaper` (demo script):
@@ -224,7 +153,7 @@ vwallpaper --start ~/Videos/wallpapers-animated/Cyberpunk-2077-City-Live-Wallpap
 ```
 
 <p align="center">
-  <img src="assets/gifs/animated_wallpaper.gif" alt="animated_wallpaper.gif" />
+  <img src="assets/gifs/animated-wallpaper.gif" alt="animated-wallpaper.gif" />
 </p>
 
 We can stop the **live wallpaper / animated wallpapers** with the following:
@@ -281,7 +210,7 @@ For more information about video output drivers read the mpv repo [vo.rst](https
 The animated wallpapers also support automatic resizing:
 
 <p align="center">
-  <img src="assets/gifs/animated_wallpaper_resize.gif" alt="animated_wallpaper_resize.gif" />
+  <img src="assets/gifs/animated-wallpaper-resize.gif" alt="animated-wallpaper-resize.gif" />
 </p>
 
 We can close an animated wallpaper with the following command:
@@ -300,7 +229,7 @@ The terminal font size can be changed with `Windows + Alt + F`:
 
 > Note: When using `qterminal` is recommended to use the GUI preferences window instead. Also, you need to open a new terminal to see the changes.
 
-You can change the **corners** of the windows and the polybar to **rounded or sharp** corners with the shorcut `Windows + Alt + B`.
+You can change the **corners** of the windows and the polybar to **rounded or sharp** corners with the shortcut `Windows + Alt + B`.
 
 <p align="center">
   <img src="assets/gifs/corners.gif" alt="corners.gif" />
@@ -309,7 +238,7 @@ You can change the **corners** of the windows and the polybar to **rounded or sh
 You can also **copy IPs** to the clipboard with a **left click** on the bar (ethernet, vpn or target):
 
 <p align="center">
-  <img src="assets/gifs/copy_ip.gif" alt="copy_ip.gif" />
+  <img src="assets/gifs/copy-ip.gif" alt="copy-ip.gif" />
 </p>
 
 > Note: There's a VPN status bar, it shows your VPN IP when connected and it tells you when you're disconnected from a VPN.
@@ -421,7 +350,7 @@ neofetch
 Kill a process:
 
 ```
-kp nvim
+kp ssh
 ```
 
 Extract nmap ports:
@@ -489,86 +418,29 @@ These are the installation steps:
 git clone https://github.com/nozerobit/colorful-dotfiles.git && cd colorful-dotfiles
 ```
 
-Then use the correct installation script and make sure you use one of the compatible desktop environments when running the installation script:
-
-<center>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-i91a">Operating Systems Tested</th>
-    <th class="tg-i91a">Installation Script</th>
-    <th class="tg-0lax">Compatible Desktop Environments (Important)</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-btxf">Kali Linux</td>
-    <td class="tg-btxf">install.sh, install_clear.sh</td>
-    <td class="tg-buh4">Xfce (recommended), Mate</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">ParrotOS</td>
-    <td class="tg-0pky">install.sh, install_clear.sh</td>
-    <td class="tg-0lax">Xfce (recommended), Mate</td>
-  </tr>
-  <tr>
-    <td class="tg-btxf">Ubuntu</td>
-    <td class="tg-btxf">install.sh, install_clear.sh</td>
-    <td class="tg-buh4">Xfce (recommended), Mate</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Pop!_OS</td>
-    <td class="tg-0pky">install.sh, install_clear.sh</td>
-    <td class="tg-0lax">Xfce (recommended), Mate</td>
-  </tr>
-  <tr>
-    <td class="tg-btxf">Debian</td>
-    <td class="tg-btxf">install.sh, install_clear.sh</td>
-    <td class="tg-buh4">Xfce (recommended), Mate</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Arch Linux</td>
-    <td class="tg-0pky">arch_install.sh</td>
-    <td class="tg-0lax">Xfce (recommended), Mate</td>
-  </tr>
-</tbody>
-</table>
-</center>
-
-> **Note**: The installation scripts may work on other Debian-based or Arch-based distributions.
-
-> **Tip**: If your desktop environment is not in the table above then it is recommended to install a compatible desktop environment and log in using that particular desktop environment that you decided to install. I recommend Xfce as it is the one that is tested the most.
-
-> **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo/wheel` group.
+> **Important**: Don't run this script as the `root` user. Run it with a user that's in the `sudo` group.
 
 > **Please don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).**
+
+If you copied this project from a Windows system you may want to convert it to unix:
+
+```sh
+find . -type f -print0 | xargs -0 dos2unix    
+```
 
 2. Run the installation script from the `colorful-dotfiles` directory:
 
 ```bash
-chmod +x install_clear.sh && ./install_clear.sh
+chmod +x install.sh && ./install.sh
 ```
 
-You can use one of these scripts:
+> If you want to perform a manual installation you can read the script and manually install it step-by-step.
 
-- install.sh: Hides the output and stores it in a log.
-- install_clear.sh (Recommended): Doesn't hide any output. This is better for troubleshooting.
+> **Info**: The installation script may work on other Debian-based systems but it is always tested on `Xfce` using **Kali Linux**.
 
 > **Note**: Distribution updates and upgrades do sometimes change the dependencies and also other installations steps do change over time so it is a challenge to consistently maintain this installation script compatible for multiple distributions.
 
 > **Solution**: If you find an issue, you may need to modify the installation script.
-
-If you're installing this in Arch Linux:
-
-```bash
-chmod +x arch_install.sh && ./arch_install.sh
-```
-
-You can monitor the installation with the following command (optional):
-
-```sh
-watch -n 1 tail /home/kali/colorful-dotfiles/install_log.txt
-```
 
 The script has four (4) symbols:
 
@@ -585,13 +457,13 @@ The installation can take a while because it downloads a lot of things. The time
 reboot || systemctl reboot
 ```
 
-Once you have rebooted the machine, select bspwm as the window manager and then log in. 
+4. Once you have rebooted the machine, select bspwm as the window manager and then log in. 
 
 ![bspwm-login](assets/images/bspwm-login.png)
 
 You can restart bspwm at any time with `Windows + Alt + R`, this is useful to fix a WM issue.
 
-That's it, now hit two (2) times the following keyboard shorcuts: 
+That's it, now hit two (2) times the following keyboard shortcuts: 
 
 - `Windows + Alt + W` and `Windows + Alt + B` and see which look you like the most. 
 
@@ -614,20 +486,6 @@ Edit each pywal script on the following path:
 ```sh
 .config/polybar/theme_name/scripts/pywal.sh
 .config/polybar/colorblocks/scripts/pywal.sh
-```
-
-# Anime Wallpapers
-
-If you want to add `anime wallpapers` you can do the following:
-
-```sh
-cp wallpapers-anime/* ~/Pictures/Wallpapers/
-```
-
-If you want to add it to the root user:
-
-```sh
-sudo cp wallpapers-anime/* /root/Pictures/Wallpapers
 ```
 
 # Virtualization
@@ -777,12 +635,6 @@ If you would like to change some settings, here are the locations of the configu
 
 > Note: If you have issues with picom features, go to the [yshui repo](https://github.com/yshui/picom) and view the [issues](https://github.com/yshui/picom/issues).
 
-`nvim` Terminal Text Editor Configuration:
-
-```shell
-~/.config/nvim/init.vim
-```
-
 `polybar` Workspace and Desktop Panel Configuration:
 
 ```shell
@@ -868,7 +720,7 @@ Also since some keyboards don't have the right `windows` key; the `alt` key is u
 > Use `ctrl+alt+p` to completely de/activate bspwm workspace preview.
 > Use `ctrl+alt+d` to deactivate bspwm workspace preview for the current screen resolution but automatically activate it again when the screen resolution changes.
 
-# Kitty Sessions & Shorcuts
+# Kitty Sessions & shortcuts
 
 According to the [kitty documentation](https://sw.kovidgoyal.net/kitty/) we can define windows that can be tiled next to each other in arbitrary arrangements, based on [layouts](https://sw.kovidgoyal.net/kitty/overview/#layouts). Additionally, kitty also has the ability for window management, tabs management, layout management, and sessions. This means that kitty can be used as a replacement for tmux.
 
@@ -1023,173 +875,38 @@ Then simply compare the results with another terminal emulator such as alacritty
 
 > Note: The less time it takes to finish then the faster it is.
 
-# Neovim
-
-Run the commands below as your `user` and as the `root` user to correctly install/update the neovim plugins.
-
-```bash
-nvim
-```
-
-You can ignore this message because once the plugins are updated or installed it'll disappear:
-
-![image](https://user-images.githubusercontent.com/83516002/130538524-b6bfa743-cb7d-4cd3-89ad-dc3306ffbb08.png)
-
-1. Inside nvim, press the `:` (colon key) and type the following:
-
-```shell
-:PlugUpdate
-```
-
-**Reminder**: Repeat the same for root `sudo vim test`.
-
-This is the output that you should see:
-
-![image](https://user-images.githubusercontent.com/83516002/130538587-b2b18614-fac2-4cbb-b6e8-c1f6100b4ad7.png)
-
-You can use Shift + R to retry. 
-
-Once installed or updated, you can exit with `:q!`, and then type `vim` or `nvim` to check the health.
-
-2. Check Health
-
-```shell
-:checkhealth
-```
-
-3. coc Intellisense
-
-```shell
-:CocInstall coc-json coc-tsserver coc-pyright coc-snippets coc-vimlsp
-```
-
-4. Search
-
-```shell
-:FZF
-:Rg
-:BLines
-:Lines
-```
-
-***Do you want more coc extensions for nvim?***
-
-Check out coc extensions here: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
-
-***Do you want more themes for nvim?***
-
-Check out this repo: https://github.com/rafi/awesome-vim-colorschemes 
-
-***Do you want to configure coc.nvim?***
-
-Check out this wiki: https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
-
-## Upgrade Neovim
-
-If you need to upgrade neovim, you can do it in the [releases page](https://github.com/neovim/neovim/releases/). Alternatively, you could build it from the source but it may not be stable.
-
-## Neovim Shortcuts
-
-These are the neovim shortcuts:
-
-| Action            	| Shortcut                                                     	|
-|-------------------	|--------------------------------------------------------------	|
-| Resize windows    	| `alt+h,j,k,l` (Normal Mode)                                   |
-| Escape            	| `jk` or `kj` (from Insert Mode to Normal Mode)               	|
-| Save              	| `ctrl+s` (Normal Mode)                                       	|
-| Quit              	| `ctrl+q` (Normal Mode)                                       	|
-| Another Escape    	| `ctrl+c` (from Insert Mode to Normal Mode)                   	|
-| Tabbing           	| `shift+left` or `shift+right` (Visual Mode) 	                |
-| Tabs              	| `tab` or `shift+tab` (Insert Mode)                           	|
-| Window Navigation 	| `ctrl+h,j,k,l` (Normal Mode)                                	|
-| Text Navigation   	| `h,j,k,l` (Normal Mode)                                      	|
-
-# Apps Setup for Debian Based Distros (Optional)
-
-If you want to install some apps that I use then run this script:
-
-```sh
-chmod +x apps.sh && ./apps.sh
-```
-
-## Update AppImage
-
-You can update an AppImage with the by following the steps here.
-
-In this scenario we'll be updating Obsidian.
-
-First, go to the releases page:
-
-- https://github.com/obsidianmd/obsidian-releases/releases
-
-Then download the latest release:
-
-```sh
-wget https://github.com/obsidianmd/obsidian-releases/releases/download/v0.15.9/Obsidian-0.15.9.AppImage -O Obsidian-0.15.9.AppImage 
-```
-
-Add execution permissions:
-
-```sh
-chmod +x Obsidian-0.15.9.AppImage
-```
-
-Now copy the latest release to the correct folder/directory:
-
-```sh
-sudo cp Obsidian-0.15.9.AppImage /opt/appimages
-```
-
-Then edit the `Obsidian.desktop` file:
-
-```
-vim ~/.local/share/applications/Obsidian.desktop
-```
-
-Change the executable variable:
-
-```sh
-Exec=/opt/appimages/Obsidian-0.15.9.AppImage
-```
-
-Save the changes and that's it.
-
 # References
 
-**Progress Bar**:
-- https://github.com/pollev/bash_progress_bar
+This configuration wouldn't have been possible without these softwares and awesome people:
 
 **xeventbind**:
 - https://github.com/ritave/xeventbind
 
 **Configuration related software**:
+- https://www.zsh.org/
 - https://github.com/baskerville/bspwm
 - https://github.com/baskerville/sxhkd
+- https://github.com/meskarune/i3lock-fancy
+- https://github.com/johanmalm/jgmenu
+- https://github.com/dunst-project/dunst
 - https://github.com/jwilm/alacritty 
 - https://github.com/kovidgoyal/kitty
+- https://sw.kovidgoyal.net/kitty/
 - https://github.com/polybar/polybar
 - https://github.com/adi1090x/polybar-themes
+- https://github.com/yshui/picom
 - https://github.com/davatorium/rofi
 - https://github.com/ohmyzsh/ohmyzsh
 - https://github.com/gpakosz/.tmux.git
+- https://docs.xfce.org/xfce/thunar/start
+- https://github.com/lxqt/qterminal
+- https://github.com/derf/feh
+- https://github.com/dylanaraps/pywal
 
 **Fonts**:
 - https://github.com/ryanoasis/nerd-fonts.git
+- https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka
 
-**Neovim Plugins**:
-- https://github.com/sheerun/vim-polyglot
-- https://github.com/jiangmiao/auto-pairs
-- https://github.com/joshdick/onedark.vim
-- https://github.com/neoclide/coc.nvim
-- https://github.com/vim-airline/vim-airline
-- https://github.com/vim-airline/vim-airline-themes
-- https://github.com/kevinhwang91/rnvimr
-- https://github.com/liuchengxu/vim-which-key
-- https://github.com/junegunn/fzf
-- https://github.com/airblade/vim-rooter
-
-**Previous Forks**:
+**Modules (Modified a little-bit)**:
 - https://github.com/johnathan-coe/bspwm-workspace-preview
-  - My Fork (modified version, now in this repo and changing soon): https://github.com/nozerobit/bspwm-workspace-preview
 - https://github.com/SwallowYourDreams/gpu-video-wallpaper
-  - My Fork (modified version, now in this repo and changing soon): https://github.com/nozerobit/gpu-video-wallpaper

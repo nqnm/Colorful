@@ -29,46 +29,10 @@ if [[ "$1" == "--trans" ]]; then
 	echo 'rofi -theme ~/.config/polybar/trans/scripts/rofi/launcher.rasi -show drun -run-command' > ~/.sudo-launch
     launch_bar
 
-elif [[ "$1" == "--material" ]]; then
-	style="material"
-	# Sudo rofi
-	echo 'rofi -theme ~/.config/polybar/material/scripts/rofi/launcher.rasi -show drun -run-command' > ~/.sudo-launch
-	launch_bar
-
-elif [[ "$1" == "--hack" ]]; then
-	style="hack"
-	# Sudo rofi
-	echo 'rofi -theme ~/.config/polybar/hack/scripts/rofi/launcher.rasi -show drun -run-command' > ~/.sudo-launch
-	launch_bar
-
-elif [[ "$1" == "--docky" ]]; then
-	style="docky"
-	# Sudo rofi
-	echo 'rofi -theme ~/.config/polybar/docky/scripts/rofi/launcher.rasi -show drun -run-command' > ~/.sudo-launch
-	launch_bar
-
-elif [[ "$1" == "--shapes" ]]; then
-	style="shapes"
-	# Sudo rofi
-	echo 'rofi -theme ~/.config/polybar/shapes/scripts/rofi/launcher.rasi -show drun -run-command' > ~/.sudo-launch
-	launch_bar
-
-elif [[ "$1" == "--grayblocks" ]]; then
-	style="grayblocks"
-	# Sudo rofi
-	echo 'rofi -theme ~/.config/polybar/grayblocks/scripts/rofi/launcher.rasi -show drun -run-command' > ~/.sudo-launch
-	launch_bar
-
 elif [[ "$1" == "--colorblocks" ]]; then
 	style="colorblocks"
 	# Sudo rofi
 	echo 'rofi -theme ~/.config/polybar/colorblocks/scripts/rofi/launcher.rasi -show drun -run-command' > ~/.sudo-launch
-	launch_bar
-
-elif [[ "$1" == "--forest" ]]; then
-	style="forest"
-	# Sudo rofi
-	echo 'rofi -theme ~/.config/polybar/forest/scripts/rofi/launcher.rasi -show drun -run-command' > ~/.sudo-launch
 	launch_bar
 
 else
@@ -76,8 +40,7 @@ else
 	Usage : launch.sh --theme
 		
 	Available Themes:
-	--colorblocks   --docky		    --hack  
-	--forest        --grayblocks        --trans  
-	--shapes	--material
+	--colorblocks
+	--trans
 	EOF
 fi

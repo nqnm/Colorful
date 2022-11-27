@@ -5,13 +5,7 @@ function help(){
     echo "Example: default-polybar trans"
     echo -e "\nThe available polybar themes are the following:
 colorblocks
-docky
-hack
-forest
-grayblocks
-trans
-shapes
-material"
+trans"
 }
 
 if [ -z $1 ]; then
@@ -23,18 +17,12 @@ BSPWM=~/.config/bspwm/bspwmrc
 PREV=$(cat $BSPWM | grep "^~/.config" | cut -d " " -f 2 | sed 's/--//g')
 CURR=$1
 
-if [[ ! "$CURR" =~ ^(colorblocks|docky|hack|forest|grayblocks|trans|shapes|material)$ ]]; then
+if [[ ! "$CURR" =~ ^(colorblocks|trans)$ ]]; then
     echo "[-] Invalid polybar theme"
     echo "[i] Please use a valid polybar theme"
     echo "[i] The available polybar themes are the following:
 colorblocks
-docky
-hack
-forest
-grayblocks
-trans
-shapes
-material"
+trans"
     exit 1
 else
     echo "[+] Changing the default polybar theme to: $CURR"

@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+WAL=$(cat ~/.fehbg | grep -v '#!/bin/sh' | cut -d "'" -f 2)
+
+if [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "colorblocks" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+    bash ~/.config/polybar/colorblocks/scripts/pywal.sh $WAL
+    #wait $!
+    #/usr/bin/bash ~/.config/polybar/launch.sh --colorblocks &
+    #wait $!
+elif [[ ! -z $(ps -efww | grep -vE "grep|launch.sh|scripts" | grep "trans" | awk -vpid=$$ '$2 != pid { print $2 }') ]]; then
+    bash ~/.config/polybar/trans/scripts/pywal.sh $WAL
+    #wait $!
+    #/usr/bin/bash ~/.config/polybar/launch.sh --trans & 
+    #wait $!
+else
+    echo "[-] A polybar theme is not running"
+    exit
+fi

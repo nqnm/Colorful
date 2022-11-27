@@ -220,10 +220,10 @@ ctrl + alt + x
 
 # Change corners (rounded or sharp)
 super + alt + b
-    border_rounded_or_sharp
+    change-borders
   
 ctrl + alt + b
-    border_rounded_or_sharp
+    change-borders
 
 # Change the alacritty font
 super + alt + f

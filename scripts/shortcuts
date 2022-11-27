@@ -129,32 +129,12 @@ Scrolling Keyboard Shortcuts
 EOF
 }
 
-# Neovim Shortcuts
-function neovim_keys {
-    cat << EOF 
-Neovim Custom Shortcuts
-
-| Action            	| Shortcut                                                     	|
-|-----------------------|---------------------------------------------------------------|
-| Resize windows    	| alt+h,j,k,l (Normal Mode)                                     |
-| Escape            	| jk or kj (from Insert Mode to Normal Mode)            	|
-| Save              	| ctrl+s (Normal Mode)                                       	|
-| Quit              	| ctrl+q (Normal Mode)                                       	|
-| Another Escape    	| ctrl+c (from Insert Mode to Normal Mode)                   	|
-| Tabbing           	| mouse highlight (Visual Mode) then shift+left or shift+right 	|
-| Tabs              	| tab or shift+tab (Insert Mode)                           	|
-| Window Navigation 	| ctrl+h,j,k,l (Normal Mode)                                	|
-| Text Navigation   	| h,j,k,l (Normal Mode)                                      	|
-EOF
-}
-
 # Help Menu
 function print_help {
     cat << EOF
 Usage: shortcuts [--sxhkd] [--kitty] [--neovim]
 --sxhkd: Print sxhkd shortcuts.
 --kitty: Print kitty shortcuts.
---neovim: Print neovim shortcuts.
 --help: Print this help menu.
 EOF
 }
@@ -169,11 +149,7 @@ while true
 	    --kitty*)
             kitty_keys
             exit 0
-            ;;
-	    --neovim*)
-            neovim_keys
-            exit 0
-            ;;        
+            ;;       
         --help*)
             print_help
             exit 1
