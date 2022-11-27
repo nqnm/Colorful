@@ -432,7 +432,7 @@ find . -type f -print0 | xargs -0 dos2unix
 chmod +x install.sh && ./install.sh
 ```
 
-> If a file fails download then verify if you can download it manually, if you can. You could try running the script again.
+> **Warning**: If a file fails to download then verify if you can download it manually, if you can. You could try running the script again.
 
 If you want to perform a manual installation you can read the script and manually install it step-by-step.
 
