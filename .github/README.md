@@ -21,7 +21,7 @@ A truly colorful linux configuration.
 
 This is my first dotfiles, feel free to use it but don't forget to give me credits [@nozerobit](https://github.com/nozerobit).
 
-> **Last tested on Kali GNU/Linux Rolling 2022.3 Xfce with lightdm**: 11/27/2022
+> **Note**: Last tested on `Kali GNU/Linux Rolling 2022.3` using `Xfce` with `lightdm`: 11/27/2022
 
 The [installation section](#installation) will guide you through a step-by-step installation process.
 
@@ -158,7 +158,7 @@ vwallpaper --stop
 
 ---
 
-**Important**: If the wallpaper doesn't have the correct resolution, you can change it by editing:
+**Warning**: If the wallpaper doesn't have the correct resolution, you can change it by editing:
 
 ```sh
 sudo vim $(which video-wallpaper.sh)
@@ -173,7 +173,7 @@ Then change the resolution at line 60:
 
 I'll try to find a better solution but for now that should do the work.
 
-**Important**: Transparency should work by default in native installs as long as you have the GPU drivers installed in your system. In most virtual machines that are using virtualized GPUs you will have to set X11 as the video output. If your virtualization software supports GPU passthrough then you may not have to change anything, unless you want to select a specific video output driver.
+**Warning**: Transparency should work by default in native installs as long as you have the GPU drivers installed in your system. In most virtual machines that are using virtualized GPUs you will have to set X11 as the video output. If your virtualization software supports GPU passthrough then you may not have to change anything, unless you want to select a specific video output driver.
 
 If you want to add transparency to a VM add the following flags:
 
