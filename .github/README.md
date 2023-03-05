@@ -17,6 +17,8 @@
 
 # Introduction
 
+Note: This projects was originally started by nozerobit, but got transferred. It's currently maintained by @m4nqn.
+
 A truly colorful linux configuration.
 
 This is my first dotfiles, feel free to use it but don't forget to give me credits [@nozerobit](https://github.com/nozerobit).
@@ -26,6 +28,7 @@ This is my first dotfiles, feel free to use it but don't forget to give me credi
 - 2021: colorful-kali
 - 2022: colorful-dotfiles
 - 2022: Colorful (last name)
+- 2023: Ownership transfer
 
 > **Note**: Last tested on `Kali GNU/Linux Rolling 2022.3` using `Xfce` with `lightdm`: 11/27/2022
 
@@ -415,7 +418,7 @@ These are the installation steps:
 1. Clone this repo and change the directory:
 
 ```bash
-git clone https://github.com/nozerobit/Colorful && cd Colorful
+git clone https://github.com/m4nqn/Colorful && cd Colorful
 ```
 
 > **Warning**: Don't run this script as the `root` user. Run it with a user that's in the `sudo` group. Also, don't install this script while using GNOME. For some reason `pywal` doesn't change the wallpaper when using GNOME. Here is a [temporary solution](#Pywal-GNOME).
