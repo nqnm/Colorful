@@ -238,12 +238,12 @@ fi
 
 
 echo "[+] Installing pip3 modules!"
-sudo pip3 install pywal 
+sudo pip3 install pywal --break-system-packages
 if [ $? != 0 ]; then
     echo -e "[-] Failed to install pywal!"
     exit
 fi
-pip3 install pwntools 
+pip3 install pwntools --break-system-packages
 if [ $? != 0 ]; then
     echo -e "[-] Failed to install pwntools!"
     exit
