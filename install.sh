@@ -164,7 +164,7 @@ sudo mkdir -p /opt/bspwm-workspace-preview
 #sudo git clone https://github.com/nozerobit/bspwm-workspace-preview /opt/bspwm-workspace-preview 
 sudo cp -r modules/bspwm-workspace-preview /opt/
 sudo chmod +x /opt/bspwm-workspace-preview/*.py 
-python3 -m pip install -r /opt/bspwm-workspace-preview/requirements.txt 
+python3 -m pip install -r /opt/bspwm-workspace-preview/requirements.txt --break-system-packages
 if [ $? != 0 ]; then
     echo -e "[-] Failed to install bspwm workspace previewer!"
     exit
